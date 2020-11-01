@@ -19,5 +19,5 @@ export class TopicEntity {
   createdAt: Date;
 
   @OneToMany(() => CardEntity, (card) => card.topic)
-  cards: CardEntity[];
+  cards?: CardEntity[];
 }
