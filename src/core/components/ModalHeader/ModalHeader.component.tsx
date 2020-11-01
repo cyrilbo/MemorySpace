@@ -27,7 +27,7 @@ export const ModalHeader: FunctionComponent<Props> = ({ onPressClose, title }) =
 const Container = styled.View<{ topInset: number }>(({ theme, topInset }) => ({
   paddingTop: topInset,
   flexDirection: 'row',
-  backgroundColor: theme.colors.darkBlue,
+  backgroundColor: theme.colors.darkGrey,
   alignItems: 'center',
   justifyContent: 'space-between',
   paddingHorizontal: theme.gridUnit * 4,
