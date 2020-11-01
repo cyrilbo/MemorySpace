@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { FlatList, Text } from 'react-native';
-import { useGetTopics } from '../../data/hooks/useGetTopics.hook';
+import { useGetTopicsQuery } from '../../data/hooks/useGetTopicsQuery.hook';
 import { Topic } from '../../types/Topic.type';
 
 export const TopicList: FunctionComponent = () => {
-  const { topics } = useGetTopics();
+  const { topics } = useGetTopicsQuery();
 
   if (!topics) {
     return null;
