@@ -1,18 +1,19 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { FlatList, Text } from 'react-native';
-import { useGetTopics } from '../../hooks/useGetTopics.hook';
+import { useGetTopics } from '../../data/hooks/useGetTopics.hook';
 import { Topic } from '../../types/Topic.type';
 
 export const TopicList: FunctionComponent = () => {
-  const { getTopics } = useGetTopics();
-  const [topics, setTopics] = useState<Topic[]>([]);
+  const { topics } = useGetTopics();
 
-  useEffect(() => {
-    getTopics().then(setTopics);
-  }, [getTopics]);
-
-  if (!topics || topics.length === 0) {
+  if (!topics) {
     return null;
   }
-  return <FlatList<Topic> data={topics} renderItem={({ item }) => <Text>{item.name}</Text>} />;
+  return (
+    <FlatList<Topic>
+      data={topics}
+      renderItem={({ item }) => <Text>{item.name}</Text>}
+      keyExtractor={(topic) => topic.id}
+    />
+  );
 };

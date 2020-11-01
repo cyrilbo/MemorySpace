@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import { Button, TextInput } from 'react-native';
 import styled from 'styled-components/native';
-import { useCreateTopic } from '../../hooks/useCreateTopic.hook';
+import { useCreateTopic } from '../../data/hooks/useCreateTopic.hook';
 
 export const SelectTopicForm: FunctionComponent = () => {
   const [topicName, setTopicName] = useState('');

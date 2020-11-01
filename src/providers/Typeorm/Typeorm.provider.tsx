@@ -2,7 +2,7 @@ import React, { FunctionComponent, useCallback, useEffect, useState } from 'reac
 import { ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
 import { Connection, createConnection } from 'typeorm/browser';
-import { TopicEntity } from '../../modules/topic/repository/Topic.entity';
+import { TopicEntity } from '../../modules/topic/data/repository/Topic.entity';
 
 export const TypeormProvider: FunctionComponent = ({ children }) => {
   const [defaultConnection, setconnection] = useState<Connection | null>(null);
