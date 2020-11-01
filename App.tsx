@@ -1,16 +1,8 @@
-import { NavigationContainer } from '@react-navigation/native';
 import React, { FunctionComponent } from 'react';
-import { SafeAreaView, StatusBar, Text } from 'react-native';
+import { RootNavigator } from './src/navigation/RootNavigator/RootNavigator.navigator';
 
 const App: FunctionComponent = () => {
-  return (
-    <NavigationContainer>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <Text>MemorySpace</Text>
-      </SafeAreaView>
-    </NavigationContainer>
-  );
+  return <RootNavigator />;
 };
 
 export default App;
