@@ -1,11 +1,11 @@
-import styled from 'styled-components/native';
+import styled from '../../theme/styled-components';
 
 interface Props {
   height?: number;
   width?: number;
 }
 
-export const Spacer = styled.View<Props>(({ height = 0, width = 0 }) => ({
-  height: height * 4,
-  width: width * 4,
+export const Spacer = styled.View<Props>(({ height = 0, width = 0, theme }) => ({
+  height: height * theme.gridUnit,
+  width: width * theme.gridUnit,
 }));
