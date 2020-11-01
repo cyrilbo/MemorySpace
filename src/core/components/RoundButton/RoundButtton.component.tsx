@@ -7,15 +7,21 @@ const ROUND_BUTTON_DEFAULT_SIZE = 56;
 interface Props {
   size?: number;
   icon?: JSX.Element;
+  onPress: () => void;
 }
 
 export const RoundButton: FunctionComponent<Props> = ({
   size = ROUND_BUTTON_DEFAULT_SIZE,
   icon = <PlusIcon />,
+  onPress,
 }) => {
-  return <Container size={size}>{icon}</Container>;
+  return (
+    <Container size={size} onPress={onPress}>
+      {icon}
+    </Container>
+  );
 };
-const Container = styled.View<{ size: number }>(({ theme, size }) => ({
+const Container = styled.TouchableOpacity<{ size: number }>(({ theme, size }) => ({
   width: size,
   height: size,
   borderRadius: size / 2,
