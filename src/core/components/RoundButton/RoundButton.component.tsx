@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { PlusIcon } from '../../icons/Plus/PlusIcon.component';
 import styled from '../../theme/styled-components';
+import { Shadow } from '../Shadow/Shadow.component';
 
 const ROUND_BUTTON_DEFAULT_SIZE = 56;
 
@@ -16,9 +17,11 @@ export const RoundButton: FunctionComponent<Props> = ({
   onPress,
 }) => {
   return (
-    <Container size={size} onPress={onPress}>
-      {icon}
-    </Container>
+    <Shadow isDark>
+      <Container size={size} onPress={onPress}>
+        {icon}
+      </Container>
+    </Shadow>
   );
 };
 const Container = styled.TouchableOpacity<{ size: number }>(({ theme, size }) => ({

@@ -1,7 +1,7 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { FunctionComponent } from 'react';
 import { Text } from 'react-native';
-import { RoundButton } from '../../core/components/RoundButton/RoundButtton.component';
+import { RoundButton } from '../../core/components/RoundButton/RoundButton.component';
 import styled from '../../core/theme/styled-components';
 import { AddCardForm } from '../../modules/card/components/AddCardForm/AddCardForm.component';
 import { SelectTopicForm } from '../../modules/topic/components/SelectTopicForm/SelectTopicForm.component';
