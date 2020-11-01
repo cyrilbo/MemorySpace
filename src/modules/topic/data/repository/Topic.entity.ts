@@ -1,4 +1,11 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm/browser';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm/browser';
+import { CardEntity } from '../../../card/data/repository/Card.entity';
 
 @Entity('topic')
 export class TopicEntity {
@@ -10,4 +17,7 @@ export class TopicEntity {
 
   @CreateDateColumn({ nullable: false })
   createdAt: Date;
+
+  @OneToMany(() => CardEntity, (card) => card.topic)
+  cards: CardEntity[];
 }
