@@ -2,28 +2,25 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import React, { FunctionComponent } from 'react';
 import { ModalHeader } from '../../core/components/ModalHeader/ModalHeader.component';
 import styled from '../../core/theme/styled-components';
-import { AddCardForm } from '../../modules/card/components/AddCardForm/AddCardForm.component';
 import {
   RootNavigatorRouteNames,
   RootNavigatorRouteParamsList,
 } from '../../navigation/RootNavigator/RootNavigator.routes';
 
-type CreateCardModalNavigationProp = StackNavigationProp<
+type SelectTopicModalNavigationProp = StackNavigationProp<
   RootNavigatorRouteParamsList,
-  RootNavigatorRouteNames.CreateCardModal
+  RootNavigatorRouteNames.SelectTopicModal
 >;
 
 type Props = {
-  navigation: CreateCardModalNavigationProp;
+  navigation: SelectTopicModalNavigationProp;
 };
 
-export const CreateCardModal: FunctionComponent<Props> = ({ navigation }) => {
+export const SelectTopicModal: FunctionComponent<Props> = ({ navigation }) => {
   const closeModal = () => navigation.goBack();
-  const openSelectTopicModal = () => navigation.navigate(RootNavigatorRouteNames.SelectTopicModal);
   return (
     <Container>
-      <ModalHeader title="Create a new card" onPressClose={closeModal} />
-      <AddCardForm openSelectTopicModal={openSelectTopicModal} />
+      <ModalHeader title="Topic" onPressClose={closeModal} />
     </Container>
   );
 };
