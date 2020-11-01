@@ -1,7 +1,8 @@
 import React, { FunctionComponent, useCallback, useEffect, useState } from 'react';
+import { ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
 import { Connection, createConnection } from 'typeorm/browser';
-import { Topic } from '../../modules/topic/repository/Topic.entity';
+import { TopicEntity } from '../../modules/topic/repository/Topic.entity';
 
 export const TypeormProvider: FunctionComponent = ({ children }) => {
   const [defaultConnection, setconnection] = useState<Connection | null>(null);
@@ -13,7 +14,7 @@ export const TypeormProvider: FunctionComponent = ({ children }) => {
         location: 'default',
         logging: ['error', 'query', 'schema'],
         synchronize: true,
-        entities: [Topic],
+        entities: [TopicEntity],
       });
       setconnection(connection);
     } catch (error) {
@@ -27,7 +28,25 @@ export const TypeormProvider: FunctionComponent = ({ children }) => {
     }
   }, [defaultConnection, setupConnection]);
 
-  return <Container>{children}</Container>;
+  return (
+    <Container>
+      {defaultConnection ? (
+        children
+      ) : (
+        <ActivityIndicatorContainer>
+          <ActivityIndicator />
+        </ActivityIndicatorContainer>
+      )}
+    </Container>
+  );
 };
 
-const Container = styled.View({ flex: 1 });
+const Container = styled.View({
+  flex: 1,
+});
+
+const ActivityIndicatorContainer = styled.View({
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+});
