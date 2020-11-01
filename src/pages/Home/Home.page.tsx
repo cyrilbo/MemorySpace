@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Text } from 'react-native';
 import styled from 'styled-components/native';
+import { RoundButton } from '../../core/components/RoundButton/RoundButtton.component';
 import { AddCardForm } from '../../modules/card/components/AddCardForm/AddCardForm.component';
 import { SelectTopicForm } from '../../modules/topic/components/SelectTopicForm/SelectTopicForm.component';
 import { TopicList } from '../../modules/topic/components/TopicList/TopicList.component';
@@ -8,6 +9,7 @@ import { TopicList } from '../../modules/topic/components/TopicList/TopicList.co
 export const Home: FunctionComponent = () => (
   <Container>
     <Text>Home</Text>
+    <RoundButton />
     <SelectTopicForm />
     <TopicList />
     <AddCardForm />
