@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { PlusIcon } from '../../icons/Plus/PlusIcon.component';
+import { CrossIcon } from '../../icons/Cross/CrossIcon.component';
 import styled from '../../theme/styled-components';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const HEADER_HEIGHT = 50;
-const ICON_SIZE = 24;
+const ICON_SIZE = 28;
 
 export const ModalHeader: FunctionComponent<Props> = ({ onPressClose, title }) => {
   const { top } = useSafeAreaInsets();
@@ -18,7 +18,7 @@ export const ModalHeader: FunctionComponent<Props> = ({ onPressClose, title }) =
       <IconContainer />
       <Title>{title}</Title>
       <IconContainer onPress={onPressClose}>
-        <PlusIcon size={ICON_SIZE} />
+        <CrossIcon size={ICON_SIZE} />
       </IconContainer>
     </Container>
   );
