@@ -4,7 +4,9 @@ import { Topic } from '../../types/Topic.type';
 import { createTopic } from '../repository/CreateTopic.mutation';
 import { GET_TOPICS_QUERY_NAME } from './useGetTopicsQuery.hook';
 
-export const useCreateTopicMutation = (): { createTopic: (name: string) => Promise<Topic> } => {
+export const useCreateTopicMutation = (): {
+  createTopic: (params: { name: string; colorId: string }) => Promise<Topic>;
+} => {
   const createTopicCallback = useCallback(createTopic, []);
 
   const cache = useQueryCache();

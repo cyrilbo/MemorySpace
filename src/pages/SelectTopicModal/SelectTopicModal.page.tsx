@@ -1,10 +1,13 @@
 import { StackNavigationProp } from '@react-navigation/stack';
-import React, { FunctionComponent, useState } from 'react';
-import { Text } from 'react-native';
+import React, { FunctionComponent, useMemo, useState } from 'react';
 import { ModalHeader } from '../../core/components/ModalHeader/ModalHeader.component';
 import styled from '../../core/theme/styled-components';
+import { CreateTopicButton } from '../../modules/topic/components/CreateTopicButton/CreateTopicButton.component';
 import { NoTopics } from '../../modules/topic/components/NoTopics/NoTopics.component';
+import { TopicListItem } from '../../modules/topic/components/TopicListItem/TopicListItem.component';
 import { useGetTopicsQuery } from '../../modules/topic/data/hooks/useGetTopicsQuery.hook';
+import { TopicColor } from '../../modules/topic/types/TopicColor.type';
+import { getRandomTopicColor } from '../../modules/topic/utils/getRandomTopicColor.utils';
 import {
   RootNavigatorRouteNames,
   RootNavigatorRouteParamsList,
@@ -21,6 +24,7 @@ type Props = {
 
 export const SelectTopicModal: FunctionComponent<Props> = ({ navigation }) => {
   const closeModal = () => navigation.goBack();
+  const topicColor: TopicColor = useMemo(getRandomTopicColor, []);
   const [topicSearchInput, setTopicSearchInput] = useState('');
   const { topics, isEmpty } = useGetTopicsQuery({ name: topicSearchInput });
   return (
@@ -31,9 +35,18 @@ export const SelectTopicModal: FunctionComponent<Props> = ({ navigation }) => {
         onChangeText={setTopicSearchInput}
         placeholder="Search for a topic..."
       />
-      {isEmpty ? <NoTopics /> : null}
+      {isEmpty || topics === undefined ? (
+        <>
+          <CreateTopicButton
+            name={topicSearchInput}
+            topicColor={topicColor}
+            onTopicCreated={() => console.log('created')}
+          />
+          <NoTopics />
+        </>
+      ) : null}
       {topics?.map((topic) => (
-        <Text key={topic.id}>{topic.name}</Text>
+        <TopicListItem key={topic.id} topic={topic} onPress={() => console.log(topic.name)} />
       ))}
     </Container>
   );
