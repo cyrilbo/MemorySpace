@@ -3,7 +3,6 @@ import React, { FunctionComponent } from 'react';
 import { Text } from 'react-native';
 import { RoundButton } from '../../core/components/RoundButton/RoundButton.component';
 import styled from '../../core/theme/styled-components';
-import { TopicList } from '../../modules/topic/components/TopicList/TopicList.component';
 import {
   RootNavigatorRouteNames,
   RootNavigatorRouteParamsList,
@@ -23,7 +22,6 @@ export const Home: FunctionComponent<Props> = ({ navigation }) => {
   return (
     <Container>
       <Text>Home</Text>
-      <TopicList />
       <AddCardButtonContainer>
         <RoundButton onPress={openCreateCardModal} />
       </AddCardButtonContainer>

@@ -1,16 +1,17 @@
 import React, { FunctionComponent, useMemo, useState } from 'react';
 import styled from '../../../../core/theme/styled-components';
 import { useGetTopicsQuery } from '../../data/hooks/useGetTopicsQuery.hook';
+import { Topic } from '../../types/Topic.type';
 import { TopicColor } from '../../types/TopicColor.type';
 import { getRandomTopicColor } from '../../utils/getRandomTopicColor.utils';
 import { CreateTopicButton } from '../CreateTopicButton/CreateTopicButton.component';
 import { NoTopics } from '../NoTopics/NoTopics.component';
-import { TopicListItem } from '../TopicListItem/TopicListItem.component';
+import { TopicList } from '../TopicList/TopicList.component';
 
 export const SelectTopicForm: FunctionComponent = () => {
   const topicColor: TopicColor = useMemo(getRandomTopicColor, []);
   const [topicSearchInput, setTopicSearchInput] = useState('');
-  const { topics, isEmpty } = useGetTopicsQuery({ name: topicSearchInput });
+  const { topics } = useGetTopicsQuery({ name: topicSearchInput });
   return (
     <>
       <Input
@@ -18,19 +19,20 @@ export const SelectTopicForm: FunctionComponent = () => {
         onChangeText={setTopicSearchInput}
         placeholder="Search for a topic..."
       />
-      {isEmpty || topics === undefined ? (
-        <>
-          <CreateTopicButton
-            name={topicSearchInput}
-            topicColor={topicColor}
-            onTopicCreated={() => console.log('created')}
-          />
-          <NoTopics />
-        </>
-      ) : null}
-      {topics?.map((topic) => (
-        <TopicListItem key={topic.id} topic={topic} onPress={() => console.log(topic.name)} />
-      ))}
+      <TopicList
+        topics={topics}
+        onTopicPress={(topic: Topic) => console.log(topic.name)}
+        NoData={
+          <>
+            <CreateTopicButton
+              name={topicSearchInput}
+              topicColor={topicColor}
+              onTopicCreated={() => console.log('created')}
+            />
+            <NoTopics />
+          </>
+        }
+      />
     </>
   );
 };

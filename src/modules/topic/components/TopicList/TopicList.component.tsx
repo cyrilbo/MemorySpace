@@ -1,19 +1,26 @@
 import React, { FunctionComponent } from 'react';
-import { FlatList, Text } from 'react-native';
-import { useGetTopicsQuery } from '../../data/hooks/useGetTopicsQuery.hook';
+import { FlatList } from 'react-native';
 import { Topic } from '../../types/Topic.type';
+import { TopicListItem } from '../TopicListItem/TopicListItem.component';
 
-export const TopicList: FunctionComponent = () => {
-  const { topics } = useGetTopicsQuery();
+interface Props {
+  topics: Topic[];
+  NoData: JSX.Element;
+  onTopicPress: (topic: Topic) => void;
+}
 
-  if (!topics) {
-    return null;
+export const TopicList: FunctionComponent<Props> = ({ onTopicPress, topics, NoData }) => {
+  if (topics.length === 0) {
+    return NoData;
+  } else {
+    return (
+      <FlatList<Topic>
+        data={topics}
+        renderItem={({ item }) => (
+          <TopicListItem key={item.id} topic={item} onPress={() => onTopicPress(item)} />
+        )}
+        keyExtractor={(topic) => topic.id}
+      />
+    );
   }
-  return (
-    <FlatList<Topic>
-      data={topics}
-      renderItem={({ item }) => <Text>{item.name}</Text>}
-      keyExtractor={(topic) => topic.id}
-    />
-  );
 };

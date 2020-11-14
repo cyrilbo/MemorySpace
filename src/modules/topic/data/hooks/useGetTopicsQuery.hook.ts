@@ -14,5 +14,5 @@ export const useGetTopicsQuery = (
 ): { topics: Topic[]; isLoading: boolean; isEmpty: boolean } => {
   const getTopicsCallback = useCallback(getTopics, [filters]);
   const { data, isLoading } = useQuery([GET_TOPICS_QUERY_NAME, filters], getTopicsCallback);
-  return { topics: data, isLoading, isEmpty: data?.length === 0 };
+  return { topics: data || [], isLoading, isEmpty: data?.length === 0 };
 };
