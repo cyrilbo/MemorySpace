@@ -1,3 +1,5 @@
+import { Topic } from '../../modules/topic/types/Topic.type';
+
 export enum RootNavigatorRouteNames {
   Home = 'Home',
   CreateCardModal = 'CreateCardModal',
@@ -6,6 +8,6 @@ export enum RootNavigatorRouteNames {
 
 export type RootNavigatorRouteParamsList = {
   Home: undefined;
-  CreateCardModal: undefined;
+  CreateCardModal: { topic?: Topic };
   SelectTopicModal: undefined;
 };

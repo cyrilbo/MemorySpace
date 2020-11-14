@@ -1,6 +1,5 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { FunctionComponent } from 'react';
-import { Text } from 'react-native';
 import { RoundButton } from '../../core/components/RoundButton/RoundButton.component';
 import styled from '../../core/theme/styled-components';
 import {
@@ -21,7 +20,6 @@ export const Home: FunctionComponent<Props> = ({ navigation }) => {
   const openCreateCardModal = () => navigation.navigate(RootNavigatorRouteNames.CreateCardModal);
   return (
     <Container>
-      <Text>Home</Text>
       <AddCardButtonContainer>
         <RoundButton onPress={openCreateCardModal} />
       </AddCardButtonContainer>
@@ -29,7 +27,10 @@ export const Home: FunctionComponent<Props> = ({ navigation }) => {
   );
 };
 
-const Container = styled.SafeAreaView({ flex: 1 });
+const Container = styled.SafeAreaView(({ theme }) => ({
+  flex: 1,
+  backgroundColor: theme.colors.darkGrey,
+}));
 
 const AddCardButtonContainer = styled.View(({ theme }) => ({
   position: 'absolute',

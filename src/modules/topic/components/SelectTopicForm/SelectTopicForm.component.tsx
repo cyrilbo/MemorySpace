@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useMemo, useState } from 'react';
+import { TextInput } from '../../../../core/components/TextInput/TextInput.component';
 import { useDebounce } from '../../../../core/hooks/useDebounce.hook';
 import styled from '../../../../core/theme/styled-components';
 import { useGetTopicsQuery } from '../../data/hooks/useGetTopicsQuery.hook';
@@ -9,7 +10,11 @@ import { CreateTopicButton } from '../CreateTopicButton/CreateTopicButton.compon
 import { NoTopics } from '../NoTopics/NoTopics.component';
 import { TopicList } from '../TopicList/TopicList.component';
 
-export const SelectTopicForm: FunctionComponent = () => {
+interface Props {
+  onTopicSelected: (topic: Topic) => void;
+}
+
+export const SelectTopicForm: FunctionComponent<Props> = ({ onTopicSelected }) => {
   const topicColor: TopicColor = useMemo(getRandomTopicColor, []);
   const [topicSearchInput, setTopicSearchInput] = useState('');
   const debouncedTopicSearchInput = useDebounce(topicSearchInput, 400);
@@ -23,7 +28,7 @@ export const SelectTopicForm: FunctionComponent = () => {
       />
       <TopicList
         topics={topics}
-        onTopicPress={(topic: Topic) => console.log(topic.name)}
+        onTopicPress={(topic: Topic) => onTopicSelected(topic)}
         NoData={
           <>
             <CreateTopicButton
@@ -39,14 +44,9 @@ export const SelectTopicForm: FunctionComponent = () => {
   );
 };
 
-const Input = styled.TextInput.attrs(({ theme }) => ({
-  placeholderTextColor: theme.colors.transparentIvory,
-  selectionColor: theme.colors.ivory,
-}))(({ theme }) => ({
-  backgroundColor: theme.colors.darkGrey,
+const Input = styled(TextInput)(({ theme }) => ({
   borderTopWidth: 1,
   borderBottomWidth: 1,
   borderColor: theme.colors.black,
   padding: theme.gridUnit * 4,
-  color: theme.colors.ivory,
 }));

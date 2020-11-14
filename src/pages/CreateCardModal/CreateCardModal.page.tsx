@@ -1,8 +1,10 @@
+import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { ModalHeader } from '../../core/components/ModalHeader/ModalHeader.component';
 import styled from '../../core/theme/styled-components';
 import { AddCardForm } from '../../modules/card/components/AddCardForm/AddCardForm.component';
+import { Topic } from '../../modules/topic/types/Topic.type';
 import {
   RootNavigatorRouteNames,
   RootNavigatorRouteParamsList,
@@ -13,19 +15,35 @@ type CreateCardModalNavigationProp = StackNavigationProp<
   RootNavigatorRouteNames.CreateCardModal
 >;
 
+type CreateCardModalRouteProp = RouteProp<
+  RootNavigatorRouteParamsList,
+  RootNavigatorRouteNames.CreateCardModal
+>;
+
 type Props = {
   navigation: CreateCardModalNavigationProp;
+  route: CreateCardModalRouteProp;
 };
 
-export const CreateCardModal: FunctionComponent<Props> = ({ navigation }) => {
+export const CreateCardModal: FunctionComponent<Props> = ({ navigation, route }) => {
   const closeModal = () => navigation.goBack();
   const openSelectTopicModal = () => navigation.navigate(RootNavigatorRouteNames.SelectTopicModal);
+  const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
+  useEffect(() => {
+    if (route.params?.topic) {
+      setSelectedTopic(route.params?.topic);
+    }
+  }, [route.params?.topic]);
   return (
     <Container>
       <ModalHeader title="Create a new card" onPressClose={closeModal} />
-      <AddCardForm openSelectTopicModal={openSelectTopicModal} />
+      <AddCardForm
+        openSelectTopicModal={openSelectTopicModal}
+        selectedTopic={selectedTopic}
+        onCardCreated={closeModal}
+      />
     </Container>
   );
 };
 
-const Container = styled.View``;
+const Container = styled.View({ flex: 1 });
