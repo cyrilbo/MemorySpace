@@ -4,12 +4,12 @@ import { AppNavigatorRouteParamsList } from '../AppNavigator/AppNavigator.routes
 
 export enum RootNavigatorRouteNames {
   AppNavigator = 'AppNavigator',
-  CreateCardModal = 'CreateCardModal',
+  EditCardModal = 'EditCardModal',
   SelectTopicModal = 'SelectTopicModal',
 }
 
 export type RootNavigatorRouteParamsList = {
-  CreateCardModal: { topic?: Topic };
+  EditCardModal: { topic?: Topic };
   SelectTopicModal: undefined;
   AppNavigator: NavigatorScreenParams<AppNavigatorRouteParamsList>;
 };

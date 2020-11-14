@@ -36,7 +36,7 @@ type Props = {
 export const TopicCardList: FunctionComponent<Props> = ({ route, navigation }) => {
   const topic = route.params?.topic;
   const { cards } = useGetCardsQuery({ topicId: topic.id });
-  const openEditCardPage = () => navigation.navigate(RootNavigatorRouteNames.CreateCardModal);
+  const openEditCardPage = () => navigation.navigate(RootNavigatorRouteNames.EditCardModal);
   return (
     <Container backgroundColor={getHexFromTopicColorId(topic.colorId)}>
       <QuestionList cards={cards} onQuestionPress={openEditCardPage} />

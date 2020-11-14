@@ -10,22 +10,22 @@ import {
   RootNavigatorRouteParamsList,
 } from '../../navigation/RootNavigator/RootNavigator.routes';
 
-type CreateCardModalNavigationProp = StackNavigationProp<
+type EditCardModalNavigationProp = StackNavigationProp<
   RootNavigatorRouteParamsList,
-  RootNavigatorRouteNames.CreateCardModal
+  RootNavigatorRouteNames.EditCardModal
 >;
 
-type CreateCardModalRouteProp = RouteProp<
+type EditCardModalRouteProp = RouteProp<
   RootNavigatorRouteParamsList,
-  RootNavigatorRouteNames.CreateCardModal
+  RootNavigatorRouteNames.EditCardModal
 >;
 
 type Props = {
-  navigation: CreateCardModalNavigationProp;
-  route: CreateCardModalRouteProp;
+  navigation: EditCardModalNavigationProp;
+  route: EditCardModalRouteProp;
 };
 
-export const CreateCardModal: FunctionComponent<Props> = ({ navigation, route }) => {
+export const EditCardModal: FunctionComponent<Props> = ({ navigation, route }) => {
   const closeModal = () => navigation.goBack();
   const openSelectTopicModal = () => navigation.navigate(RootNavigatorRouteNames.SelectTopicModal);
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
