@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { FlatList } from 'react-native';
+import { Spacer } from '../../../../core/components/Spacer/Spacer.component';
+import styled from '../../../../core/theme/styled-components';
 import { Topic } from '../../types/Topic.type';
 import { TopicListItem } from '../TopicListItem/TopicListItem.component';
 
@@ -14,13 +16,23 @@ export const TopicList: FunctionComponent<Props> = ({ onTopicPress, topics, NoDa
     return NoData;
   } else {
     return (
-      <FlatList<Topic>
-        data={topics}
-        renderItem={({ item }) => (
-          <TopicListItem key={item.id} topic={item} onPress={() => onTopicPress(item)} />
-        )}
-        keyExtractor={(topic) => topic.id}
-      />
+      <>
+        <Spacer height={2} />
+        <FlatList<Topic>
+          data={topics}
+          renderItem={({ item }) => (
+            <TopicListItemContainer key={item.id}>
+              <TopicListItem topic={item} onPress={() => onTopicPress(item)} />
+            </TopicListItemContainer>
+          )}
+          keyExtractor={(topic) => topic.id}
+        />
+      </>
     );
   }
 };
+
+const TopicListItemContainer = styled.View(({ theme }) => ({
+  paddingVertical: theme.gridUnit * 2,
+  paddingHorizontal: theme.gridUnit * 4,
+}));
