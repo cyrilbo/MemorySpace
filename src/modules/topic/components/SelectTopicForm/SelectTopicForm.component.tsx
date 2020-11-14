@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useMemo, useState } from 'react';
+import { useDebounce } from '../../../../core/hooks/useDebounce.hook';
 import styled from '../../../../core/theme/styled-components';
 import { useGetTopicsQuery } from '../../data/hooks/useGetTopicsQuery.hook';
 import { Topic } from '../../types/Topic.type';
@@ -11,7 +12,8 @@ import { TopicList } from '../TopicList/TopicList.component';
 export const SelectTopicForm: FunctionComponent = () => {
   const topicColor: TopicColor = useMemo(getRandomTopicColor, []);
   const [topicSearchInput, setTopicSearchInput] = useState('');
-  const { topics } = useGetTopicsQuery({ name: topicSearchInput });
+  const debouncedTopicSearchInput = useDebounce(topicSearchInput, 400);
+  const { topics } = useGetTopicsQuery({ name: debouncedTopicSearchInput });
   return (
     <>
       <Input
