@@ -9,8 +9,10 @@ interface GetTopicsQueryFilters {
   name?: string;
 }
 
-export const useGetTopicsQuery = (filters?: GetTopicsQueryFilters): { topics: Topic[] } => {
+export const useGetTopicsQuery = (
+  filters?: GetTopicsQueryFilters
+): { topics: Topic[]; isLoading: boolean; isEmpty: boolean } => {
   const getTopicsCallback = useCallback(getTopics, [filters]);
-  const { data } = useQuery([GET_TOPICS_QUERY_NAME, filters], getTopicsCallback);
-  return { topics: data };
+  const { data, isLoading } = useQuery([GET_TOPICS_QUERY_NAME, filters], getTopicsCallback);
+  return { topics: data, isLoading, isEmpty: data?.length === 0 };
 };

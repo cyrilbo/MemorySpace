@@ -3,6 +3,7 @@ import React, { FunctionComponent, useState } from 'react';
 import { Text } from 'react-native';
 import { ModalHeader } from '../../core/components/ModalHeader/ModalHeader.component';
 import styled from '../../core/theme/styled-components';
+import { NoTopics } from '../../modules/topic/components/NoTopics/NoTopics.component';
 import { useGetTopicsQuery } from '../../modules/topic/data/hooks/useGetTopicsQuery.hook';
 import {
   RootNavigatorRouteNames,
@@ -21,7 +22,7 @@ type Props = {
 export const SelectTopicModal: FunctionComponent<Props> = ({ navigation }) => {
   const closeModal = () => navigation.goBack();
   const [topicSearchInput, setTopicSearchInput] = useState('');
-  const { topics } = useGetTopicsQuery({ name: topicSearchInput });
+  const { topics, isEmpty } = useGetTopicsQuery({ name: topicSearchInput });
   return (
     <Container>
       <ModalHeader title="Topic" onPressClose={closeModal} />
@@ -30,6 +31,7 @@ export const SelectTopicModal: FunctionComponent<Props> = ({ navigation }) => {
         onChangeText={setTopicSearchInput}
         placeholder="Search for a topic..."
       />
+      {isEmpty ? <NoTopics /> : null}
       {topics?.map((topic) => (
         <Text key={topic.id}>{topic.name}</Text>
       ))}

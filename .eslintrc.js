@@ -25,5 +25,6 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-explicit-any': 'error',
     'react/prop-types': 'off',
+    'react-native/no-raw-text': 'off',
   },
 };
