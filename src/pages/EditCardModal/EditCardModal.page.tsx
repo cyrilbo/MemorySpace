@@ -41,7 +41,7 @@ export const EditCardModal: FunctionComponent<Props> = ({ navigation, route }) =
   }, [route.params]);
   return (
     <Container>
-      <ModalHeader title="Create a new card" onPressClose={closeModal} />
+      <ModalHeader title={card ? 'Card Edition' : 'Create a new card'} onPressClose={closeModal} />
       <EditCardForm
         openSelectTopicModal={openSelectTopicModal}
         selectedTopic={selectedTopic}
