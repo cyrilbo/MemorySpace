@@ -27,7 +27,7 @@ type Props = {
 };
 
 export const Home: FunctionComponent<Props> = ({ navigation }) => {
-  const openCreateCardModal = () => navigation.navigate(RootNavigatorRouteNames.CreateCardModal);
+  const openCreateCardModal = () => navigation.navigate(RootNavigatorRouteNames.EditCardModal);
   const openCardNavigator = (topic: Topic) =>
     navigation.navigate(AppNavigatorRouteNames.CardNavigator, {
       screen: CardNavigatorRouteNames.TopicCardList,

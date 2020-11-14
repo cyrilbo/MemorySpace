@@ -4,6 +4,7 @@ import React, { FunctionComponent } from 'react';
 import styled from '../../core/theme/styled-components';
 import { QuestionList } from '../../modules/card/components/QuestionList/QuestionList.component';
 import { useGetCardsQuery } from '../../modules/card/data/hooks/useGetCardsQuery.hook';
+import { Card } from '../../modules/card/types/Card.type';
 import { getHexFromTopicColorId } from '../../modules/topic/utils/getHexFromTopicColorId.utils';
 import { AppNavigatorRouteParamsList } from '../../navigation/AppNavigator/AppNavigator.routes';
 import {
@@ -36,7 +37,8 @@ type Props = {
 export const TopicCardList: FunctionComponent<Props> = ({ route, navigation }) => {
   const topic = route.params?.topic;
   const { cards } = useGetCardsQuery({ topicId: topic.id });
-  const openEditCardPage = () => navigation.navigate(RootNavigatorRouteNames.EditCardModal);
+  const openEditCardPage = (card: Card) =>
+    navigation.navigate(RootNavigatorRouteNames.EditCardModal, { card, topic });
   return (
     <Container backgroundColor={getHexFromTopicColorId(topic.colorId)}>
       <QuestionList cards={cards} onQuestionPress={openEditCardPage} />

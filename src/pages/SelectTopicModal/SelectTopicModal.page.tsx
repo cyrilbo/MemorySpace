@@ -27,7 +27,7 @@ type Props = {
 
 export const SelectTopicModal: FunctionComponent<Props> = ({ navigation }) => {
   const closeModal = (topic?: Topic) =>
-    navigation.navigate(RootNavigatorRouteNames.CreateCardModal, { topic });
+    navigation.navigate(RootNavigatorRouteNames.EditCardModal, { topic });
   return (
     <Container>
       <ModalHeader title="Topic" onPressClose={() => closeModal()} />

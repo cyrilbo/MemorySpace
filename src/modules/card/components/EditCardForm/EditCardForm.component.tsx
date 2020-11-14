@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { BottomButton } from '../../../../core/components/BottomButton/BottomButton.component';
 import { Spacer } from '../../../../core/components/Spacer/Spacer.component';
 import { TextInput } from '../../../../core/components/TextInput/TextInput.component';
@@ -9,21 +9,33 @@ import styled from '../../../../core/theme/styled-components';
 import { TopicListItem } from '../../../topic/components/TopicListItem/TopicListItem.component';
 import { Topic } from '../../../topic/types/Topic.type';
 import { useCreateCardMutation } from '../../data/hooks/useCreateCardMutation.hook';
+import { useUpdateCardMutation } from '../../data/hooks/useUpdateCardMutation.hook';
+import { Card } from '../../types/Card.type';
 
 interface Props {
   openSelectTopicModal: () => void;
   selectedTopic: Topic | null;
-  onCardCreated: () => void;
+  onCardEdited: () => void;
+  card?: Card;
 }
 
 export const EditCardForm: FunctionComponent<Props> = ({
   openSelectTopicModal,
   selectedTopic,
-  onCardCreated,
+  onCardEdited,
+  card,
 }) => {
-  const { createCard } = useCreateCardMutation(onCardCreated);
+  const { createCard } = useCreateCardMutation(onCardEdited);
+  const { updateCard } = useUpdateCardMutation(onCardEdited);
+
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
+  useEffect(() => {
+    if (card) {
+      setQuestion(card.question);
+      setAnswer(card.answer);
+    }
+  }, [card]);
   const isFormValid = !!selectedTopic && question.length > 0 && answer.length > 0;
 
   return (
@@ -51,8 +63,14 @@ export const EditCardForm: FunctionComponent<Props> = ({
 
       {isFormValid ? (
         <BottomButton
-          onPress={() => createCard({ question, answer, topicId: selectedTopic.id })}
-          title="CREATE CARD"
+          onPress={() => {
+            if (card) {
+              updateCard({ cardId: card.id, question, answer, topicId: selectedTopic.id });
+            } else {
+              createCard({ question, answer, topicId: selectedTopic.id });
+            }
+          }}
+          title="SAVE"
         />
       ) : null}
     </Container>
