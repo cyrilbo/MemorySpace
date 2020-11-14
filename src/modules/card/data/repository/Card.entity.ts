@@ -25,7 +25,7 @@ export class CardEntity {
   @CreateDateColumn({ nullable: false })
   createdAt: Date;
 
-  @Column('date', { nullable: false })
+  @Column('datetime', { nullable: false })
   lastFailureAt: Date;
 
   @Column('integer', { nullable: false, default: 1 })

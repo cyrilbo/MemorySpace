@@ -3,7 +3,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { ModalHeader } from '../../core/components/ModalHeader/ModalHeader.component';
 import styled from '../../core/theme/styled-components';
-import { AddCardForm } from '../../modules/card/components/AddCardForm/AddCardForm.component';
+import { EditCardForm } from '../../modules/card/components/EditCardForm/EditCardForm.component';
 import { Topic } from '../../modules/topic/types/Topic.type';
 import {
   RootNavigatorRouteNames,
@@ -37,7 +37,7 @@ export const CreateCardModal: FunctionComponent<Props> = ({ navigation, route })
   return (
     <Container>
       <ModalHeader title="Create a new card" onPressClose={closeModal} />
-      <AddCardForm
+      <EditCardForm
         openSelectTopicModal={openSelectTopicModal}
         selectedTopic={selectedTopic}
         onCardCreated={closeModal}

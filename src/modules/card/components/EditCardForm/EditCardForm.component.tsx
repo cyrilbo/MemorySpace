@@ -16,7 +16,7 @@ interface Props {
   onCardCreated: () => void;
 }
 
-export const AddCardForm: FunctionComponent<Props> = ({
+export const EditCardForm: FunctionComponent<Props> = ({
   openSelectTopicModal,
   selectedTopic,
   onCardCreated,
