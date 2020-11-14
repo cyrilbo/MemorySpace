@@ -28,7 +28,7 @@ const Container = styled.TouchableOpacity<{ size: number }>(({ theme, size }) =>
   width: size,
   height: size,
   borderRadius: size / 2,
-  backgroundColor: theme.colors.darkGrey,
+  backgroundColor: theme.colors.black,
   alignItems: 'center',
   justifyContent: 'center',
 }));
