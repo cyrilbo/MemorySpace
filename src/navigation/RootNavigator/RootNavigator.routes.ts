@@ -1,13 +1,15 @@
+import { NavigatorScreenParams } from '@react-navigation/native';
 import { Topic } from '../../modules/topic/types/Topic.type';
+import { AppNavigatorRouteParamsList } from '../AppNavigator/AppNavigator.routes';
 
 export enum RootNavigatorRouteNames {
-  Home = 'Home',
+  AppNavigator = 'AppNavigator',
   CreateCardModal = 'CreateCardModal',
   SelectTopicModal = 'SelectTopicModal',
 }
 
 export type RootNavigatorRouteParamsList = {
-  Home: undefined;
   CreateCardModal: { topic?: Topic };
   SelectTopicModal: undefined;
+  AppNavigator: NavigatorScreenParams<AppNavigatorRouteParamsList>;
 };

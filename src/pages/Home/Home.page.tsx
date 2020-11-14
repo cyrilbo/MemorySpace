@@ -1,3 +1,4 @@
+import { CompositeNavigationProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { FunctionComponent } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -5,14 +6,20 @@ import { RoundButton } from '../../core/components/RoundButton/RoundButton.compo
 import styled from '../../core/theme/styled-components';
 import { WideTopicList } from '../../modules/topic/components/WideTopicList/WideTopicList.component';
 import { useGetTopicsQuery } from '../../modules/topic/data/hooks/useGetTopicsQuery.hook';
+import { Topic } from '../../modules/topic/types/Topic.type';
+import {
+  AppNavigatorRouteNames,
+  AppNavigatorRouteParamsList,
+} from '../../navigation/AppNavigator/AppNavigator.routes';
+import { CardNavigatorRouteNames } from '../../navigation/CardNavigator/CardNavigator.routes';
 import {
   RootNavigatorRouteNames,
   RootNavigatorRouteParamsList,
 } from '../../navigation/RootNavigator/RootNavigator.routes';
 
-type HomeScreenNavigationProp = StackNavigationProp<
-  RootNavigatorRouteParamsList,
-  RootNavigatorRouteNames.Home
+type HomeScreenNavigationProp = CompositeNavigationProp<
+  StackNavigationProp<AppNavigatorRouteParamsList, AppNavigatorRouteNames.Home>,
+  StackNavigationProp<RootNavigatorRouteParamsList>
 >;
 
 type Props = {
@@ -21,12 +28,17 @@ type Props = {
 
 export const Home: FunctionComponent<Props> = ({ navigation }) => {
   const openCreateCardModal = () => navigation.navigate(RootNavigatorRouteNames.CreateCardModal);
+  const openCardNavigator = (topic: Topic) =>
+    navigation.navigate(AppNavigatorRouteNames.CardNavigator, {
+      screen: CardNavigatorRouteNames.TopicCardList,
+      params: { topic },
+    });
   const insets = useSafeAreaInsets();
   const { topics } = useGetTopicsQuery();
 
   return (
     <Container paddingTop={insets.top} paddingBottom={insets.bottom}>
-      <WideTopicList topics={topics} onTopicPress={() => {}} />
+      <WideTopicList topics={topics} onTopicPress={(topic) => openCardNavigator(topic)} />
       <AddCardButtonContainer>
         <RoundButton onPress={openCreateCardModal} />
       </AddCardButtonContainer>
