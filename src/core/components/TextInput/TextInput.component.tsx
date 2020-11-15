@@ -9,6 +9,7 @@ export const TextInput: FunctionComponent<Props> = (props) => {
   return (
     <Container>
       <Input
+        scrollEnabled={false}
         placeholderTextColor={colors.transparentIvory}
         selectionColor={colors.ivory}
         {...props}

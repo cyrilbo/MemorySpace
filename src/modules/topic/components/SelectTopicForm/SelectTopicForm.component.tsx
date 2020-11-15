@@ -26,6 +26,7 @@ export const SelectTopicForm: FunctionComponent<Props> = ({ onTopicSelected }) =
           value={topicSearchInput}
           onChangeText={setTopicSearchInput}
           placeholder="Search for a topic..."
+          maxLength={30}
         />
       </InputContainer>
 

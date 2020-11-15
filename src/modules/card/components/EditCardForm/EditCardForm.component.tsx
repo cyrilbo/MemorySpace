@@ -39,31 +39,33 @@ export const EditCardForm: FunctionComponent<Props> = ({
   const isFormValid = !!selectedTopic && question.length > 0 && answer.length > 0;
 
   return (
-    <Container>
-      <Row onPress={openSelectTopicModal}>
-        <TopicIcon size={24} />
-        <Spacer width={2} />
-        {selectedTopic ? (
-          <TopicListItem topic={selectedTopic} />
-        ) : (
-          <TopicPlaceholder>topic</TopicPlaceholder>
-        )}
-      </Row>
-      <Row disabled>
-        <IconContainer>
-          <QuestionMarkIcon size={24} />
-        </IconContainer>
-        <Spacer width={2} />
-        <TextInput value={question} onChangeText={setQuestion} placeholder="question" multiline />
-      </Row>
-      <Row disabled>
-        <IconContainer>
-          <CheckIcon size={24} />
-        </IconContainer>
-        <Spacer width={2} />
-        <TextInput value={answer} onChangeText={setAnswer} placeholder="answer" multiline />
-      </Row>
-      <EmptySpace />
+    <>
+      <Container>
+        <Row onPress={openSelectTopicModal}>
+          <TopicIcon size={24} />
+          <Spacer width={2} />
+          {selectedTopic ? (
+            <TopicListItem topic={selectedTopic} />
+          ) : (
+            <TopicPlaceholder>topic</TopicPlaceholder>
+          )}
+        </Row>
+        <Row disabled>
+          <IconContainer>
+            <QuestionMarkIcon size={24} />
+          </IconContainer>
+          <Spacer width={2} />
+          <TextInput value={question} onChangeText={setQuestion} placeholder="question" multiline />
+        </Row>
+        <Row disabled>
+          <IconContainer>
+            <CheckIcon size={24} />
+          </IconContainer>
+          <Spacer width={2} />
+          <TextInput value={answer} onChangeText={setAnswer} placeholder="answer" multiline />
+        </Row>
+        <EmptySpace />
+      </Container>
 
       {isFormValid ? (
         <BottomButton
@@ -77,11 +79,11 @@ export const EditCardForm: FunctionComponent<Props> = ({
           title="SAVE"
         />
       ) : null}
-    </Container>
+    </>
   );
 };
 
-const Container = styled.View(({ theme }) => ({
+const Container = styled.ScrollView(({ theme }) => ({
   backgroundColor: theme.colors.darkGrey,
   flex: 1,
   borderTopWidth: 1,
