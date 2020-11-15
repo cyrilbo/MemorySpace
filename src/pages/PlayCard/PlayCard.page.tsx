@@ -5,6 +5,7 @@ import { ActivityIndicator, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Spacer } from '../../core/components/Spacer/Spacer.component';
 import styled from '../../core/theme/styled-components';
+import { useSubmitCardReviewMutation } from '../../modules/card/data/hooks/useSubmitCardReviewMutation.hook';
 import { BlurableAnswer } from '../../modules/srs/components/BlurableAnswer/BlurableAnswer.component';
 import { ResultForm } from '../../modules/srs/components/ResultForm/ResultForm.component';
 import { useGetNextCardToPlay } from '../../modules/srs/data/hooks/useGetNextCardToPlay.hook';
@@ -38,6 +39,7 @@ export const PlayCard: FunctionComponent<Props> = ({ route }) => {
   const topic = route.params.topic;
   const insets = useSafeAreaInsets();
   const { isLoading, card } = useGetNextCardToPlay(topic.id);
+  const { submitCardReview } = useSubmitCardReviewMutation(() => {});
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
   if (isLoading) {
     return <ActivityIndicator />;
@@ -56,7 +58,14 @@ export const PlayCard: FunctionComponent<Props> = ({ route }) => {
           onToggleVisibilityPress={() => setIsAnswerVisible(!isAnswerVisible)}
         />
         <EmptySpace />
-        <ResultForm />
+        <ResultForm
+          onFailurePress={() => {
+            submitCardReview({ cardId: card.id, isCardWellKnown: false });
+          }}
+          onSuccessPress={() => {
+            submitCardReview({ cardId: card.id, isCardWellKnown: true });
+          }}
+        />
         <Spacer height={4} />
       </Container>
     );
