@@ -1,9 +1,14 @@
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { ActivityIndicator, Text } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Spacer } from '../../core/components/Spacer/Spacer.component';
 import styled from '../../core/theme/styled-components';
+import { BlurableAnswer } from '../../modules/srs/components/BlurableAnswer/BlurableAnswer.component';
+import { ResultForm } from '../../modules/srs/components/ResultForm/ResultForm.component';
 import { useGetNextCardToPlay } from '../../modules/srs/data/hooks/useGetNextCardToPlay.hook';
+import { getHexFromTopicColorId } from '../../modules/topic/utils/getHexFromTopicColorId.utils';
 import { AppNavigatorRouteParamsList } from '../../navigation/AppNavigator/AppNavigator.routes';
 import {
   CardNavigatorRouteNames,
@@ -31,14 +36,28 @@ type Props = {
 
 export const PlayCard: FunctionComponent<Props> = ({ route }) => {
   const topic = route.params.topic;
+  const insets = useSafeAreaInsets();
   const { isLoading, card } = useGetNextCardToPlay(topic.id);
+  const [isAnswerVisible, setIsAnswerVisible] = useState(false);
   if (isLoading) {
     return <ActivityIndicator />;
   } else if (card) {
     return (
-      <Container>
-        <Text>{card.question}</Text>
-        <Text>{card.answer}</Text>
+      <Container
+        backgroundColor={getHexFromTopicColorId(topic.colorId)}
+        paddingBottom={insets.bottom}
+      >
+        <EmptySpace />
+        <Question>{card.question}</Question>
+        <Spacer height={2} />
+        <BlurableAnswer
+          answer={card.answer}
+          isVisible={isAnswerVisible}
+          onToggleVisibilityPress={() => setIsAnswerVisible(!isAnswerVisible)}
+        />
+        <EmptySpace />
+        <ResultForm />
+        <Spacer height={4} />
       </Container>
     );
   } else {
@@ -46,6 +65,18 @@ export const PlayCard: FunctionComponent<Props> = ({ route }) => {
   }
 };
 
-const Container = styled.SafeAreaView(() => ({
-  flex: 1,
+const Container = styled.SafeAreaView<{ backgroundColor: string; paddingBottom: number }>(
+  ({ backgroundColor, paddingBottom }) => ({
+    flex: 1,
+    backgroundColor,
+    paddingBottom,
+  })
+);
+
+const Question = styled.Text(({ theme }) => ({
+  fontWeight: 'bold',
+  fontSize: 24,
+  paddingHorizontal: theme.gridUnit * 2,
 }));
+
+const EmptySpace = styled.View({ flex: 1 });
