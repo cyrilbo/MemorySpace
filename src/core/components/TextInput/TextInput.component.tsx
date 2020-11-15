@@ -1,9 +1,26 @@
+import React, { FunctionComponent } from 'react';
+import { TextInputProps } from 'react-native';
+import { colors } from '../../theme/colors';
 import styled from '../../theme/styled-components';
 
-export const TextInput = styled.TextInput.attrs(({ theme }) => ({
-  placeholderTextColor: theme.colors.transparentIvory,
-  selectionColor: theme.colors.ivory,
-}))(({ theme }) => ({
-  width: '100%',
+type Props = TextInputProps;
+
+export const TextInput: FunctionComponent<Props> = (props) => {
+  return (
+    <Container>
+      <Input
+        placeholderTextColor={colors.transparentIvory}
+        selectionColor={colors.ivory}
+        {...props}
+      />
+    </Container>
+  );
+};
+
+const Container = styled.View({
+  flex: 1,
+});
+
+const Input = styled.TextInput(({ theme }) => ({
   color: theme.colors.ivory,
 }));

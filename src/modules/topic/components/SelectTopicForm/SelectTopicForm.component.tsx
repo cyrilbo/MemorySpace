@@ -31,11 +31,13 @@ export const SelectTopicForm: FunctionComponent<Props> = ({ onTopicSelected }) =
         onTopicPress={(topic: Topic) => onTopicSelected(topic)}
         NoData={
           <>
-            <CreateTopicButton
-              name={topicSearchInput}
-              topicColor={topicColor}
-              onTopicCreated={() => console.log('created')}
-            />
+            {topicSearchInput.length > 0 ? (
+              <CreateTopicButton
+                name={topicSearchInput}
+                topicColor={topicColor}
+                onTopicCreated={() => console.log('created')}
+              />
+            ) : null}
             <NoTopics />
           </>
         }
