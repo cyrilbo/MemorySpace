@@ -4,6 +4,7 @@ import React, { FunctionComponent, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Spacer } from '../../core/components/Spacer/Spacer.component';
+import { colors } from '../../core/theme/colors';
 import styled from '../../core/theme/styled-components';
 import { useSubmitCardReviewMutation } from '../../modules/card/data/hooks/useSubmitCardReviewMutation.hook';
 import { BlurableAnswer } from '../../modules/srs/components/BlurableAnswer/BlurableAnswer.component';
@@ -37,9 +38,10 @@ type Props = {
 };
 
 export const PlayCard: FunctionComponent<Props> = ({ route }) => {
-  const topic = route.params.topic;
+  const topicId: string | undefined = route.params?.topicId;
+  const { isLoading, card } = useGetNextCardToPlay(topicId);
+
   const insets = useSafeAreaInsets();
-  const { isLoading, card } = useGetNextCardToPlay(topic.id);
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
   const { submitCardReview } = useSubmitCardReviewMutation(() => setIsAnswerVisible(false));
   if (isLoading) {
@@ -47,7 +49,7 @@ export const PlayCard: FunctionComponent<Props> = ({ route }) => {
   } else if (card) {
     return (
       <Container
-        backgroundColor={getHexFromTopicColorId(topic.colorId)}
+        backgroundColor={getHexFromTopicColorId(card.topic.colorId)}
         paddingBottom={insets.bottom}
       >
         <EmptySpace />
@@ -72,10 +74,7 @@ export const PlayCard: FunctionComponent<Props> = ({ route }) => {
     );
   } else {
     return (
-      <Container
-        backgroundColor={getHexFromTopicColorId(topic.colorId)}
-        paddingBottom={insets.bottom}
-      >
+      <Container backgroundColor={colors.darkGrey} paddingBottom={insets.bottom}>
         <NoCardToReview />
       </Container>
     );

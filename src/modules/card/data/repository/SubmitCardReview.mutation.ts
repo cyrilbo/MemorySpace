@@ -1,6 +1,4 @@
 import { getRepository } from 'typeorm/browser';
-import { Card } from '../../types/Card.type';
-import { adaptCardEntityToCard } from './Card.adapters';
 import { CardEntity } from './Card.entity';
 
 export interface SubmitCardReviewParams {
@@ -11,7 +9,7 @@ export interface SubmitCardReviewParams {
 export const submitCardReview = async ({
   cardId,
   isCardWellKnown,
-}: SubmitCardReviewParams): Promise<Card> => {
+}: SubmitCardReviewParams): Promise<void> => {
   const cardRepository = getRepository(CardEntity);
   const cardEntity = await cardRepository.findOneOrFail(cardId);
   if (isCardWellKnown) {
@@ -20,6 +18,6 @@ export const submitCardReview = async ({
     cardEntity.lastFailureAt = new Date();
     cardEntity.level = 1;
   }
-  const cardEntityUpdated = await cardRepository.save(cardEntity);
-  return adaptCardEntityToCard(cardEntityUpdated);
+  await cardRepository.save(cardEntity);
+  return;
 };

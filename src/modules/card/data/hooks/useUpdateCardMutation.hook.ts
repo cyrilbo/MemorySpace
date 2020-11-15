@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import { useMutation, useQueryCache } from 'react-query';
-import { Card } from '../../types/Card.type';
 import { UpdateCardParams } from '../repository/UpdateCard.mutation';
 import { updateCard } from './../repository/UpdateCard.mutation';
 import { GET_CARDS_QUERY_NAME } from './useGetCardsQuery.hook';
@@ -8,7 +7,7 @@ import { GET_CARDS_QUERY_NAME } from './useGetCardsQuery.hook';
 export const useUpdateCardMutation = (
   onSuccess: () => void
 ): {
-  updateCard: (params: UpdateCardParams) => Promise<Card>;
+  updateCard: (params: UpdateCardParams) => Promise<void>;
 } => {
   const updateCardCallback = useCallback(updateCard, []);
   const cache = useQueryCache();

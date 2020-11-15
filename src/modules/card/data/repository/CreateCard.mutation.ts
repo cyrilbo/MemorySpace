@@ -1,6 +1,4 @@
 import { getRepository } from 'typeorm/browser';
-import { Card } from './../../types/Card.type';
-import { adaptCardEntityToCard } from './Card.adapters';
 import { CardEntity } from './Card.entity';
 
 export interface CreateCardParams {
@@ -13,7 +11,7 @@ export const createCard = async ({
   topicId,
   question,
   answer,
-}: CreateCardParams): Promise<Card> => {
+}: CreateCardParams): Promise<void> => {
   const cardRepository = getRepository(CardEntity);
   const newCardEntity = new CardEntity();
   newCardEntity.topicId = topicId;
@@ -22,6 +20,6 @@ export const createCard = async ({
   newCardEntity.level = 1;
   newCardEntity.lastFailureAt = new Date();
 
-  const cardEntityCreated = await cardRepository.save(newCardEntity);
-  return adaptCardEntityToCard(cardEntityCreated);
+  await cardRepository.save(newCardEntity);
+  return;
 };

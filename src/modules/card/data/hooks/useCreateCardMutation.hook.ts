@@ -1,13 +1,12 @@
 import { useCallback } from 'react';
 import { useMutation, useQueryCache } from 'react-query';
-import { Card } from '../../types/Card.type';
 import { createCard, CreateCardParams } from '../repository/CreateCard.mutation';
 import { GET_CARDS_QUERY_NAME } from './useGetCardsQuery.hook';
 
 export const useCreateCardMutation = (
   onSuccess: () => void
 ): {
-  createCard: (params: CreateCardParams) => Promise<Card>;
+  createCard: (params: CreateCardParams) => Promise<void>;
 } => {
   const createCardCallback = useCallback(createCard, []);
 

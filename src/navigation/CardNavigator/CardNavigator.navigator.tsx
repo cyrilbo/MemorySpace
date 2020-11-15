@@ -27,11 +27,7 @@ export const CardNavigator: FunctionComponent = () => (
         component={TopicCardList}
         options={({ route }) => ({ headerTitle: route.params.topic.name })}
       />
-      <Stack.Screen
-        name={CardNavigatorRouteNames.PlayCard}
-        component={PlayCard}
-        options={({ route }) => ({ headerTitle: route.params.topic.name })}
-      />
+      <Stack.Screen name={CardNavigatorRouteNames.PlayCard} component={PlayCard} />
     </Stack.Navigator>
   </>
 );

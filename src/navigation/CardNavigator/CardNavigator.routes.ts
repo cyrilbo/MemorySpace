@@ -7,5 +7,5 @@ export enum CardNavigatorRouteNames {
 
 export type CardNavigatorRouteParamsList = {
   TopicCardList: { topic: Topic };
-  PlayCard: { topic?: Topic };
+  PlayCard: { topicId?: string };
 };

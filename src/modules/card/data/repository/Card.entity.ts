@@ -19,7 +19,7 @@ export class CardEntity {
   @JoinColumn({
     name: 'topicId',
   })
-  topic?: TopicEntity;
+  topic: TopicEntity;
 
   @Column('uuid', { nullable: false })
   topicId: string;
