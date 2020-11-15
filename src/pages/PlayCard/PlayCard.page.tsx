@@ -1,15 +1,11 @@
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import React, { FunctionComponent, useLayoutEffect, useState } from 'react';
+import React, { FunctionComponent, useLayoutEffect } from 'react';
 import { ActivityIndicator } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Spacer } from '../../core/components/Spacer/Spacer.component';
 import { colors } from '../../core/theme/colors';
 import styled from '../../core/theme/styled-components';
-import { useSubmitCardReviewMutation } from '../../modules/card/data/hooks/useSubmitCardReviewMutation.hook';
-import { BlurableAnswer } from '../../modules/srs/components/BlurableAnswer/BlurableAnswer.component';
+import { CardReviewForm } from '../../modules/srs/components/CardReviewForm/CardReviewForm.component';
 import { NoCardToReview } from '../../modules/srs/components/NoCardToReview/NoCardToReview.component';
-import { ResultForm } from '../../modules/srs/components/ResultForm/ResultForm.component';
 import { useGetNextCardToPlay } from '../../modules/srs/data/hooks/useGetNextCardToPlay.hook';
 import { Topic } from '../../modules/topic/types/Topic.type';
 import { getHexFromTopicColorId } from '../../modules/topic/utils/getHexFromTopicColorId.utils';
@@ -41,8 +37,6 @@ type Props = {
 export const PlayCard: FunctionComponent<Props> = ({ route, navigation }) => {
   const topic: Topic | undefined = route.params?.topic;
   const { isLoading, card } = useGetNextCardToPlay(topic?.id);
-  const insets = useSafeAreaInsets();
-  const [isAnswerVisible, setIsAnswerVisible] = useState(false);
   useLayoutEffect(() => {
     if (card?.topic?.name) {
       navigation.setOptions({
@@ -54,56 +48,24 @@ export const PlayCard: FunctionComponent<Props> = ({ route, navigation }) => {
       });
     }
   }, [navigation, card?.topic?.name]);
-  const { submitCardReview } = useSubmitCardReviewMutation(() => setIsAnswerVisible(false));
   if (isLoading) {
     return <ActivityIndicator />;
   } else if (card) {
     return (
-      <Container
-        backgroundColor={getHexFromTopicColorId(card.topic.colorId)}
-        paddingBottom={insets.bottom}
-      >
-        <EmptySpace />
-        <Question>{card.question}</Question>
-        <Spacer height={2} />
-        <BlurableAnswer
-          answer={card.answer}
-          isVisible={isAnswerVisible}
-          onToggleVisibilityPress={() => setIsAnswerVisible(!isAnswerVisible)}
-        />
-        <EmptySpace />
-        <ResultForm
-          onFailurePress={() => {
-            submitCardReview({ cardId: card.id, isCardWellKnown: false });
-          }}
-          onSuccessPress={() => {
-            submitCardReview({ cardId: card.id, isCardWellKnown: true });
-          }}
-        />
-        <Spacer height={4} />
+      <Container backgroundColor={getHexFromTopicColorId(card.topic.colorId)}>
+        <CardReviewForm card={card} />
       </Container>
     );
   } else {
     return (
-      <Container backgroundColor={colors.darkGrey} paddingBottom={insets.bottom}>
+      <Container backgroundColor={colors.darkGrey}>
         <NoCardToReview topicName={topic?.name} />
       </Container>
     );
   }
 };
 
-const Container = styled.SafeAreaView<{ backgroundColor: string; paddingBottom: number }>(
-  ({ backgroundColor, paddingBottom }) => ({
-    flex: 1,
-    backgroundColor,
-    paddingBottom,
-  })
-);
-
-const Question = styled.Text(({ theme }) => ({
-  fontWeight: 'bold',
-  fontSize: 24,
-  paddingHorizontal: theme.gridUnit * 2,
+const Container = styled.View<{ backgroundColor: string }>(({ backgroundColor }) => ({
+  flex: 1,
+  backgroundColor,
 }));
-
-const EmptySpace = styled.View({ flex: 1 });
