@@ -1,12 +1,13 @@
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { FunctionComponent, useState } from 'react';
-import { ActivityIndicator, Text } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Spacer } from '../../core/components/Spacer/Spacer.component';
 import styled from '../../core/theme/styled-components';
 import { useSubmitCardReviewMutation } from '../../modules/card/data/hooks/useSubmitCardReviewMutation.hook';
 import { BlurableAnswer } from '../../modules/srs/components/BlurableAnswer/BlurableAnswer.component';
+import { NoCardToReview } from '../../modules/srs/components/NoCardToReview/NoCardToReview.component';
 import { ResultForm } from '../../modules/srs/components/ResultForm/ResultForm.component';
 import { useGetNextCardToPlay } from '../../modules/srs/data/hooks/useGetNextCardToPlay.hook';
 import { getHexFromTopicColorId } from '../../modules/topic/utils/getHexFromTopicColorId.utils';
@@ -39,7 +40,7 @@ export const PlayCard: FunctionComponent<Props> = ({ route }) => {
   const topic = route.params.topic;
   const insets = useSafeAreaInsets();
   const { isLoading, card } = useGetNextCardToPlay(topic.id);
-  const { submitCardReview } = useSubmitCardReviewMutation(() => {});
+  const { submitCardReview } = useSubmitCardReviewMutation();
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
   if (isLoading) {
     return <ActivityIndicator />;
@@ -70,7 +71,14 @@ export const PlayCard: FunctionComponent<Props> = ({ route }) => {
       </Container>
     );
   } else {
-    return <Text>no card to review</Text>;
+    return (
+      <Container
+        backgroundColor={getHexFromTopicColorId(topic.colorId)}
+        paddingBottom={insets.bottom}
+      >
+        <NoCardToReview />
+      </Container>
+    );
   }
 };
 

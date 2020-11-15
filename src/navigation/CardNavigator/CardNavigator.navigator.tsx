@@ -30,7 +30,7 @@ export const CardNavigator: FunctionComponent = () => (
       <Stack.Screen
         name={CardNavigatorRouteNames.PlayCard}
         component={PlayCard}
-        options={{ headerShown: false }}
+        options={({ route }) => ({ headerTitle: route.params.topic.name })}
       />
     </Stack.Navigator>
   </>
