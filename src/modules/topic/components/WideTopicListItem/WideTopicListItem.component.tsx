@@ -22,7 +22,7 @@ export const WideTopicListItem: FunctionComponent<Props> = ({ topic, onPress }) 
       onLongPress={() =>
         Alert.alert(
           'Deletion',
-          'Are you sure you want to delete this topic? All the cards associated to this topic will be deleted as well.',
+          'Are you sure you want to delete this topic? All the cards associated to it will be deleted as well.',
           [
             {
               text: 'Cancel',

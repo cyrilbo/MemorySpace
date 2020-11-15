@@ -1,6 +1,6 @@
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useLayoutEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Spacer } from '../../core/components/Spacer/Spacer.component';
@@ -38,12 +38,22 @@ type Props = {
   route: PlayCardScreenRouteProp;
 };
 
-export const PlayCard: FunctionComponent<Props> = ({ route }) => {
+export const PlayCard: FunctionComponent<Props> = ({ route, navigation }) => {
   const topic: Topic | undefined = route.params?.topic;
   const { isLoading, card } = useGetNextCardToPlay(topic?.id);
-
   const insets = useSafeAreaInsets();
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
+  useLayoutEffect(() => {
+    if (card?.topic?.name) {
+      navigation.setOptions({
+        headerTitle: card.topic.name,
+      });
+    } else {
+      navigation.setOptions({
+        headerTitle: 'Review',
+      });
+    }
+  }, [navigation, card?.topic?.name]);
   const { submitCardReview } = useSubmitCardReviewMutation(() => setIsAnswerVisible(false));
   if (isLoading) {
     return <ActivityIndicator />;
