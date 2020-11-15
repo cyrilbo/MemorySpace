@@ -5,12 +5,13 @@ import { PlayIcon } from '../../../../core/icons/Play/PlayIcon.component';
 interface Props {
   onPress?: () => void;
   color?: string;
+  size?: number;
 }
 
-export const PlayButton: FunctionComponent<Props> = ({ onPress, color }) => {
+export const PlayButton: FunctionComponent<Props> = ({ onPress, color, size }) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <PlayIcon color={color} size={28} />
+      <PlayIcon color={color} size={size} />
     </TouchableOpacity>
   );
 };

@@ -7,7 +7,7 @@ interface Props {
   color?: string;
 }
 
-export const PlayIcon: FunctionComponent<Props> = ({ color = colors.ivory, size = 20 }) => {
+export const PlayIcon: FunctionComponent<Props> = ({ color = colors.ivory, size = 28 }) => {
   return (
     <Svg width={size} height={size} viewBox="0 0 72 72" fill="none">
       <Path

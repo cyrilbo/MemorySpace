@@ -5,22 +5,16 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { RoundButton } from '../../core/components/RoundButton/RoundButton.component';
 import styled from '../../core/theme/styled-components';
 import { PlayButton } from '../../modules/srs/components/PlayButton/PlayButton.component';
-import { usePlayButton } from '../../modules/srs/hooks/usePlayButton.hook';
-import { NoTopics } from '../../modules/topic/components/NoTopics/NoTopics.component';
 import { WideTopicList } from '../../modules/topic/components/WideTopicList/WideTopicList.component';
 import { useGetTopicsQuery } from '../../modules/topic/data/hooks/useGetTopicsQuery.hook';
-import { Topic } from '../../modules/topic/types/Topic.type';
 import {
   AppNavigatorRouteNames,
   AppNavigatorRouteParamsList,
 } from '../../navigation/AppNavigator/AppNavigator.routes';
-import { CardNavigatorRouteNames } from '../../navigation/CardNavigator/CardNavigator.routes';
-import {
-  RootNavigatorRouteNames,
-  RootNavigatorRouteParamsList,
-} from '../../navigation/RootNavigator/RootNavigator.routes';
+import { RootNavigatorRouteParamsList } from '../../navigation/RootNavigator/RootNavigator.routes';
+import { useHomeNavigation } from './Home.hooks';
 
-type HomeScreenNavigationProp = CompositeNavigationProp<
+export type HomeScreenNavigationProp = CompositeNavigationProp<
   StackNavigationProp<AppNavigatorRouteParamsList, AppNavigatorRouteNames.Home>,
   StackNavigationProp<RootNavigatorRouteParamsList>
 >;
@@ -30,32 +24,21 @@ type Props = {
 };
 
 export const Home: FunctionComponent<Props> = ({ navigation }) => {
-  const openCreateCardModal = () => navigation.navigate(RootNavigatorRouteNames.EditCardModal);
-  const openCardNavigator = (topic: Topic) =>
-    navigation.navigate(AppNavigatorRouteNames.CardNavigator, {
-      screen: CardNavigatorRouteNames.TopicCardList,
-      params: { topic },
-    });
-
-  const openPlayCardScreen = () =>
-    navigation.navigate(AppNavigatorRouteNames.CardNavigator, {
-      screen: CardNavigatorRouteNames.PlayCard,
-    });
-
-  usePlayButton(navigation, openPlayCardScreen);
+  const { openEditCardModal, openPlayCardScreen, openTopicCardListScreen } = useHomeNavigation(
+    navigation
+  );
   const insets = useSafeAreaInsets();
   const { topics } = useGetTopicsQuery();
 
   return (
     <Container paddingTop={insets.top} paddingBottom={insets.bottom}>
-      <PlayButton onPress={openPlayCardScreen} />
-      {topics.length > 0 ? (
-        <WideTopicList topics={topics} onTopicPress={(topic) => openCardNavigator(topic)} />
-      ) : (
-        <NoTopics />
-      )}
+      <PlayButtonContainer>
+        <PlayButton onPress={openPlayCardScreen} size={40} />
+      </PlayButtonContainer>
+
+      <WideTopicList topics={topics} onTopicPress={(topic) => openTopicCardListScreen(topic)} />
       <AddCardButtonContainer>
-        <RoundButton onPress={openCreateCardModal} />
+        <RoundButton onPress={openEditCardModal} />
       </AddCardButtonContainer>
     </Container>
   );
@@ -70,6 +53,8 @@ const Container = styled.View<{ paddingTop: number; paddingBottom: number }>(
     paddingHorizontal: theme.gridUnit * 2,
   })
 );
+
+const PlayButtonContainer = styled.View({ alignItems: 'center', justifyContent: 'center' });
 
 const AddCardButtonContainer = styled.View(({ theme }) => ({
   position: 'absolute',

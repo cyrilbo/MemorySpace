@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { FlatList } from 'react-native';
 import styled from '../../../../core/theme/styled-components';
 import { Topic } from '../../types/Topic.type';
+import { NoTopics } from '../NoTopics/NoTopics.component';
 import { WideTopicListItem } from '../WideTopicListItem/WideTopicListItem.component';
 
 interface Props {
@@ -10,17 +11,21 @@ interface Props {
 }
 
 export const WideTopicList: FunctionComponent<Props> = ({ onTopicPress, topics }) => {
-  return (
-    <FlatList<Topic>
-      data={topics}
-      renderItem={({ item }) => (
-        <TopicListItemContainer key={item.id}>
-          <WideTopicListItem topic={item} onPress={() => onTopicPress(item)} />
-        </TopicListItemContainer>
-      )}
-      keyExtractor={(topic) => topic.id}
-    />
-  );
+  if (!topics || topics.length === 0) {
+    return <NoTopics />;
+  } else {
+    return (
+      <FlatList<Topic>
+        data={topics}
+        renderItem={({ item }) => (
+          <TopicListItemContainer key={item.id}>
+            <WideTopicListItem topic={item} onPress={() => onTopicPress(item)} />
+          </TopicListItemContainer>
+        )}
+        keyExtractor={(topic) => topic.id}
+      />
+    );
+  }
 };
 
 const TopicListItemContainer = styled.View(({ theme }) => ({
