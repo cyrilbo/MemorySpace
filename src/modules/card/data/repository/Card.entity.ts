@@ -13,7 +13,9 @@ export class CardEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => TopicEntity, (topic) => topic.cards)
+  @ManyToOne(() => TopicEntity, (topic) => topic.cards, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({
     name: 'topicId',
   })

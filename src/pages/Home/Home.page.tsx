@@ -4,6 +4,7 @@ import React, { FunctionComponent } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { RoundButton } from '../../core/components/RoundButton/RoundButton.component';
 import styled from '../../core/theme/styled-components';
+import { NoTopics } from '../../modules/topic/components/NoTopics/NoTopics.component';
 import { WideTopicList } from '../../modules/topic/components/WideTopicList/WideTopicList.component';
 import { useGetTopicsQuery } from '../../modules/topic/data/hooks/useGetTopicsQuery.hook';
 import { Topic } from '../../modules/topic/types/Topic.type';
@@ -38,7 +39,11 @@ export const Home: FunctionComponent<Props> = ({ navigation }) => {
 
   return (
     <Container paddingTop={insets.top} paddingBottom={insets.bottom}>
-      <WideTopicList topics={topics} onTopicPress={(topic) => openCardNavigator(topic)} />
+      {topics.length > 0 ? (
+        <WideTopicList topics={topics} onTopicPress={(topic) => openCardNavigator(topic)} />
+      ) : (
+        <NoTopics />
+      )}
       <AddCardButtonContainer>
         <RoundButton onPress={openCreateCardModal} />
       </AddCardButtonContainer>

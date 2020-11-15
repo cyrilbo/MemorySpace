@@ -7,7 +7,7 @@ export const NoTopics: FunctionComponent = () => {
   return (
     <Container>
       <EmptyIllustation width={200} />
-      <Spacer height={3} />
+      <Spacer height={4} />
       <Title>No topics found</Title>
     </Container>
   );
