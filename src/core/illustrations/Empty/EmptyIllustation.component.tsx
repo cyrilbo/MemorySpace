@@ -7,6 +7,7 @@ const DEFAULT_HEIGHT = 789.93;
 interface Props {
   width: number;
 }
+
 export const EmptyIllustation: FunctionComponent<Props> = ({ width }) => {
   return (
     <Svg

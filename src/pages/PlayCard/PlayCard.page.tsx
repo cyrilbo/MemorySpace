@@ -11,6 +11,7 @@ import { BlurableAnswer } from '../../modules/srs/components/BlurableAnswer/Blur
 import { NoCardToReview } from '../../modules/srs/components/NoCardToReview/NoCardToReview.component';
 import { ResultForm } from '../../modules/srs/components/ResultForm/ResultForm.component';
 import { useGetNextCardToPlay } from '../../modules/srs/data/hooks/useGetNextCardToPlay.hook';
+import { Topic } from '../../modules/topic/types/Topic.type';
 import { getHexFromTopicColorId } from '../../modules/topic/utils/getHexFromTopicColorId.utils';
 import { AppNavigatorRouteParamsList } from '../../navigation/AppNavigator/AppNavigator.routes';
 import {
@@ -38,8 +39,8 @@ type Props = {
 };
 
 export const PlayCard: FunctionComponent<Props> = ({ route }) => {
-  const topicId: string | undefined = route.params?.topicId;
-  const { isLoading, card } = useGetNextCardToPlay(topicId);
+  const topic: Topic | undefined = route.params?.topic;
+  const { isLoading, card } = useGetNextCardToPlay(topic?.id);
 
   const insets = useSafeAreaInsets();
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
@@ -75,7 +76,7 @@ export const PlayCard: FunctionComponent<Props> = ({ route }) => {
   } else {
     return (
       <Container backgroundColor={colors.darkGrey} paddingBottom={insets.bottom}>
-        <NoCardToReview />
+        <NoCardToReview topicName={topic?.name} />
       </Container>
     );
   }

@@ -9,7 +9,7 @@ export const useTopicCardListNavigation = (
   topic: Topic
 ): { openEditCardModal: (card?: Card) => void; openPlayCardScreen: () => void } => {
   const openPlayCardScreen = () =>
-    navigation.navigate(CardNavigatorRouteNames.PlayCard, { topicId: topic.id });
+    navigation.navigate(CardNavigatorRouteNames.PlayCard, { topic: topic });
   const openEditCardModal = (card?: Card) =>
     navigation.navigate(RootNavigatorRouteNames.EditCardModal, { card, topic });
   return { openEditCardModal, openPlayCardScreen };
