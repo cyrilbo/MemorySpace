@@ -4,7 +4,7 @@ import { getFibonacciNumber } from './getFibonacciNumber.lib';
 const MS_IN_ONE_DAY = 1000 * 60 * 60 * 24;
 
 const getCardNextCheckTimeInMs = (card: Card): number =>
-  card.lastFailureAt + getFibonacciNumber(card.level) * MS_IN_ONE_DAY;
+  card.lastFailureAt + (getFibonacciNumber(card.level) - 1) * MS_IN_ONE_DAY;
 
 export const getNextCardToPlayFromCards = (cards: Card[]): Card | undefined => {
   const currentMsTime = new Date().getTime();

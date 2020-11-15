@@ -36,9 +36,9 @@ type Props = {
 };
 
 export const TopicCardList: FunctionComponent<Props> = ({ route, navigation }) => {
-  const openPlayCardScreen = () => navigation.navigate(CardNavigatorRouteNames.PlayCard);
-  usePlayButton(navigation, openPlayCardScreen);
   const topic = route.params?.topic;
+  const openPlayCardScreen = () => navigation.navigate(CardNavigatorRouteNames.PlayCard, { topic });
+  usePlayButton(navigation, openPlayCardScreen);
   const { cards } = useGetCardsQuery({ topicId: topic.id });
   const openEditCardPage = (card: Card) =>
     navigation.navigate(RootNavigatorRouteNames.EditCardModal, { card, topic });

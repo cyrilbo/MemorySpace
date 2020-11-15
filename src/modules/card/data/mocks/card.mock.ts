@@ -5,7 +5,7 @@ const defaultCardMock: Card = {
   id: 'default_id',
   createdAt: new Date('2019-04-22T10:20:30Z').getTime(),
   lastFailureAt: new Date('2019-04-22T10:20:30Z').getTime(),
-  level: 0,
+  level: 1,
   topicId: 'default_topic_id',
 };
 

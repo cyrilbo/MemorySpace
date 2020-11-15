@@ -13,7 +13,7 @@ describe('getNextCardToPlayFromCards', () => {
     const card1 = getCardMock({ lastFailureAt: new Date('2019-04-23T10:20:30Z').getTime() });
     const card2 = getCardMock({
       lastFailureAt: new Date('2019-04-21T10:20:30Z').getTime(),
-      level: 2,
+      level: 5,
     });
     expect(getNextCardToPlayFromCards([card1, card2])).toBeUndefined();
   });
