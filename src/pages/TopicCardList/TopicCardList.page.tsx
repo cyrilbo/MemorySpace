@@ -1,6 +1,7 @@
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { FunctionComponent } from 'react';
+import { RoundButton } from '../../core/components/RoundButton/RoundButton.component';
 import styled from '../../core/theme/styled-components';
 import { QuestionList } from '../../modules/card/components/QuestionList/QuestionList.component';
 import { useGetCardsQuery } from '../../modules/card/data/hooks/useGetCardsQuery.hook';
@@ -40,11 +41,15 @@ export const TopicCardList: FunctionComponent<Props> = ({ route, navigation }) =
   const openPlayCardScreen = () => navigation.navigate(CardNavigatorRouteNames.PlayCard, { topic });
   usePlayButton(navigation, openPlayCardScreen);
   const { cards } = useGetCardsQuery({ topicId: topic.id });
-  const openEditCardPage = (card: Card) =>
+  const openEditCardModal = (card?: Card) =>
     navigation.navigate(RootNavigatorRouteNames.EditCardModal, { card, topic });
+
   return (
     <Container backgroundColor={getHexFromTopicColorId(topic.colorId)}>
-      <QuestionList cards={cards} onQuestionPress={openEditCardPage} />
+      <QuestionList cards={cards} onQuestionPress={openEditCardModal} />
+      <AddCardButtonContainer>
+        <RoundButton onPress={() => openEditCardModal()} />
+      </AddCardButtonContainer>
     </Container>
   );
 };
@@ -52,4 +57,10 @@ export const TopicCardList: FunctionComponent<Props> = ({ route, navigation }) =
 const Container = styled.SafeAreaView<{ backgroundColor: string }>(({ backgroundColor }) => ({
   flex: 1,
   backgroundColor,
+}));
+
+const AddCardButtonContainer = styled.View(({ theme }) => ({
+  position: 'absolute',
+  bottom: theme.gridUnit * 6,
+  right: theme.gridUnit * 6,
 }));
