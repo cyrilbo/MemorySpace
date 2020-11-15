@@ -19,7 +19,7 @@ export const createCard = async ({
   newCardEntity.topicId = topicId;
   newCardEntity.question = question;
   newCardEntity.answer = answer;
-  newCardEntity.level = 0;
+  newCardEntity.level = 1;
   newCardEntity.lastFailureAt = new Date();
 
   const cardEntityCreated = await cardRepository.save(newCardEntity);
