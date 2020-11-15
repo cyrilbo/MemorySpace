@@ -37,7 +37,7 @@ export const TopicCardList: FunctionComponent<Props> = ({ route, navigation }) =
   const topic = route.params?.topic;
   const { cards } = useGetCardsQuery({ topicId: topic.id });
   const { openEditCardModal, openPlayCardScreen } = useTopicCardListNavigation(navigation, topic);
-  usePlayButton(navigation, openPlayCardScreen);
+  usePlayButton(navigation, openPlayCardScreen, cards.length > 0);
   return (
     <Container backgroundColor={getHexFromTopicColorId(topic.colorId)}>
       <QuestionList cards={cards} onQuestionPress={openEditCardModal} />

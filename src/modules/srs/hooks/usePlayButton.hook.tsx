@@ -8,17 +8,24 @@ export const usePlayButton = <
   }
 >(
   navigation: TNavigation,
-  onPress: () => void
+  onPress: () => void,
+  isDisplayed: boolean
 ): void => {
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: ({ tintColor }) => (
-        <PlayButtonContainer>
-          <PlayButton color={tintColor} onPress={onPress} />
-        </PlayButtonContainer>
-      ),
+      headerRight: ({ tintColor }) => {
+        if (isDisplayed) {
+          return (
+            <PlayButtonContainer>
+              <PlayButton color={tintColor} onPress={onPress} />
+            </PlayButtonContainer>
+          );
+        } else {
+          return null;
+        }
+      },
     });
-  }, [navigation, onPress]);
+  }, [navigation, onPress, isDisplayed]);
 };
 
 const PlayButtonContainer = styled.View(({ theme }) => ({
