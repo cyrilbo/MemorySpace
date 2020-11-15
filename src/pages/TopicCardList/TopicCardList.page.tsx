@@ -5,7 +5,6 @@ import { RoundButton } from '../../core/components/RoundButton/RoundButton.compo
 import styled from '../../core/theme/styled-components';
 import { QuestionList } from '../../modules/card/components/QuestionList/QuestionList.component';
 import { useGetCardsQuery } from '../../modules/card/data/hooks/useGetCardsQuery.hook';
-import { Card } from '../../modules/card/types/Card.type';
 import { usePlayButton } from '../../modules/srs/hooks/usePlayButton.hook';
 import { getHexFromTopicColorId } from '../../modules/topic/utils/getHexFromTopicColorId.utils';
 import { AppNavigatorRouteParamsList } from '../../navigation/AppNavigator/AppNavigator.routes';
@@ -13,12 +12,10 @@ import {
   CardNavigatorRouteNames,
   CardNavigatorRouteParamsList,
 } from '../../navigation/CardNavigator/CardNavigator.routes';
-import {
-  RootNavigatorRouteNames,
-  RootNavigatorRouteParamsList,
-} from '../../navigation/RootNavigator/RootNavigator.routes';
+import { RootNavigatorRouteParamsList } from '../../navigation/RootNavigator/RootNavigator.routes';
+import { useTopicCardListNavigation } from './TopicCardList.hooks';
 
-type TopicCardListScreenNavigationProp = CompositeNavigationProp<
+export type TopicCardListScreenNavigationProp = CompositeNavigationProp<
   CompositeNavigationProp<
     StackNavigationProp<CardNavigatorRouteParamsList, CardNavigatorRouteNames.TopicCardList>,
     StackNavigationProp<AppNavigatorRouteParamsList>
@@ -38,13 +35,9 @@ type Props = {
 
 export const TopicCardList: FunctionComponent<Props> = ({ route, navigation }) => {
   const topic = route.params?.topic;
-  const openPlayCardScreen = () =>
-    navigation.navigate(CardNavigatorRouteNames.PlayCard, { topicId: topic.id });
-  usePlayButton(navigation, openPlayCardScreen);
   const { cards } = useGetCardsQuery({ topicId: topic.id });
-  const openEditCardModal = (card?: Card) =>
-    navigation.navigate(RootNavigatorRouteNames.EditCardModal, { card, topic });
-
+  const { openEditCardModal, openPlayCardScreen } = useTopicCardListNavigation(navigation, topic);
+  usePlayButton(navigation, openPlayCardScreen);
   return (
     <Container backgroundColor={getHexFromTopicColorId(topic.colorId)}>
       <QuestionList cards={cards} onQuestionPress={openEditCardModal} />

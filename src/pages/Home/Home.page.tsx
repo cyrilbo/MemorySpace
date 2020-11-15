@@ -54,7 +54,11 @@ const Container = styled.View<{ paddingTop: number; paddingBottom: number }>(
   })
 );
 
-const PlayButtonContainer = styled.View({ alignItems: 'center', justifyContent: 'center' });
+const PlayButtonContainer = styled.View(({ theme }) => ({
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginBottom: theme.gridUnit * 4,
+}));
 
 const AddCardButtonContainer = styled.View(({ theme }) => ({
   position: 'absolute',
