@@ -40,8 +40,8 @@ export const PlayCard: FunctionComponent<Props> = ({ route }) => {
   const topic = route.params.topic;
   const insets = useSafeAreaInsets();
   const { isLoading, card } = useGetNextCardToPlay(topic.id);
-  const { submitCardReview } = useSubmitCardReviewMutation();
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
+  const { submitCardReview } = useSubmitCardReviewMutation(() => setIsAnswerVisible(false));
   if (isLoading) {
     return <ActivityIndicator />;
   } else if (card) {

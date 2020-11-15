@@ -21,11 +21,14 @@ export const SelectTopicForm: FunctionComponent<Props> = ({ onTopicSelected }) =
   const { topics } = useGetTopicsQuery({ name: debouncedTopicSearchInput });
   return (
     <>
-      <Input
-        value={topicSearchInput}
-        onChangeText={setTopicSearchInput}
-        placeholder="Search for a topic..."
-      />
+      <InputContainer>
+        <Input
+          value={topicSearchInput}
+          onChangeText={setTopicSearchInput}
+          placeholder="Search for a topic..."
+        />
+      </InputContainer>
+
       <TopicList
         topics={topics}
         onTopicPress={(topic: Topic) => onTopicSelected(topic)}
@@ -45,6 +48,8 @@ export const SelectTopicForm: FunctionComponent<Props> = ({ onTopicSelected }) =
     </>
   );
 };
+
+const InputContainer = styled.View({ flexDirection: 'row' });
 
 const Input = styled(TextInput)(({ theme }) => ({
   borderTopWidth: 1,

@@ -50,12 +50,16 @@ export const EditCardForm: FunctionComponent<Props> = ({
         )}
       </Row>
       <Row disabled>
-        <QuestionMarkIcon size={24} />
+        <IconContainer>
+          <QuestionMarkIcon size={24} />
+        </IconContainer>
         <Spacer width={2} />
         <TextInput value={question} onChangeText={setQuestion} placeholder="question" multiline />
       </Row>
       <Row disabled>
-        <CheckIcon size={24} />
+        <IconContainer>
+          <CheckIcon size={24} />
+        </IconContainer>
         <Spacer width={2} />
         <TextInput value={answer} onChangeText={setAnswer} placeholder="answer" multiline />
       </Row>
@@ -86,7 +90,6 @@ const Container = styled.View(({ theme }) => ({
 
 const Row = styled.TouchableOpacity(({ theme }) => ({
   flexDirection: 'row',
-  alignItems: 'center',
   borderBottomWidth: 1,
   borderColor: theme.colors.black,
   padding: theme.gridUnit * 4,
@@ -95,3 +98,8 @@ const Row = styled.TouchableOpacity(({ theme }) => ({
 const TopicPlaceholder = styled.Text(({ theme }) => ({ color: theme.colors.ivory, opacity: 0.5 }));
 
 const EmptySpace = styled.View({ flex: 1 });
+
+const IconContainer = styled.View({
+  justifyContent: 'flex-start',
+  paddingTop: 2,
+});
