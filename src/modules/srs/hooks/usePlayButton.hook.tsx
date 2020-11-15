@@ -3,19 +3,22 @@ import styled from '../../../core/theme/styled-components';
 import { PlayButton } from '../components/PlayButton/PlayButton.component';
 
 export const usePlayButton = <
-  TNavigation extends { setOptions: (options: Record<string, unknown>) => void }
+  TNavigation extends {
+    setOptions: (options: Record<string, unknown>) => void;
+  }
 >(
-  navigation: TNavigation
+  navigation: TNavigation,
+  onPress: () => void
 ): void => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: ({ tintColor }) => (
         <PlayButtonContainer>
-          <PlayButton color={tintColor} />
+          <PlayButton color={tintColor} onPress={onPress} />
         </PlayButtonContainer>
       ),
     });
-  }, [navigation]);
+  }, [navigation, onPress]);
 };
 
 const PlayButtonContainer = styled.View(({ theme }) => ({
