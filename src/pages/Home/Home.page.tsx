@@ -33,7 +33,7 @@ export const Home: FunctionComponent<Props> = ({ navigation }) => {
   return (
     <Container paddingTop={insets.top} paddingBottom={insets.bottom}>
       <PlayButtonContainer>
-        <PlayButton onPress={openPlayCardScreen} size={40} />
+        <PlayButton onPress={openPlayCardScreen} size={60} />
       </PlayButtonContainer>
 
       <WideTopicList topics={topics} onTopicPress={(topic) => openTopicCardListScreen(topic)} />
@@ -48,7 +48,7 @@ const Container = styled.View<{ paddingTop: number; paddingBottom: number }>(
   ({ theme, paddingTop, paddingBottom }) => ({
     flex: 1,
     backgroundColor: theme.colors.darkGrey,
-    paddingTop: Math.max(theme.gridUnit * 2, paddingTop),
+    paddingTop: Math.max(theme.gridUnit * 4, paddingTop),
     paddingBottom,
     paddingHorizontal: theme.gridUnit * 2,
   })

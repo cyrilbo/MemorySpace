@@ -8,6 +8,7 @@ import { colors } from '../../../../core/theme/colors';
 import styled from '../../../../core/theme/styled-components';
 import { useSubmitCardReviewMutation } from '../../../card/data/hooks/useSubmitCardReviewMutation.hook';
 import { Card } from '../../../card/types/Card.type';
+import { getHexFromTopicColorId } from '../../../topic/utils/getHexFromTopicColorId.utils';
 import { ResultForm } from '../ResultForm/ResultForm.component';
 
 interface Props {
@@ -44,7 +45,11 @@ export const CardReviewForm: FunctionComponent<Props> = ({ card }) => {
       ) : null}
       <Spacer height={insets.bottom / theme.dividerSize + MARGIN_BOTTOM} />
       {!isAnswerVisible ? (
-        <Blur blurType="light" blurAmount={2} reducedTransparencyFallbackColor="#000">
+        <Blur
+          blurType="light"
+          blurAmount={2}
+          reducedTransparencyFallbackColor={getHexFromTopicColorId(card.topic.colorId)}
+        >
           <EyeIconContainer
             onPress={() => {
               setIsAnswerVisible(!isAnswerVisible);
