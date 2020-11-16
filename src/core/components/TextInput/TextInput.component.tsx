@@ -11,7 +11,7 @@ export const TextInput: FunctionComponent<Props> = (props) => {
       <Input
         scrollEnabled={false}
         placeholderTextColor={colors.transparentIvory}
-        selectionColor={colors.ivory}
+        selectionColor={colors.transparentIvory}
         {...props}
       />
     </Container>
@@ -20,6 +20,7 @@ export const TextInput: FunctionComponent<Props> = (props) => {
 
 const Container = styled.View({
   flex: 1,
+  justifyContent: 'center',
 });
 
 const Input = styled.TextInput(({ theme }) => ({
