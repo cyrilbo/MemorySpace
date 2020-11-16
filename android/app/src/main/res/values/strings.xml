@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MemorySpace</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">wFf-39Nd7gAejQTCmhNhFVsga0a7cPZdsbJTw</string>
 </resources>

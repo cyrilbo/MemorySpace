@@ -9,7 +9,9 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "postinstall": "patch-package",
-    "deploy:soft:ios": "appcenter codepush release-react -a cyril.bonaccini/MemorySpace -d Staging"
+    "deploy:soft:ios": "appcenter codepush release-react -a cyril.bonaccini/MemorySpace -d Staging",
+    "deploy:soft:android": "appcenter codepush release-react -a cyril.bonaccini/MemorySpaceDev-android -d Staging",
+    "deploy:soft": "yarn deploy:soft:ios && yarn deploy:soft:android"
   },
   "dependencies": {
     "@react-native-community/blur": "^3.6.0",
