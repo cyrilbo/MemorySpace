@@ -17,4 +17,6 @@ const Container = styled.View({ flex: 1, alignItems: 'center', justifyContent: '
 
 const Title = styled.Text(({ theme }) => ({
   color: theme.colors.ivory,
+  fontFamily: theme.fontFamilies.semiBold,
+  fontSize: theme.fontSizes.l,
 }));

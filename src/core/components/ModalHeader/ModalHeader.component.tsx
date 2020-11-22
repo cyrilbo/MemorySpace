@@ -35,8 +35,8 @@ const Container = styled.View<{ topInset: number }>(({ theme, topInset }) => ({
 
 const Title = styled.Text(({ theme }) => ({
   color: theme.colors.ivory,
-  fontSize: 20,
-  fontWeight: 'bold',
+  fontSize: theme.fontSizes.xxxl,
+  fontFamily: theme.fontFamilies.bold,
 }));
 
 const IconContainer = styled.TouchableOpacity({

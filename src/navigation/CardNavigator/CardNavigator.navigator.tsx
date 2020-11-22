@@ -1,6 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { FunctionComponent } from 'react';
 import { StatusBar } from 'react-native';
+import { theme } from '../../core/theme';
 import { colors } from '../../core/theme/colors';
 import { PlayCard } from '../../pages/PlayCard/PlayCard.page';
 import { TopicCardList } from '../../pages/TopicCardList/TopicCardList.page';
@@ -18,7 +19,12 @@ export const CardNavigator: FunctionComponent = () => (
         },
         headerTintColor: colors.ivory,
         headerTitleStyle: {
-          fontWeight: 'bold',
+          fontFamily: theme.fontFamilies.bold,
+          fontSize: theme.fontSizes.xxl,
+        },
+        headerBackTitleStyle: {
+          fontFamily: theme.fontFamilies.bold,
+          fontSize: theme.fontSizes.xl,
         },
       }}
     >

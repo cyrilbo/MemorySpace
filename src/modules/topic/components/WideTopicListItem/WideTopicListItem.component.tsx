@@ -58,7 +58,7 @@ const Container = styled.TouchableOpacity<{ backgroundColor: string }>(
 
 const Name = styled.Text(({ theme }) => ({
   color: theme.colors.black,
-  fontWeight: 'bold',
+  fontFamily: theme.fontFamilies.bold,
+  fontSize: theme.fontSizes.xxxl,
   flex: 1,
-  fontSize: 20,
 }));

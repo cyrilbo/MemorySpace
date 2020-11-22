@@ -25,5 +25,7 @@ const Container = styled.View({
 
 const Input = styled.TextInput(({ theme }) => ({
   color: theme.colors.ivory,
+  fontFamily: theme.fontFamilies.semiBold,
+  fontSize: theme.fontSizes.l,
   padding: 0,
 }));

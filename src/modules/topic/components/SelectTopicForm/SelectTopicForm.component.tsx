@@ -36,11 +36,7 @@ export const SelectTopicForm: FunctionComponent<Props> = ({ onTopicSelected }) =
         NoData={
           <>
             {topicSearchInput.length > 0 ? (
-              <CreateTopicButton
-                name={topicSearchInput}
-                topicColor={topicColor}
-                onTopicCreated={() => console.log('created')}
-              />
+              <CreateTopicButton name={topicSearchInput} topicColor={topicColor} />
             ) : null}
             <NoTopics />
           </>

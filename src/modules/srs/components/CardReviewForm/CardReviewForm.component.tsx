@@ -72,12 +72,15 @@ const Container = styled.View({
 const QuestionContainer = styled.View({ flex: 1, justifyContent: 'center', zIndex: 10 });
 
 const Question = styled.Text({
-  fontWeight: 'bold',
-  fontSize: 24,
+  fontFamily: theme.fontFamilies.bold,
+  fontSize: theme.fontSizes.xxxl,
 });
 
 const AnswerContainer = styled.ScrollView({ flex: 1 });
-const Answer = styled.Text({});
+const Answer = styled.Text({
+  fontFamily: theme.fontFamilies.regular,
+  fontSize: theme.fontSizes.l,
+});
 
 const Blur = styled(BlurView)({
   position: 'absolute',

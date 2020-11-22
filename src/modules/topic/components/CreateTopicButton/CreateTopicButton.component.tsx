@@ -8,7 +8,6 @@ import { TopicColor } from '../../types/TopicColor.type';
 interface Props {
   name: string;
   topicColor: TopicColor;
-  onTopicCreated: () => void;
 }
 
 export const CreateTopicButton: FunctionComponent<Props> = ({ name, topicColor }) => {
@@ -40,9 +39,11 @@ const Container = styled.TouchableOpacity<{ backgroundColor: string }>(
 const Title = styled.Text.attrs({ numberOfLines: 1 })(({ theme }) => ({
   color: theme.colors.black,
   flex: 1,
+  fontFamily: theme.fontFamilies.semiBold,
+  fontSize: theme.fontSizes.l,
 }));
 
 const Name = styled.Text.attrs({ numberOfLines: 1 })(({ theme }) => ({
   color: theme.colors.black,
-  fontWeight: 'bold',
+  fontFamily: theme.fontFamilies.bold,
 }));

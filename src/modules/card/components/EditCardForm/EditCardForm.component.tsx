@@ -92,16 +92,22 @@ const Container = styled.ScrollView(({ theme }) => ({
 
 const Row = styled.TouchableOpacity(({ theme }) => ({
   flexDirection: 'row',
+  alignItems: 'center',
   borderBottomWidth: 1,
   borderColor: theme.colors.black,
   padding: theme.gridUnit * 4,
 }));
 
-const TopicPlaceholder = styled.Text(({ theme }) => ({ color: theme.colors.ivory, opacity: 0.5 }));
+const TopicPlaceholder = styled.Text(({ theme }) => ({
+  color: theme.colors.ivory,
+  opacity: 0.5,
+  fontFamily: theme.fontFamilies.semiBold,
+  fontSize: theme.fontSizes.l,
+}));
 
 const EmptySpace = styled.View({ flex: 1 });
 
 const IconContainer = styled.View({
-  justifyContent: 'flex-start',
+  alignSelf: 'flex-start',
   paddingTop: 2,
 });
