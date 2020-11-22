@@ -1,4 +1,4 @@
-import { Card } from './../../card/types/Card.type';
+import { Card } from '@card/types/Card.type';
 import { getFibonacciNumber } from './getFibonacciNumber.lib';
 
 const MS_IN_ONE_DAY = 1000 * 60 * 60 * 24;

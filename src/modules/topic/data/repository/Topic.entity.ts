@@ -1,3 +1,5 @@
+import { ICardEntity } from '@card/data/repository/Card.entity.interface';
+import { ITopicEntity } from '@topic/data/repository/Topic.entity.interface';
 import {
   Column,
   CreateDateColumn,
@@ -5,8 +7,6 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm/browser';
-import { ICardEntity } from './../../../card/data/repository/Card.entity.interface';
-import { ITopicEntity } from './Topic.entity.interface';
 
 @Entity('topic')
 export class TopicEntity implements ITopicEntity {

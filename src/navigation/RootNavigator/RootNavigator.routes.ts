@@ -1,7 +1,7 @@
+import { Card } from '@card/types/Card.type';
+import { AppNavigatorRouteParamsList } from '@navigation/AppNavigator/AppNavigator.routes';
 import { NavigatorScreenParams } from '@react-navigation/native';
-import { Card } from '../../modules/card/types/Card.type';
-import { Topic } from '../../modules/topic/types/Topic.type';
-import { AppNavigatorRouteParamsList } from '../AppNavigator/AppNavigator.routes';
+import { Topic } from '@topic/types/Topic.type';
 
 export enum RootNavigatorRouteNames {
   AppNavigator = 'AppNavigator',

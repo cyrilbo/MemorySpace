@@ -1,9 +1,9 @@
+import styled from '@core/theme/styled-components';
+import { NoTopics } from '@topic/components/NoTopics/NoTopics.component';
+import { WideTopicListItem } from '@topic/components/WideTopicListItem/WideTopicListItem.component';
+import { Topic } from '@topic/types/Topic.type';
 import React, { FunctionComponent } from 'react';
 import { FlatList } from 'react-native';
-import styled from '../../../../core/theme/styled-components';
-import { Topic } from '../../types/Topic.type';
-import { NoTopics } from '../NoTopics/NoTopics.component';
-import { WideTopicListItem } from '../WideTopicListItem/WideTopicListItem.component';
 
 interface Props {
   topics: Topic[];

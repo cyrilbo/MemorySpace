@@ -1,8 +1,8 @@
-import { Topic } from '../../modules/topic/types/Topic.type';
-import { AppNavigatorRouteNames } from '../../navigation/AppNavigator/AppNavigator.routes';
-import { CardNavigatorRouteNames } from '../../navigation/CardNavigator/CardNavigator.routes';
-import { RootNavigatorRouteNames } from '../../navigation/RootNavigator/RootNavigator.routes';
-import { HomeScreenNavigationProp } from './Home.page';
+import { AppNavigatorRouteNames } from '@navigation/AppNavigator/AppNavigator.routes';
+import { CardNavigatorRouteNames } from '@navigation/CardNavigator/CardNavigator.routes';
+import { RootNavigatorRouteNames } from '@navigation/RootNavigator/RootNavigator.routes';
+import { HomeScreenNavigationProp } from '@pages/Home/Home.page';
+import { Topic } from '@topic/types/Topic.type';
 
 export const useHomeNavigation = (
   navigation: HomeScreenNavigationProp

@@ -1,9 +1,9 @@
+import { CardEntity } from '@card/data/repository/Card.entity';
+import { Card } from '@card/types/Card.type';
 import {
   adaptTopicEntityToTopic,
   adaptTopicToTopicEntity,
-} from './../../../topic/data/repository/Topic.adapters';
-import { Card } from './../../types/Card.type';
-import { CardEntity } from './Card.entity';
+} from '@topic/data/repository/Topic.adapters';
 
 export const adaptCardEntityToCard = (cardEntity: CardEntity): Card => ({
   ...cardEntity,

@@ -1,7 +1,7 @@
+import { GET_TOPICS_QUERY_NAME } from '@topic/data/hooks/useGetTopicsQuery.hook';
+import { deleteTopic, DeleteTopicParams } from '@topic/data/repository/DeleteTopic.mutation';
 import { useCallback } from 'react';
 import { useMutation, useQueryCache } from 'react-query';
-import { deleteTopic, DeleteTopicParams } from '../repository/DeleteTopic.mutation';
-import { GET_TOPICS_QUERY_NAME } from './useGetTopicsQuery.hook';
 
 export const useDeleteTopicMutation = (): {
   deleteTopic: (params: DeleteTopicParams) => Promise<void>;

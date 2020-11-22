@@ -1,6 +1,6 @@
+import { colors } from '@core/theme/colors';
 import React, { FunctionComponent } from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { colors } from '../../theme/colors';
 
 interface Props {
   size?: number;

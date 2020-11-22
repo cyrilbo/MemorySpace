@@ -1,5 +1,5 @@
+import { TopicEntity } from '@topic/data/repository/Topic.entity';
 import { getRepository } from 'typeorm/browser';
-import { TopicEntity } from './Topic.entity';
 
 export interface DeleteTopicParams {
   topicId: string;

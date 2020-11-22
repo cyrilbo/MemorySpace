@@ -1,7 +1,7 @@
+import { adaptCardEntityToCard } from '@card/data/repository/Card.adapters';
+import { CardEntity } from '@card/data/repository/Card.entity';
+import { Card } from '@card/types/Card.type';
 import { getRepository } from 'typeorm/browser';
-import { Card } from './../../types/Card.type';
-import { adaptCardEntityToCard } from './Card.adapters';
-import { CardEntity } from './Card.entity';
 
 interface GetCardsParams {
   topicId?: string;

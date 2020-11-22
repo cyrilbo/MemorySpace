@@ -1,16 +1,16 @@
+import { useCreateCardMutation } from '@card/data/hooks/useCreateCardMutation.hook';
+import { useUpdateCardMutation } from '@card/data/hooks/useUpdateCardMutation.hook';
+import { Card } from '@card/types/Card.type';
+import { BottomButton } from '@core/components/BottomButton/BottomButton.component';
+import { Spacer } from '@core/components/Spacer/Spacer.component';
+import { TextInput } from '@core/components/TextInput/TextInput.component';
+import { CheckIcon } from '@core/icons/Check/CheckIcon.component';
+import { QuestionMarkIcon } from '@core/icons/QuestionMark/QuestionMarkIcon.component';
+import { TopicIcon } from '@core/icons/Topic/TopicIcon.component';
+import styled from '@core/theme/styled-components';
+import { TopicListItem } from '@topic/components/TopicListItem/TopicListItem.component';
+import { Topic } from '@topic/types/Topic.type';
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { BottomButton } from '../../../../core/components/BottomButton/BottomButton.component';
-import { Spacer } from '../../../../core/components/Spacer/Spacer.component';
-import { TextInput } from '../../../../core/components/TextInput/TextInput.component';
-import { CheckIcon } from '../../../../core/icons/Check/CheckIcon.component';
-import { QuestionMarkIcon } from '../../../../core/icons/QuestionMark/QuestionMarkIcon.component';
-import { TopicIcon } from '../../../../core/icons/Topic/TopicIcon.component';
-import styled from '../../../../core/theme/styled-components';
-import { TopicListItem } from '../../../topic/components/TopicListItem/TopicListItem.component';
-import { Topic } from '../../../topic/types/Topic.type';
-import { useCreateCardMutation } from '../../data/hooks/useCreateCardMutation.hook';
-import { useUpdateCardMutation } from '../../data/hooks/useUpdateCardMutation.hook';
-import { Card } from '../../types/Card.type';
 
 interface Props {
   openSelectTopicModal: () => void;

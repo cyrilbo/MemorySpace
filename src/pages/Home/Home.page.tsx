@@ -1,18 +1,18 @@
-import { CompositeNavigationProp } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import React, { FunctionComponent } from 'react';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { RoundButton } from '../../core/components/RoundButton/RoundButton.component';
-import styled from '../../core/theme/styled-components';
-import { PlayButton } from '../../modules/srs/components/PlayButton/PlayButton.component';
-import { WideTopicList } from '../../modules/topic/components/WideTopicList/WideTopicList.component';
-import { useGetTopicsQuery } from '../../modules/topic/data/hooks/useGetTopicsQuery.hook';
+import { RoundButton } from '@core/components/RoundButton/RoundButton.component';
+import styled from '@core/theme/styled-components';
 import {
   AppNavigatorRouteNames,
   AppNavigatorRouteParamsList,
-} from '../../navigation/AppNavigator/AppNavigator.routes';
-import { RootNavigatorRouteParamsList } from '../../navigation/RootNavigator/RootNavigator.routes';
-import { useHomeNavigation } from './Home.hooks';
+} from '@navigation/AppNavigator/AppNavigator.routes';
+import { RootNavigatorRouteParamsList } from '@navigation/RootNavigator/RootNavigator.routes';
+import { useHomeNavigation } from '@pages/Home/Home.hooks';
+import { CompositeNavigationProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { PlayButton } from '@srs/components/PlayButton/PlayButton.component';
+import { WideTopicList } from '@topic/components/WideTopicList/WideTopicList.component';
+import { useGetTopicsQuery } from '@topic/data/hooks/useGetTopicsQuery.hook';
+import React, { FunctionComponent } from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export type HomeScreenNavigationProp = CompositeNavigationProp<
   StackNavigationProp<AppNavigatorRouteParamsList, AppNavigatorRouteNames.Home>,

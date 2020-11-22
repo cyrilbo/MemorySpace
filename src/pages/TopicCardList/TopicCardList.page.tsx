@@ -1,19 +1,19 @@
-import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import React, { FunctionComponent } from 'react';
-import { RoundButton } from '../../core/components/RoundButton/RoundButton.component';
-import styled from '../../core/theme/styled-components';
-import { QuestionList } from '../../modules/card/components/QuestionList/QuestionList.component';
-import { useGetCardsQuery } from '../../modules/card/data/hooks/useGetCardsQuery.hook';
-import { usePlayButton } from '../../modules/srs/hooks/usePlayButton.hook';
-import { getColorFromTopicColorId } from '../../modules/topic/utils/getColorFromTopicColorId.utils';
-import { AppNavigatorRouteParamsList } from '../../navigation/AppNavigator/AppNavigator.routes';
+import { QuestionList } from '@card/components/QuestionList/QuestionList.component';
+import { useGetCardsQuery } from '@card/data/hooks/useGetCardsQuery.hook';
+import { RoundButton } from '@core/components/RoundButton/RoundButton.component';
+import styled from '@core/theme/styled-components';
+import { AppNavigatorRouteParamsList } from '@navigation/AppNavigator/AppNavigator.routes';
 import {
   CardNavigatorRouteNames,
   CardNavigatorRouteParamsList,
-} from '../../navigation/CardNavigator/CardNavigator.routes';
-import { RootNavigatorRouteParamsList } from '../../navigation/RootNavigator/RootNavigator.routes';
-import { useTopicCardListNavigation } from './TopicCardList.hooks';
+} from '@navigation/CardNavigator/CardNavigator.routes';
+import { RootNavigatorRouteParamsList } from '@navigation/RootNavigator/RootNavigator.routes';
+import { useTopicCardListNavigation } from '@pages/TopicCardList/TopicCardList.hooks';
+import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { usePlayButton } from '@srs/hooks/usePlayButton.hook';
+import { getColorFromTopicColorId } from '@topic/utils/getColorFromTopicColorId.utils';
+import React, { FunctionComponent } from 'react';
 
 export type TopicCardListScreenNavigationProp = CompositeNavigationProp<
   CompositeNavigationProp<

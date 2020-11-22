@@ -1,14 +1,14 @@
+import { TextInput } from '@core/components/TextInput/TextInput.component';
+import { useDebounce } from '@core/hooks/useDebounce.hook';
+import styled from '@core/theme/styled-components';
+import { CreateTopicButton } from '@topic/components/CreateTopicButton/CreateTopicButton.component';
+import { NoTopics } from '@topic/components/NoTopics/NoTopics.component';
+import { TopicList } from '@topic/components/TopicList/TopicList.component';
+import { useGetTopicsQuery } from '@topic/data/hooks/useGetTopicsQuery.hook';
+import { Topic } from '@topic/types/Topic.type';
+import { TopicColor } from '@topic/types/TopicColor.type';
+import { getRandomTopicColor } from '@topic/utils/getRandomTopicColor.utils';
 import React, { FunctionComponent, useMemo, useState } from 'react';
-import { TextInput } from '../../../../core/components/TextInput/TextInput.component';
-import { useDebounce } from '../../../../core/hooks/useDebounce.hook';
-import styled from '../../../../core/theme/styled-components';
-import { useGetTopicsQuery } from '../../data/hooks/useGetTopicsQuery.hook';
-import { Topic } from '../../types/Topic.type';
-import { TopicColor } from '../../types/TopicColor.type';
-import { getRandomTopicColor } from '../../utils/getRandomTopicColor.utils';
-import { CreateTopicButton } from '../CreateTopicButton/CreateTopicButton.component';
-import { NoTopics } from '../NoTopics/NoTopics.component';
-import { TopicList } from '../TopicList/TopicList.component';
 
 interface Props {
   onTopicSelected: (topic: Topic) => void;

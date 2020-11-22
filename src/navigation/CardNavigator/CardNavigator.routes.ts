@@ -1,4 +1,4 @@
-import { Topic } from './../../modules/topic/types/Topic.type';
+import { Topic } from '@topic/types/Topic.type';
 
 export enum CardNavigatorRouteNames {
   TopicCardList = 'TopicCardList',

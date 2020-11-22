@@ -1,9 +1,9 @@
+import { CardEntity } from '@card/data/repository/Card.entity';
+import { TopicEntity } from '@topic/data/repository/Topic.entity';
 import React, { FunctionComponent, useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
 import { Connection, createConnection } from 'typeorm/browser';
-import { CardEntity } from '../../modules/card/data/repository/Card.entity';
-import { TopicEntity } from '../../modules/topic/data/repository/Topic.entity';
 
 export const TypeormProvider: FunctionComponent = ({ children }) => {
   const [defaultConnection, setconnection] = useState<Connection | null>(null);

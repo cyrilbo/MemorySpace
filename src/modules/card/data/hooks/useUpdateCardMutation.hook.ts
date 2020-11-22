@@ -1,8 +1,7 @@
+import { GET_CARDS_QUERY_NAME } from '@card/data/hooks/useGetCardsQuery.hook';
+import { updateCard, UpdateCardParams } from '@card/data/repository/UpdateCard.mutation';
 import { useCallback } from 'react';
 import { useMutation, useQueryCache } from 'react-query';
-import { UpdateCardParams } from '../repository/UpdateCard.mutation';
-import { updateCard } from './../repository/UpdateCard.mutation';
-import { GET_CARDS_QUERY_NAME } from './useGetCardsQuery.hook';
 
 export const useUpdateCardMutation = (
   onSuccess: () => void

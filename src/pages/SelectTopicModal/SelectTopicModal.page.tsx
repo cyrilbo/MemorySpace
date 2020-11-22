@@ -1,14 +1,14 @@
-import { RouteProp } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import React, { FunctionComponent } from 'react';
-import { ModalHeader } from '../../core/components/ModalHeader/ModalHeader.component';
-import styled from '../../core/theme/styled-components';
-import { SelectTopicForm } from '../../modules/topic/components/SelectTopicForm/SelectTopicForm.component';
-import { Topic } from '../../modules/topic/types/Topic.type';
+import { ModalHeader } from '@core/components/ModalHeader/ModalHeader.component';
+import styled from '@core/theme/styled-components';
 import {
   RootNavigatorRouteNames,
   RootNavigatorRouteParamsList,
-} from '../../navigation/RootNavigator/RootNavigator.routes';
+} from '@navigation/RootNavigator/RootNavigator.routes';
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { SelectTopicForm } from '@topic/components/SelectTopicForm/SelectTopicForm.component';
+import { Topic } from '@topic/types/Topic.type';
+import React, { FunctionComponent } from 'react';
 
 type SelectTopicModalNavigationProp = StackNavigationProp<
   RootNavigatorRouteParamsList,

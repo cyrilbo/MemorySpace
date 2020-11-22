@@ -1,6 +1,6 @@
+import styled from '@core/theme/styled-components';
+import { PlayButton } from '@srs/components/PlayButton/PlayButton.component';
 import React, { useLayoutEffect } from 'react';
-import styled from '../../../core/theme/styled-components';
-import { PlayButton } from '../components/PlayButton/PlayButton.component';
 
 export const usePlayButton = <
   TNavigation extends {

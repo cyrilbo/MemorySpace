@@ -1,4 +1,4 @@
-import { ITopicEntity } from '../../../topic/data/repository/Topic.entity.interface';
+import { ITopicEntity } from '@topic/data/repository/Topic.entity.interface';
 
 export interface ICardEntity {
   id: string;

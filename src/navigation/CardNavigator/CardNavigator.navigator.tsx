@@ -1,10 +1,13 @@
+import { theme } from '@core/theme';
+import { colors } from '@core/theme/colors';
+import {
+  CardNavigatorRouteNames,
+  CardNavigatorRouteParamsList,
+} from '@navigation/CardNavigator/CardNavigator.routes';
+import { PlayCard } from '@pages/PlayCard/PlayCard.page';
+import { TopicCardList } from '@pages/TopicCardList/TopicCardList.page';
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { FunctionComponent } from 'react';
-import { theme } from '../../core/theme';
-import { colors } from '../../core/theme/colors';
-import { PlayCard } from '../../pages/PlayCard/PlayCard.page';
-import { TopicCardList } from '../../pages/TopicCardList/TopicCardList.page';
-import { CardNavigatorRouteNames, CardNavigatorRouteParamsList } from './CardNavigator.routes';
 
 const Stack = createStackNavigator<CardNavigatorRouteParamsList>();
 

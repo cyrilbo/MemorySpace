@@ -1,4 +1,4 @@
-import { Card } from './../../types/Card.type';
+import { Card } from '@card/types/Card.type';
 const defaultCardMock: Card = {
   answer: 'default_answer',
   question: 'default_question',

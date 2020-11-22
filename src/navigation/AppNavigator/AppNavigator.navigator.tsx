@@ -1,8 +1,8 @@
+import { CardNavigator } from '@navigation/CardNavigator/CardNavigator.navigator';
+import { Home } from '@pages/Home/Home.page';
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { FunctionComponent } from 'react';
 import { StatusBar } from 'react-native';
-import { Home } from '../../pages/Home/Home.page';
-import { CardNavigator } from '../CardNavigator/CardNavigator.navigator';
 import { AppNavigatorRouteNames, AppNavigatorRouteParamsList } from './AppNavigator.routes';
 
 const Stack = createStackNavigator<AppNavigatorRouteParamsList>();

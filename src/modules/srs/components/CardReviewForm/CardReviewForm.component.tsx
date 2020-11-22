@@ -1,11 +1,11 @@
+import { useSubmitCardReviewMutation } from '@card/data/hooks/useSubmitCardReviewMutation.hook';
+import { Card } from '@card/types/Card.type';
+import { Spacer } from '@core/components/Spacer/Spacer.component';
+import { EyeIcon } from '@core/icons/Eye/EyeIcon.component';
+import { colors } from '@core/theme/colors';
+import styled from '@core/theme/styled-components';
+import { ResultForm } from '@srs/components/ResultForm/ResultForm.component';
 import React, { FunctionComponent, useState } from 'react';
-import { Spacer } from '../../../../core/components/Spacer/Spacer.component';
-import { EyeIcon } from '../../../../core/icons/Eye/EyeIcon.component';
-import { colors } from '../../../../core/theme/colors';
-import styled from '../../../../core/theme/styled-components';
-import { useSubmitCardReviewMutation } from '../../../card/data/hooks/useSubmitCardReviewMutation.hook';
-import { Card } from '../../../card/types/Card.type';
-import { ResultForm } from '../ResultForm/ResultForm.component';
 
 interface Props {
   card: Card;

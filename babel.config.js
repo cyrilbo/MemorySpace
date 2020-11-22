@@ -3,5 +3,20 @@ module.exports = {
   plugins: [
     'babel-plugin-transform-typescript-metadata',
     ['@babel/plugin-proposal-decorators', { legacy: true }],
+    [
+      'module-resolver',
+      {
+        root: ['.'],
+        alias: {
+          '@root': '.',
+          '@card': './src/modules/card',
+          '@topic': './src/modules/topic',
+          '@srs': './src/modules/srs',
+          '@core': './src/core',
+          '@pages': './src/pages',
+          '@navigation': './src/navigation',
+        },
+      },
+    ],
   ],
 };

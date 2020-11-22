@@ -1,8 +1,8 @@
+import styled from '@core/theme/styled-components';
+import { Topic } from '@topic/types/Topic.type';
+import { getColorFromTopicColorId } from '@topic/utils/getColorFromTopicColorId.utils';
 import React, { FunctionComponent } from 'react';
 import { TouchableOpacity } from 'react-native';
-import styled from '../../../../core/theme/styled-components';
-import { Topic } from '../../types/Topic.type';
-import { getColorFromTopicColorId } from '../../utils/getColorFromTopicColorId.utils';
 
 interface Props {
   topic: Topic;

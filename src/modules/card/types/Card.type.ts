@@ -1,4 +1,4 @@
-import { Topic } from './../../topic/types/Topic.type';
+import { Topic } from '@topic/types/Topic.type';
 
 export interface Card {
   id: string;

@@ -1,6 +1,6 @@
+import styled from '@core/theme/styled-components';
 import React, { FunctionComponent } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import styled from '../../theme/styled-components';
 
 interface Props {
   title: string;

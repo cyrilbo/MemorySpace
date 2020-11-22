@@ -1,6 +1,6 @@
+import { Theme } from '@core/theme';
 import { ThemeProps as BasicThemeProps } from 'styled-components';
 import * as styledComponents from 'styled-components/native';
-import { Theme } from '../theme';
 
 export type ThemeProps = BasicThemeProps<Theme>;
 

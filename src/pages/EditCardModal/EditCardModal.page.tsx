@@ -1,15 +1,15 @@
-import { RouteProp } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import React, { FunctionComponent, useEffect, useState } from 'react';
-import { ModalHeader } from '../../core/components/ModalHeader/ModalHeader.component';
-import styled from '../../core/theme/styled-components';
-import { EditCardForm } from '../../modules/card/components/EditCardForm/EditCardForm.component';
-import { Card } from '../../modules/card/types/Card.type';
-import { Topic } from '../../modules/topic/types/Topic.type';
+import { EditCardForm } from '@card/components/EditCardForm/EditCardForm.component';
+import { Card } from '@card/types/Card.type';
+import { ModalHeader } from '@core/components/ModalHeader/ModalHeader.component';
+import styled from '@core/theme/styled-components';
 import {
   RootNavigatorRouteNames,
   RootNavigatorRouteParamsList,
-} from '../../navigation/RootNavigator/RootNavigator.routes';
+} from '@navigation/RootNavigator/RootNavigator.routes';
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { Topic } from '@topic/types/Topic.type';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 
 type EditCardModalNavigationProp = StackNavigationProp<
   RootNavigatorRouteParamsList,

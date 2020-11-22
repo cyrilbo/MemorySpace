@@ -19,7 +19,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-native', 'react-hooks', 'prettier'],
+  plugins: ['react', 'react-native', 'react-hooks', 'prettier', 'module-resolver'],
   rules: {
     'prettier/prettier': 'error',
     '@typescript-eslint/no-unused-vars': 'error',
@@ -27,5 +27,11 @@ module.exports = {
     'react/prop-types': 'off',
     'react-native/no-raw-text': 'off',
     'react/display-name': 'off',
+    'module-resolver/use-alias': 2,
+  },
+  settings: {
+    'import/resolver': {
+      'babel-module': {},
+    },
   },
 };

@@ -1,7 +1,7 @@
+import { GET_CARDS_QUERY_NAME } from '@card/data/hooks/useGetCardsQuery.hook';
+import { createCard, CreateCardParams } from '@card/data/repository/CreateCard.mutation';
 import { useCallback } from 'react';
 import { useMutation, useQueryCache } from 'react-query';
-import { createCard, CreateCardParams } from '../repository/CreateCard.mutation';
-import { GET_CARDS_QUERY_NAME } from './useGetCardsQuery.hook';
 
 export const useCreateCardMutation = (
   onSuccess: () => void

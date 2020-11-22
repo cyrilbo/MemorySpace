@@ -1,6 +1,6 @@
+import { PlayIcon } from '@core/icons/Play/PlayIcon.component';
 import React, { FunctionComponent } from 'react';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { PlayIcon } from '../../../../core/icons/Play/PlayIcon.component';
+import { TouchableOpacity } from 'react-native';
 
 interface Props {
   onPress?: () => void;

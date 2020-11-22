@@ -1,4 +1,4 @@
-import styled from '../../theme/styled-components';
+import styled from '@core/theme/styled-components';
 
 interface Props {
   height?: number;

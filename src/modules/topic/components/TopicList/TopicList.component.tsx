@@ -1,9 +1,9 @@
+import { Spacer } from '@core/components/Spacer/Spacer.component';
+import styled from '@core/theme/styled-components';
+import { TopicListItem } from '@topic/components/TopicListItem/TopicListItem.component';
+import { Topic } from '@topic/types/Topic.type';
 import React, { FunctionComponent } from 'react';
 import { FlatList } from 'react-native';
-import { Spacer } from '../../../../core/components/Spacer/Spacer.component';
-import styled from '../../../../core/theme/styled-components';
-import { Topic } from '../../types/Topic.type';
-import { TopicListItem } from '../TopicListItem/TopicListItem.component';
 
 interface Props {
   topics: Topic[];

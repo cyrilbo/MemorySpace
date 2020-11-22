@@ -1,12 +1,15 @@
+import { colors } from '@core/theme/colors';
+import { AppNavigator } from '@navigation/AppNavigator/AppNavigator.navigator';
+import {
+  RootNavigatorRouteNames,
+  RootNavigatorRouteParamsList,
+} from '@navigation/RootNavigator/RootNavigator.routes';
+import { EditCardModal } from '@pages/EditCardModal/EditCardModal.page';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { SelectTopicModal } from '@root/src/pages/SelectTopicModal/SelectTopicModal.page';
 import React, { FunctionComponent } from 'react';
 import { StatusBar } from 'react-native';
-import { colors } from '../../core/theme/colors';
-import { EditCardModal } from '../../pages/EditCardModal/EditCardModal.page';
-import { SelectTopicModal } from '../../pages/SelectTopicModal/SelectTopicModal.page';
-import { AppNavigator } from '../AppNavigator/AppNavigator.navigator';
-import { RootNavigatorRouteNames, RootNavigatorRouteParamsList } from './RootNavigator.routes';
 
 const Stack = createStackNavigator<RootNavigatorRouteParamsList>();
 

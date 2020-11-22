@@ -1,8 +1,8 @@
+import { Spacer } from '@core/components/Spacer/Spacer.component';
+import { EmptyIllustation } from '@core/illustrations/Empty/EmptyIllustation.component';
+import styled from '@core/theme/styled-components';
 import React, { FunctionComponent } from 'react';
 import { Text } from 'react-native';
-import { EmptyIllustation } from '../../illustrations/Empty/EmptyIllustation.component';
-import styled from '../../theme/styled-components';
-import { Spacer } from '../Spacer/Spacer.component';
 
 interface Props {
   title: string;

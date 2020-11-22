@@ -1,5 +1,5 @@
+import { ICardEntity } from '@card/data/repository/Card.entity.interface';
 import { Entity } from 'typeorm/browser';
-import { ICardEntity } from './../../../card/data/repository/Card.entity.interface';
 
 @Entity('topic')
 export class ITopicEntity {

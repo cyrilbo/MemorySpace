@@ -1,12 +1,12 @@
+import { Spacer } from '@core/components/Spacer/Spacer.component';
+import { OutlinedRightArrowIcon } from '@core/icons/OutlinedRightArrow/OutlinedRightArrowIcon.component';
+import { colors } from '@core/theme/colors';
+import styled from '@core/theme/styled-components';
+import { useDeleteTopicMutation } from '@topic/data/hooks/useDeleteTopicMutation.hook';
+import { Topic } from '@topic/types/Topic.type';
+import { getColorFromTopicColorId } from '@topic/utils/getColorFromTopicColorId.utils';
 import React, { FunctionComponent } from 'react';
 import { Alert } from 'react-native';
-import { Spacer } from '../../../../core/components/Spacer/Spacer.component';
-import { OutlinedRightArrowIcon } from '../../../../core/icons/OutlinedRightArrow/OutlinedRightArrowIcon.component';
-import { colors } from '../../../../core/theme/colors';
-import styled from '../../../../core/theme/styled-components';
-import { useDeleteTopicMutation } from '../../data/hooks/useDeleteTopicMutation.hook';
-import { Topic } from '../../types/Topic.type';
-import { getColorFromTopicColorId } from '../../utils/getColorFromTopicColorId.utils';
 
 interface Props {
   topic: Topic;

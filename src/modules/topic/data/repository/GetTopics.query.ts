@@ -1,7 +1,7 @@
+import { adaptTopicEntityToTopic } from '@topic/data/repository/Topic.adapters';
+import { TopicEntity } from '@topic/data/repository/Topic.entity';
+import { Topic } from '@topic/types/Topic.type';
 import { getRepository, Like } from 'typeorm/browser';
-import { Topic } from '../../types/Topic.type';
-import { TopicEntity } from '../repository/Topic.entity';
-import { adaptTopicEntityToTopic } from './Topic.adapters';
 
 export interface GetTopicsParams {
   name?: string;

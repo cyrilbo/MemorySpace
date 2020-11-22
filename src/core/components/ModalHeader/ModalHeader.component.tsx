@@ -1,7 +1,7 @@
+import { CrossIcon } from '@core/icons/Cross/CrossIcon.component';
+import styled from '@core/theme/styled-components';
 import React, { FunctionComponent } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { CrossIcon } from '../../icons/Cross/CrossIcon.component';
-import styled from '../../theme/styled-components';
 
 interface Props {
   onPressClose: () => void;

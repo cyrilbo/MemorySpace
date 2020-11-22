@@ -1,7 +1,7 @@
+import { adaptTopicEntityToTopic } from '@topic/data/repository/Topic.adapters';
+import { TopicEntity } from '@topic/data/repository/Topic.entity';
+import { Topic } from '@topic/types/Topic.type';
 import { getRepository } from 'typeorm/browser';
-import { Topic } from '../../types/Topic.type';
-import { adaptTopicEntityToTopic } from './Topic.adapters';
-import { TopicEntity } from './Topic.entity';
 
 export const createTopic = async (params: { name: string; colorId: string }): Promise<Topic> => {
   const topicRepository = getRepository(TopicEntity);

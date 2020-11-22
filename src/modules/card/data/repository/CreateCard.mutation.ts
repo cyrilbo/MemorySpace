@@ -1,5 +1,5 @@
+import { CardEntity } from '@card/data/repository/Card.entity';
 import { getRepository } from 'typeorm/browser';
-import { CardEntity } from './Card.entity';
 
 export interface CreateCardParams {
   topicId: string;

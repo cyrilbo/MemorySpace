@@ -1,7 +1,7 @@
+import { getCards } from '@card/data/repository/GetCards.query';
+import { Card } from '@card/types/Card.type';
 import { useCallback } from 'react';
 import { useQuery } from 'react-query';
-import { Card } from './../../types/Card.type';
-import { getCards } from './../repository/GetCards.query';
 
 export const GET_CARDS_QUERY_NAME = 'GET_CARDS_QUERY_NAME';
 

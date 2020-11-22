@@ -1,4 +1,4 @@
-import { TopicColor } from '../types/TopicColor.type';
+import { TopicColor } from '@topic/types/TopicColor.type';
 
 export const topicColors: TopicColor[] = [
   { id: 'white', hex: '#f9f7f7' },

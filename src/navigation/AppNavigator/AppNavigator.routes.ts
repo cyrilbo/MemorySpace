@@ -1,5 +1,5 @@
+import { CardNavigatorRouteParamsList } from '@navigation/CardNavigator/CardNavigator.routes';
 import { NavigatorScreenParams } from '@react-navigation/native';
-import { CardNavigatorRouteParamsList } from '../CardNavigator/CardNavigator.routes';
 
 export enum AppNavigatorRouteNames {
   Home = 'Home',

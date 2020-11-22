@@ -1,5 +1,5 @@
-import { Topic } from '../../types/Topic.type';
-import { TopicEntity } from './Topic.entity';
+import { TopicEntity } from '@topic/data/repository/Topic.entity';
+import { Topic } from '@topic/types/Topic.type';
 
 export const adaptTopicToTopicEntity = (topic: Topic): TopicEntity => ({
   ...topic,

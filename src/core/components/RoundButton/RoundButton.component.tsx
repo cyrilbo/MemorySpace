@@ -1,7 +1,7 @@
+import { Shadow } from '@core/components/Shadow/Shadow.component';
+import { PlusIcon } from '@core/icons/Plus/PlusIcon.component';
+import styled from '@core/theme/styled-components';
 import React, { FunctionComponent } from 'react';
-import { PlusIcon } from '../../icons/Plus/PlusIcon.component';
-import styled from '../../theme/styled-components';
-import { Shadow } from '../Shadow/Shadow.component';
 
 const ROUND_BUTTON_DEFAULT_SIZE = 56;
 

@@ -1,10 +1,9 @@
+import { PlusIcon } from '@core/icons/Plus/PlusIcon.component';
+import { colors } from '@core/theme/colors';
+import styled from '@core/theme/styled-components';
+import { useCreateTopicMutation } from '@topic/data/hooks/useCreateTopicMutation.hook';
+import { TopicColor } from '@topic/types/TopicColor.type';
 import React, { FunctionComponent } from 'react';
-import { PlusIcon } from '../../../../core/icons/Plus/PlusIcon.component';
-import { colors } from '../../../../core/theme/colors';
-import styled from '../../../../core/theme/styled-components';
-import { useCreateTopicMutation } from '../../data/hooks/useCreateTopicMutation.hook';
-import { TopicColor } from '../../types/TopicColor.type';
-
 interface Props {
   name: string;
   topicColor: TopicColor;

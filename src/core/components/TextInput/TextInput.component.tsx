@@ -1,7 +1,7 @@
+import { colors } from '@core/theme/colors';
+import styled from '@core/theme/styled-components';
 import React, { FunctionComponent } from 'react';
 import { TextInputProps } from 'react-native';
-import { colors } from '../../theme/colors';
-import styled from '../../theme/styled-components';
 
 type Props = TextInputProps;
 

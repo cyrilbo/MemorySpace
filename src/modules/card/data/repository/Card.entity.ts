@@ -1,3 +1,5 @@
+import { ICardEntity } from '@card/data/repository/Card.entity.interface';
+import { ITopicEntity } from '@topic/data/repository/Topic.entity.interface';
 import { JoinColumn } from 'typeorm';
 import {
   Column,
@@ -6,8 +8,6 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm/browser';
-import { ITopicEntity } from './../../../topic/data/repository/Topic.entity.interface';
-import { ICardEntity } from './Card.entity.interface';
 
 @Entity('card')
 export class CardEntity implements ICardEntity {

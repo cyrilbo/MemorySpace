@@ -1,8 +1,8 @@
+import { GET_TOPICS_QUERY_NAME } from '@topic/data/hooks/useGetTopicsQuery.hook';
+import { createTopic } from '@topic/data/repository/CreateTopic.mutation';
+import { Topic } from '@topic/types/Topic.type';
 import { useCallback } from 'react';
 import { useMutation, useQueryCache } from 'react-query';
-import { Topic } from '../../types/Topic.type';
-import { createTopic } from '../repository/CreateTopic.mutation';
-import { GET_TOPICS_QUERY_NAME } from './useGetTopicsQuery.hook';
 
 export const useCreateTopicMutation = (): {
   createTopic: (params: { name: string; colorId: string }) => Promise<Topic>;

@@ -1,7 +1,10 @@
+import { GET_CARDS_QUERY_NAME } from '@card/data/hooks/useGetCardsQuery.hook';
+import {
+  submitCardReview,
+  SubmitCardReviewParams,
+} from '@card/data/repository/SubmitCardReview.mutation';
 import { useCallback } from 'react';
 import { useMutation, useQueryCache } from 'react-query';
-import { submitCardReview, SubmitCardReviewParams } from '../repository/SubmitCardReview.mutation';
-import { GET_CARDS_QUERY_NAME } from './useGetCardsQuery.hook';
 
 export const useSubmitCardReviewMutation = (
   onSuccess: () => void
