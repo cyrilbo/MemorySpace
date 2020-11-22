@@ -1,3 +1,4 @@
+import { theme } from '@core/theme';
 import { CardNavigator } from '@navigation/CardNavigator/CardNavigator.navigator';
 import { Home } from '@pages/Home/Home.page';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -10,7 +11,11 @@ const Stack = createStackNavigator<AppNavigatorRouteParamsList>();
 export const AppNavigator: FunctionComponent = () => (
   <>
     <StatusBar barStyle="light-content" />
-    <Stack.Navigator headerMode="none" initialRouteName={AppNavigatorRouteNames.Home}>
+    <Stack.Navigator
+      headerMode="none"
+      initialRouteName={AppNavigatorRouteNames.Home}
+      screenOptions={{ cardStyle: { backgroundColor: theme.colors.darkGrey } }}
+    >
       <Stack.Screen name={AppNavigatorRouteNames.Home} component={Home} />
       <Stack.Screen name={AppNavigatorRouteNames.CardNavigator} component={CardNavigator} />
     </Stack.Navigator>
