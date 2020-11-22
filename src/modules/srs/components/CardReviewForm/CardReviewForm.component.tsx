@@ -4,6 +4,7 @@ import { Spacer } from '@core/components/Spacer/Spacer.component';
 import { EyeIcon } from '@core/icons/Eye/EyeIcon.component';
 import { colors } from '@core/theme/colors';
 import styled from '@core/theme/styled-components';
+import { Box } from '@root/src/core/components/Box/Box.component';
 import { ResultForm } from '@srs/components/ResultForm/ResultForm.component';
 import React, { FunctionComponent, useState } from 'react';
 
@@ -17,9 +18,10 @@ export const CardReviewForm: FunctionComponent<Props> = ({ card }) => {
   return (
     <Container>
       <QuestionContainer>
-        <Question>{card.question}</Question>
+        <Box title={'Question'}>
+          <Question>{card.question}</Question>
+        </Box>
       </QuestionContainer>
-
       {isAnswerVisible ? (
         <>
           <AnswerContainer>
@@ -55,9 +57,6 @@ const Container = styled.View(({ theme }) => ({
 }));
 
 const QuestionContainer = styled.View(({ theme }) => ({
-  justifyContent: 'center',
-  borderTopWidth: 4,
-  borderBottomWidth: 4,
   padding: theme.gridUnit * 5,
 }));
 

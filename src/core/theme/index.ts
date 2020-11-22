@@ -1,3 +1,4 @@
+import { borders } from './borders';
 import { colors } from './colors';
 import { fontFamilies } from './fontFamilies';
 import { fontSizes } from './fontSizes';
@@ -8,6 +9,7 @@ export const theme = {
   shadow,
   fontFamilies,
   fontSizes,
+  borders,
   gridUnit: 4,
   dividerSize: 1,
 };
