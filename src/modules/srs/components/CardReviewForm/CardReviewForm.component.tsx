@@ -38,13 +38,15 @@ export const CardReviewForm: FunctionComponent<Props> = ({ card }) => {
           <Spacer height={10} />
         </>
       ) : (
-        <EyeIconContainer
+        <DisplayAnswerContainer
           onPress={() => {
             setIsAnswerVisible(!isAnswerVisible);
           }}
         >
           <EyeIcon color={colors.black} size={30} />
-        </EyeIconContainer>
+          <Spacer height={2} />
+          <DisplayAnswer>Display the answer</DisplayAnswer>
+        </DisplayAnswerContainer>
       )}
     </Container>
   );
@@ -75,8 +77,13 @@ const Answer = styled.Text(({ theme }) => ({
   fontSize: theme.fontSizes.xl,
 }));
 
-const EyeIconContainer = styled.TouchableOpacity({
+const DisplayAnswerContainer = styled.TouchableOpacity({
   flex: 1,
   alignItems: 'center',
   justifyContent: 'center',
 });
+
+const DisplayAnswer = styled.Text(({ theme }) => ({
+  fontFamily: theme.fontFamilies.semiBold,
+  fontSize: theme.fontSizes.xl,
+}));
