@@ -1,15 +1,7 @@
-import { ICardEntity } from '@card/data/repository/Card.entity.interface';
-import { ITopicEntity } from '@topic/data/repository/Topic.entity.interface';
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm/browser';
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm/browser';
 
 @Entity('topic')
-export class TopicEntity implements ITopicEntity {
+export class TopicEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -21,7 +13,4 @@ export class TopicEntity implements ITopicEntity {
 
   @CreateDateColumn({ nullable: false })
   createdAt: Date;
-
-  @OneToMany('CardEntity', 'topic')
-  cards?: ICardEntity[];
 }

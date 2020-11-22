@@ -18,7 +18,7 @@ export const SelectTopicForm: FunctionComponent<Props> = ({ onTopicSelected }) =
   const topicColor: TopicColor = useMemo(getRandomTopicColor, []);
   const [topicSearchInput, setTopicSearchInput] = useState('');
   const debouncedTopicSearchInput = useDebounce(topicSearchInput, 400);
-  const { topics } = useGetTopicsQuery({ name: debouncedTopicSearchInput });
+  const { topics } = useGetTopicsQuery({ filters: { name: debouncedTopicSearchInput } });
   return (
     <>
       <InputContainer>

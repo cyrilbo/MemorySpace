@@ -28,7 +28,7 @@
     "react-native-svg": "^12.1.0",
     "react-query": "^2.25.2",
     "styled-components": "^5.2.1",
-    "typeorm": "0.3.0-rc.19"
+    "typeorm": "0.2.24"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

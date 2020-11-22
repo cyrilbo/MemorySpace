@@ -8,13 +8,13 @@ module.exports = {
       {
         root: ['.'],
         alias: {
-          '@root': '.',
           '@card': './src/modules/card',
           '@topic': './src/modules/topic',
           '@srs': './src/modules/srs',
           '@core': './src/core',
           '@pages': './src/pages',
           '@navigation': './src/navigation',
+          '@root': '.',
         },
       },
     ],

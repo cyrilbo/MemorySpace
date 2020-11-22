@@ -1,26 +1,9 @@
-import { ICardEntity } from '@card/data/repository/Card.entity.interface';
-import { ITopicEntity } from '@topic/data/repository/Topic.entity.interface';
-import { JoinColumn } from 'typeorm';
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm/browser';
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm/browser';
 
 @Entity('card')
-export class CardEntity implements ICardEntity {
+export class CardEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
-
-  @ManyToOne('TopicEntity', 'cards', {
-    onDelete: 'CASCADE',
-  })
-  @JoinColumn({
-    name: 'topicId',
-  })
-  topic: ITopicEntity;
 
   @Column('uuid', { nullable: false })
   topicId: string;

@@ -2,8 +2,9 @@ import { adaptCardEntityToCard } from '@card/data/repository/Card.adapters';
 import { CardEntity } from '@card/data/repository/Card.entity';
 import { Card } from '@card/types/Card.type';
 import { getRepository } from 'typeorm/browser';
+import { getTopics } from './../../../topic/data/repository/GetTopics.query';
 
-interface GetCardsParams {
+export interface GetCardsParams {
   topicId?: string;
 }
 
@@ -13,8 +14,14 @@ export const getCards = async (
 ): Promise<Card[]> => {
   const cardRepository = getRepository(CardEntity);
   const cardEntities = await cardRepository.find({
-    relations: ['topic'],
     where: topicId ? { topicId } : undefined,
   });
-  return cardEntities.map(adaptCardEntityToCard);
+  const topics = await getTopics('getTopics');
+
+  return cardEntities.map((cardEntity) =>
+    adaptCardEntityToCard(
+      cardEntity,
+      topics.find((topic) => topic.id === cardEntity.topicId)
+    )
+  );
 };

@@ -4,11 +4,11 @@ import { Topic } from '@topic/types/Topic.type';
 import { getRepository, Like } from 'typeorm/browser';
 
 export interface GetTopicsParams {
-  name?: string;
+  filters?: { name?: string };
 }
 
-export const getTopics = async (_key: string, filters?: GetTopicsParams): Promise<Topic[]> => {
+export const getTopics = async (_key: string, params?: GetTopicsParams): Promise<Topic[]> => {
   const topicRepository = getRepository(TopicEntity);
-  const topicEntities = topicRepository.find({ name: Like(`%${filters?.name ?? ''}%`) });
+  const topicEntities = topicRepository.find({ name: Like(`%${params?.filters?.name ?? ''}%`) });
   return (await topicEntities).map(adaptTopicEntityToTopic);
 };
