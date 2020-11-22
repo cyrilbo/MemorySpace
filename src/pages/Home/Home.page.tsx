@@ -11,7 +11,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { PlayButton } from '@srs/components/PlayButton/PlayButton.component';
 import { WideTopicList } from '@topic/components/WideTopicList/WideTopicList.component';
 import { useGetTopicsQuery } from '@topic/data/hooks/useGetTopicsQuery.hook';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
+import RNBootSplash from 'react-native-bootsplash';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export type HomeScreenNavigationProp = CompositeNavigationProp<
@@ -29,6 +30,10 @@ export const Home: FunctionComponent<Props> = ({ navigation }) => {
   );
   const insets = useSafeAreaInsets();
   const { topics } = useGetTopicsQuery();
+
+  useEffect(() => {
+    RNBootSplash.hide({ fade: true });
+  }, []);
 
   return (
     <Container paddingTop={insets.top} paddingBottom={insets.bottom}>
