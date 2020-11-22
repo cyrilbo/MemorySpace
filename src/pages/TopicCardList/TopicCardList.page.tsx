@@ -6,7 +6,7 @@ import styled from '../../core/theme/styled-components';
 import { QuestionList } from '../../modules/card/components/QuestionList/QuestionList.component';
 import { useGetCardsQuery } from '../../modules/card/data/hooks/useGetCardsQuery.hook';
 import { usePlayButton } from '../../modules/srs/hooks/usePlayButton.hook';
-import { getHexFromTopicColorId } from '../../modules/topic/utils/getHexFromTopicColorId.utils';
+import { getColorFromTopicColorId } from '../../modules/topic/utils/getColorFromTopicColorId.utils';
 import { AppNavigatorRouteParamsList } from '../../navigation/AppNavigator/AppNavigator.routes';
 import {
   CardNavigatorRouteNames,
@@ -39,7 +39,7 @@ export const TopicCardList: FunctionComponent<Props> = ({ route, navigation }) =
   const { openEditCardModal, openPlayCardScreen } = useTopicCardListNavigation(navigation, topic);
   usePlayButton(navigation, openPlayCardScreen, cards.length > 0);
   return (
-    <Container backgroundColor={getHexFromTopicColorId(topic.colorId)}>
+    <Container backgroundColor={getColorFromTopicColorId(topic.colorId)}>
       <QuestionList cards={cards} onQuestionPress={openEditCardModal} />
       <AddCardButtonContainer>
         <RoundButton onPress={() => openEditCardModal()} />

@@ -8,7 +8,7 @@ import { CardReviewForm } from '../../modules/srs/components/CardReviewForm/Card
 import { NoCardToReview } from '../../modules/srs/components/NoCardToReview/NoCardToReview.component';
 import { useGetNextCardToPlay } from '../../modules/srs/data/hooks/useGetNextCardToPlay.hook';
 import { Topic } from '../../modules/topic/types/Topic.type';
-import { getHexFromTopicColorId } from '../../modules/topic/utils/getHexFromTopicColorId.utils';
+import { getColorFromTopicColorId } from '../../modules/topic/utils/getColorFromTopicColorId.utils';
 import { AppNavigatorRouteParamsList } from '../../navigation/AppNavigator/AppNavigator.routes';
 import {
   CardNavigatorRouteNames,
@@ -52,7 +52,7 @@ export const PlayCard: FunctionComponent<Props> = ({ route, navigation }) => {
     return <ActivityIndicator />;
   } else if (card) {
     return (
-      <Container backgroundColor={getHexFromTopicColorId(card.topic.colorId)}>
+      <Container backgroundColor={getColorFromTopicColorId(card.topic.colorId)}>
         <CardReviewForm card={card} />
       </Container>
     );

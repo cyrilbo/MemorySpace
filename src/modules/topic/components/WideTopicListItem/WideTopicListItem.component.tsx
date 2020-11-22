@@ -6,7 +6,7 @@ import { colors } from '../../../../core/theme/colors';
 import styled from '../../../../core/theme/styled-components';
 import { useDeleteTopicMutation } from '../../data/hooks/useDeleteTopicMutation.hook';
 import { Topic } from '../../types/Topic.type';
-import { getHexFromTopicColorId } from '../../utils/getHexFromTopicColorId.utils';
+import { getColorFromTopicColorId } from '../../utils/getColorFromTopicColorId.utils';
 
 interface Props {
   topic: Topic;
@@ -17,7 +17,7 @@ export const WideTopicListItem: FunctionComponent<Props> = ({ topic, onPress }) 
 
   return (
     <Container
-      backgroundColor={getHexFromTopicColorId(topic.colorId)}
+      backgroundColor={getColorFromTopicColorId(topic.colorId)}
       onPress={onPress}
       onLongPress={() =>
         Alert.alert(

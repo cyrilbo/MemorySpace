@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { TouchableOpacity } from 'react-native';
 import styled from '../../../../core/theme/styled-components';
 import { Topic } from '../../types/Topic.type';
-import { getHexFromTopicColorId } from '../../utils/getHexFromTopicColorId.utils';
+import { getColorFromTopicColorId } from '../../utils/getColorFromTopicColorId.utils';
 
 interface Props {
   topic: Topic;
@@ -10,7 +10,7 @@ interface Props {
 }
 export const TopicListItem: FunctionComponent<Props> = ({ topic, onPress }) => (
   <TouchableOpacity onPress={onPress} disabled={!onPress}>
-    <Name backgroundColor={getHexFromTopicColorId(topic.colorId)}>{topic.name}</Name>
+    <Name backgroundColor={getColorFromTopicColorId(topic.colorId)}>{topic.name}</Name>
   </TouchableOpacity>
 );
 
