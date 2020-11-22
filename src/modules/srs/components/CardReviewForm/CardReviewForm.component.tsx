@@ -1,12 +1,11 @@
 import { useSubmitCardReviewMutation } from '@card/data/hooks/useSubmitCardReviewMutation.hook';
 import { Card } from '@card/types/Card.type';
 import { Spacer } from '@core/components/Spacer/Spacer.component';
-import { EyeIcon } from '@core/icons/Eye/EyeIcon.component';
-import { colors } from '@core/theme/colors';
 import styled from '@core/theme/styled-components';
 import { Box } from '@root/src/core/components/Box/Box.component';
 import { ResultForm } from '@srs/components/ResultForm/ResultForm.component';
 import React, { FunctionComponent, useState } from 'react';
+import { ShowAnswerButton } from '../ShowAnswerButton/ShowAnswerButton.component';
 
 interface Props {
   card: Card;
@@ -38,15 +37,9 @@ export const CardReviewForm: FunctionComponent<Props> = ({ card }) => {
           <Spacer height={10} />
         </>
       ) : (
-        <DisplayAnswerContainer
-          onPress={() => {
-            setIsAnswerVisible(!isAnswerVisible);
-          }}
-        >
-          <EyeIcon color={colors.black} size={30} />
-          <Spacer height={2} />
-          <DisplayAnswer>Display the answer</DisplayAnswer>
-        </DisplayAnswerContainer>
+        <ShowAnswerButtonContainer>
+          <ShowAnswerButton onPress={() => setIsAnswerVisible(true)} />
+        </ShowAnswerButtonContainer>
       )}
     </Container>
   );
@@ -77,13 +70,8 @@ const Answer = styled.Text(({ theme }) => ({
   fontSize: theme.fontSizes.xl,
 }));
 
-const DisplayAnswerContainer = styled.TouchableOpacity({
+const ShowAnswerButtonContainer = styled.View({
   flex: 1,
   alignItems: 'center',
   justifyContent: 'center',
 });
-
-const DisplayAnswer = styled.Text(({ theme }) => ({
-  fontFamily: theme.fontFamilies.semiBold,
-  fontSize: theme.fontSizes.xl,
-}));
