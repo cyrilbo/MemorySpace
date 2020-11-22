@@ -6,20 +6,21 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm/browser';
-import { TopicEntity } from '../../../topic/data/repository/Topic.entity';
+import { ITopicEntity } from './../../../topic/data/repository/Topic.entity.interface';
+import { ICardEntity } from './Card.entity.interface';
 
 @Entity('card')
-export class CardEntity {
+export class CardEntity implements ICardEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => TopicEntity, (topic) => topic.cards, {
+  @ManyToOne('TopicEntity', 'cards', {
     onDelete: 'CASCADE',
   })
   @JoinColumn({
     name: 'topicId',
   })
-  topic: TopicEntity;
+  topic: ITopicEntity;
 
   @Column('uuid', { nullable: false })
   topicId: string;

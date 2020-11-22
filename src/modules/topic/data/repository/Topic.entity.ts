@@ -5,10 +5,11 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm/browser';
-import { CardEntity } from '../../../card/data/repository/Card.entity';
+import { ICardEntity } from './../../../card/data/repository/Card.entity.interface';
+import { ITopicEntity } from './Topic.entity.interface';
 
 @Entity('topic')
-export class TopicEntity {
+export class TopicEntity implements ITopicEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -21,6 +22,6 @@ export class TopicEntity {
   @CreateDateColumn({ nullable: false })
   createdAt: Date;
 
-  @OneToMany(() => CardEntity, (card) => card.topic)
-  cards?: CardEntity[];
+  @OneToMany('CardEntity', 'topic')
+  cards?: ICardEntity[];
 }
