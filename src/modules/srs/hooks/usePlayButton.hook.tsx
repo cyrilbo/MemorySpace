@@ -13,11 +13,11 @@ export const usePlayButton = <
 ): void => {
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: ({ tintColor }) => {
+      headerRight: () => {
         if (isDisplayed) {
           return (
             <PlayButtonContainer>
-              <PlayButton color={tintColor} onPress={onPress} />
+              <PlayButton onPress={onPress} />
             </PlayButtonContainer>
           );
         } else {

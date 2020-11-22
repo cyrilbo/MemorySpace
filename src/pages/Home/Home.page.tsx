@@ -8,7 +8,7 @@ import { RootNavigatorRouteParamsList } from '@navigation/RootNavigator/RootNavi
 import { useHomeNavigation } from '@pages/Home/Home.hooks';
 import { CompositeNavigationProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { PlayButton } from '@srs/components/PlayButton/PlayButton.component';
+import { HugePlayButton } from '@srs/components/HugePlayButton/HugePlayButton.component';
 import { WideTopicList } from '@topic/components/WideTopicList/WideTopicList.component';
 import { useGetTopicsQuery } from '@topic/data/hooks/useGetTopicsQuery.hook';
 import React, { FunctionComponent, useEffect } from 'react';
@@ -38,7 +38,7 @@ export const Home: FunctionComponent<Props> = ({ navigation }) => {
   return (
     <Container paddingTop={insets.top} paddingBottom={insets.bottom}>
       <PlayButtonContainer>
-        <PlayButton onPress={openPlayCardScreen} size={60} />
+        <HugePlayButton onPress={openPlayCardScreen} size={60} />
       </PlayButtonContainer>
 
       <WideTopicList topics={topics} onTopicPress={(topic) => openTopicCardListScreen(topic)} />

@@ -1,17 +1,16 @@
-import { PlayIcon } from '@core/icons/Play/PlayIcon.component';
+import { Spaceship } from '@core/icons/Spaceship/Spaceship.component';
 import React, { FunctionComponent } from 'react';
 import { TouchableOpacity } from 'react-native';
 
 interface Props {
   onPress?: () => void;
-  color?: string;
   size?: number;
 }
 
-export const PlayButton: FunctionComponent<Props> = ({ onPress, color, size }) => {
+export const PlayButton: FunctionComponent<Props> = ({ onPress, size }) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <PlayIcon color={color} size={size} />
+      <Spaceship size={size} />
     </TouchableOpacity>
   );
 };
