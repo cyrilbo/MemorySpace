@@ -1,8 +1,9 @@
 import { CardEntity } from '@card/data/repository/Card.entity';
+import { colors } from '@root/src/core/theme/colors';
+import styled from '@root/src/core/theme/styled-components';
 import { TopicEntity } from '@topic/data/repository/Topic.entity';
 import React, { FunctionComponent, useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
-import styled from 'styled-components/native';
 import { Connection, createConnection } from 'typeorm/browser';
 
 export const TypeormProvider: FunctionComponent = ({ children }) => {
@@ -35,7 +36,7 @@ export const TypeormProvider: FunctionComponent = ({ children }) => {
         children
       ) : (
         <ActivityIndicatorContainer>
-          <ActivityIndicator />
+          <ActivityIndicator color={colors.ivory} />
         </ActivityIndicatorContainer>
       )}
     </Container>
@@ -46,8 +47,9 @@ const Container = styled.View({
   flex: 1,
 });
 
-const ActivityIndicatorContainer = styled.View({
+const ActivityIndicatorContainer = styled.View(({ theme }) => ({
   flex: 1,
   alignItems: 'center',
   justifyContent: 'center',
-});
+  backgroundColor: theme.colors.darkGrey,
+}));
