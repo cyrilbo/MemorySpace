@@ -26,4 +26,8 @@ const Container = styled.TouchableOpacity<{ paddingBottom: number }>(
   })
 );
 
-const Title = styled.Text(({ theme }) => ({ color: theme.colors.ivory, fontWeight: 'bold' }));
+const Title = styled.Text(({ theme }) => ({
+  color: theme.colors.ivory,
+  fontFamily: theme.fontFamilies.bold,
+  fontSize: theme.fontSizes.xxxl,
+}));
