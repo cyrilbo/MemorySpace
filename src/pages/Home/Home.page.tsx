@@ -37,9 +37,11 @@ export const Home: FunctionComponent<Props> = ({ navigation }) => {
 
   return (
     <Container paddingTop={insets.top} paddingBottom={insets.bottom}>
-      <PlayButtonContainer>
-        <HugePlayButton onPress={openPlayCardScreen} size={60} />
-      </PlayButtonContainer>
+      {topics.length > 0 ? (
+        <PlayButtonContainer>
+          <HugePlayButton onPress={openPlayCardScreen} size={60} />
+        </PlayButtonContainer>
+      ) : null}
 
       <WideTopicList topics={topics} onTopicPress={(topic) => openTopicCardListScreen(topic)} />
       <AddCardButtonContainer>
