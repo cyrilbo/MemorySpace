@@ -23,7 +23,7 @@ const Container = styled.TouchableOpacity(({ theme }) => ({
   justifyContent: 'center',
   backgroundColor: theme.colors.raisinBlack,
   padding: theme.gridUnit * 2,
-  borderRadius: 20,
+  borderRadius: 10,
 }));
 
 const Title = styled.Text(({ theme }) => ({

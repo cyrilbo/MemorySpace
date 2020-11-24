@@ -40,7 +40,7 @@ export const Home: FunctionComponent<Props> = ({ navigation }) => {
     <Container paddingBottom={insets.bottom}>
       <WideTopicList topics={topics} onTopicPress={(topic) => openTopicCardListScreen(topic)} />
       {topics.length > 0 ? (
-        <PlayButtonContainer>
+        <PlayButtonContainer pointerEvents={'box-none'}>
           <HugePlayButton onPress={openPlayCardScreen} />
         </PlayButtonContainer>
       ) : null}
@@ -56,7 +56,8 @@ const Container = styled.View<{ paddingBottom: number }>(({ theme, paddingBottom
 
 const PlayButtonContainer = styled.View(({ theme }) => ({
   position: 'absolute',
+  alignItems: 'center',
   bottom: theme.gridUnit * 6,
-  right: theme.gridUnit * 10,
-  left: theme.gridUnit * 10,
+  right: 0,
+  left: 0,
 }));

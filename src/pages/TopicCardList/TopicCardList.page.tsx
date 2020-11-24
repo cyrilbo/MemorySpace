@@ -55,7 +55,8 @@ const Container = styled.SafeAreaView<{ backgroundColor: string }>(({ background
 
 const PlayButtonContainer = styled.View(({ theme }) => ({
   position: 'absolute',
+  alignItems: 'center',
   bottom: theme.gridUnit * 6,
-  right: theme.gridUnit * 10,
-  left: theme.gridUnit * 10,
+  right: 0,
+  left: 0,
 }));
