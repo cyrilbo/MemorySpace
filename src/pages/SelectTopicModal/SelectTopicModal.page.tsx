@@ -1,4 +1,4 @@
-import { ModalHeader } from '@core/components/ModalHeader/ModalHeader.component';
+import { useCloseModalButton } from '@core/hooks/useCloseModalButton.hook';
 import styled from '@core/theme/styled-components';
 import {
   RootNavigatorRouteNames,
@@ -28,9 +28,10 @@ type Props = {
 export const SelectTopicModal: FunctionComponent<Props> = ({ navigation }) => {
   const closeModal = (topic?: Topic) =>
     navigation.navigate(RootNavigatorRouteNames.EditCardModal, { topic });
+  useCloseModalButton(navigation, closeModal);
+
   return (
     <Container>
-      <ModalHeader title="Topic" onPressClose={() => closeModal()} />
       <SelectTopicForm onTopicSelected={(topic) => closeModal(topic)} />
     </Container>
   );

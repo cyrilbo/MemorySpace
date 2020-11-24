@@ -7,7 +7,7 @@ interface Props {
   color?: string;
 }
 
-export const CrossIcon: FunctionComponent<Props> = ({ color = colors.ivory, size = 20 }) => {
+export const CrossIcon: FunctionComponent<Props> = ({ color = colors.ivory, size = 30 }) => {
   return (
     <Svg width={size} height={size} viewBox="0 0 40 40" fill="none">
       <Path

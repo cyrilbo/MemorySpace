@@ -19,12 +19,38 @@ export const RootNavigator: FunctionComponent = () => (
     <StatusBar barStyle="light-content" backgroundColor={colors.darkGrey} />
     <Stack.Navigator
       mode="modal"
-      headerMode="none"
-      screenOptions={{ cardStyle: { backgroundColor: theme.colors.darkGrey } }}
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.raisinBlack,
+          shadowColor: colors.black,
+        },
+        headerTintColor: colors.ivory,
+        headerTitleStyle: {
+          fontFamily: theme.fontFamilies.bold,
+          fontSize: theme.fontSizes.xxl,
+        },
+        headerBackTitleStyle: {
+          fontFamily: theme.fontFamilies.bold,
+          fontSize: theme.fontSizes.xl,
+        },
+        cardStyle: { backgroundColor: theme.colors.darkGrey },
+      }}
     >
-      <Stack.Screen name={RootNavigatorRouteNames.AppNavigator} component={AppNavigator} />
-      <Stack.Screen name={RootNavigatorRouteNames.EditCardModal} component={EditCardModal} />
-      <Stack.Screen name={RootNavigatorRouteNames.SelectTopicModal} component={SelectTopicModal} />
+      <Stack.Screen
+        name={RootNavigatorRouteNames.AppNavigator}
+        component={AppNavigator}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name={RootNavigatorRouteNames.EditCardModal}
+        component={EditCardModal}
+        options={{ headerShown: true, headerLeft: null }}
+      />
+      <Stack.Screen
+        name={RootNavigatorRouteNames.SelectTopicModal}
+        component={SelectTopicModal}
+        options={{ headerShown: true, headerTitle: 'Topic', headerLeft: null }}
+      />
     </Stack.Navigator>
   </NavigationContainer>
 );
