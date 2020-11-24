@@ -5,15 +5,14 @@ import React, { FunctionComponent } from 'react';
 
 interface Props {
   onPress?: () => void;
-  size?: number;
 }
 
-export const HugePlayButton: FunctionComponent<Props> = ({ onPress, size }) => {
+export const HugePlayButton: FunctionComponent<Props> = ({ onPress }) => {
   return (
     <Container onPress={onPress}>
-      <Title>Play</Title>
+      <Title>Review</Title>
       <Spacer width={2} />
-      <Spaceship size={size} />
+      <Spaceship size={40} />
     </Container>
   );
 };
@@ -21,13 +20,14 @@ export const HugePlayButton: FunctionComponent<Props> = ({ onPress, size }) => {
 const Container = styled.TouchableOpacity(({ theme }) => ({
   flexDirection: 'row',
   alignItems: 'center',
-  backgroundColor: theme.colors.black,
-  padding: theme.gridUnit * 3,
+  justifyContent: 'center',
+  backgroundColor: theme.colors.raisinBlack,
+  padding: theme.gridUnit * 2,
   borderRadius: 20,
 }));
 
 const Title = styled.Text(({ theme }) => ({
-  fontFamily: theme.fontFamilies.extraBold,
-  fontSize: 32,
+  fontFamily: theme.fontFamilies.bold,
+  fontSize: 26,
   color: theme.colors.ivory,
 }));

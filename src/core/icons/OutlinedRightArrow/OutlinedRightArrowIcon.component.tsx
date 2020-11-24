@@ -12,7 +12,7 @@ const DEFAULT_WIDTH = 34;
 
 export const OutlinedRightArrowIcon: FunctionComponent<Props> = ({
   color = colors.ivory,
-  size = 20,
+  size = 10,
 }) => {
   return (
     <Svg

@@ -1,4 +1,4 @@
-import { RoundButton } from '@core/components/RoundButton/RoundButton.component';
+import { useOpenEditCardModalButton } from '@card/hooks/useEditCardModalButton.hook';
 import styled from '@core/theme/styled-components';
 import {
   AppNavigatorRouteNames,
@@ -25,50 +25,38 @@ type Props = {
 };
 
 export const Home: FunctionComponent<Props> = ({ navigation }) => {
-  const { openEditCardModal, openPlayCardScreen, openTopicCardListScreen } = useHomeNavigation(
+  const { openEditCardModal, openTopicCardListScreen, openPlayCardScreen } = useHomeNavigation(
     navigation
   );
   const insets = useSafeAreaInsets();
   const { topics } = useGetTopicsQuery();
+  useOpenEditCardModalButton(navigation, openEditCardModal);
 
   useEffect(() => {
     RNBootSplash.hide({ fade: true });
   }, []);
 
   return (
-    <Container paddingTop={insets.top} paddingBottom={insets.bottom}>
+    <Container paddingBottom={insets.bottom}>
+      <WideTopicList topics={topics} onTopicPress={(topic) => openTopicCardListScreen(topic)} />
       {topics.length > 0 ? (
         <PlayButtonContainer>
-          <HugePlayButton onPress={openPlayCardScreen} size={50} />
+          <HugePlayButton onPress={openPlayCardScreen} />
         </PlayButtonContainer>
       ) : null}
-
-      <WideTopicList topics={topics} onTopicPress={(topic) => openTopicCardListScreen(topic)} />
-      <AddCardButtonContainer>
-        <RoundButton onPress={openEditCardModal} />
-      </AddCardButtonContainer>
     </Container>
   );
 };
 
-const Container = styled.View<{ paddingTop: number; paddingBottom: number }>(
-  ({ theme, paddingTop, paddingBottom }) => ({
-    flex: 1,
-    backgroundColor: theme.colors.darkGrey,
-    paddingTop: Math.max(theme.gridUnit * 4, paddingTop),
-    paddingBottom,
-    paddingHorizontal: theme.gridUnit * 2,
-  })
-);
-
-const PlayButtonContainer = styled.View(({ theme }) => ({
-  alignItems: 'center',
-  justifyContent: 'center',
-  marginBottom: theme.gridUnit * 4,
+const Container = styled.View<{ paddingBottom: number }>(({ theme, paddingBottom }) => ({
+  flex: 1,
+  backgroundColor: theme.colors.darkGrey,
+  paddingBottom,
 }));
 
-const AddCardButtonContainer = styled.View(({ theme }) => ({
+const PlayButtonContainer = styled.View(({ theme }) => ({
   position: 'absolute',
   bottom: theme.gridUnit * 6,
-  right: theme.gridUnit * 6,
+  right: theme.gridUnit * 10,
+  left: theme.gridUnit * 10,
 }));

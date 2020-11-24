@@ -15,7 +15,8 @@ export const CardNavigator: FunctionComponent = () => (
   <Stack.Navigator
     screenOptions={{
       headerStyle: {
-        backgroundColor: colors.darkGrey,
+        backgroundColor: colors.raisinBlack,
+        shadowColor: colors.black,
       },
       headerTintColor: colors.ivory,
       headerTitleStyle: {

@@ -40,7 +40,7 @@ export const WideTopicListItem: FunctionComponent<Props> = ({ topic, onPress }) 
     >
       <Name>{topic.name}</Name>
       <Spacer width={2} />
-      <OutlinedRightArrowIcon size={12} color={colors.darkGrey} />
+      <OutlinedRightArrowIcon color={colors.darkGrey} />
     </Container>
   );
 };
@@ -50,7 +50,6 @@ const Container = styled.TouchableOpacity<{ backgroundColor: string }>(
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: theme.gridUnit * 2,
-    paddingVertical: theme.gridUnit * 4,
     backgroundColor,
     borderRadius: 10,
   })

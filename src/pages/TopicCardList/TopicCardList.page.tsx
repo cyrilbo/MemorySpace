@@ -1,6 +1,6 @@
 import { QuestionList } from '@card/components/QuestionList/QuestionList.component';
 import { useGetCardsQuery } from '@card/data/hooks/useGetCardsQuery.hook';
-import { RoundButton } from '@core/components/RoundButton/RoundButton.component';
+import { useOpenEditCardModalButton } from '@card/hooks/useEditCardModalButton.hook';
 import styled from '@core/theme/styled-components';
 import { AppNavigatorRouteParamsList } from '@navigation/AppNavigator/AppNavigator.routes';
 import {
@@ -11,7 +11,7 @@ import { RootNavigatorRouteParamsList } from '@navigation/RootNavigator/RootNavi
 import { useTopicCardListNavigation } from '@pages/TopicCardList/TopicCardList.hooks';
 import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { usePlayButton } from '@srs/hooks/usePlayButton.hook';
+import { HugePlayButton } from '@srs/components/HugePlayButton/HugePlayButton.component';
 import { getColorFromTopicColorId } from '@topic/utils/getColorFromTopicColorId.utils';
 import React, { FunctionComponent } from 'react';
 
@@ -37,13 +37,13 @@ export const TopicCardList: FunctionComponent<Props> = ({ route, navigation }) =
   const topic = route.params?.topic;
   const { cards } = useGetCardsQuery({ topicId: topic.id });
   const { openEditCardModal, openPlayCardScreen } = useTopicCardListNavigation(navigation, topic);
-  usePlayButton(navigation, openPlayCardScreen, cards.length > 0);
+  useOpenEditCardModalButton(navigation, openEditCardModal);
   return (
     <Container backgroundColor={getColorFromTopicColorId(topic.colorId)}>
       <QuestionList cards={cards} onQuestionPress={openEditCardModal} />
-      <AddCardButtonContainer>
-        <RoundButton onPress={() => openEditCardModal()} />
-      </AddCardButtonContainer>
+      <PlayButtonContainer>
+        <HugePlayButton onPress={openPlayCardScreen} />
+      </PlayButtonContainer>
     </Container>
   );
 };
@@ -53,8 +53,9 @@ const Container = styled.SafeAreaView<{ backgroundColor: string }>(({ background
   backgroundColor,
 }));
 
-const AddCardButtonContainer = styled.View(({ theme }) => ({
+const PlayButtonContainer = styled.View(({ theme }) => ({
   position: 'absolute',
   bottom: theme.gridUnit * 6,
-  right: theme.gridUnit * 6,
+  right: theme.gridUnit * 10,
+  left: theme.gridUnit * 10,
 }));

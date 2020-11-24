@@ -10,6 +10,9 @@ interface Props {
   onTopicPress: (topic: Topic) => void;
 }
 
+const VERTICAL_CONTENT_LIST_PADDING_TOP = 12;
+const VERTICAL_CONTENT_LIST_PADDING_BOTTOM = 100;
+
 export const WideTopicList: FunctionComponent<Props> = ({ onTopicPress, topics }) => {
   if (!topics || topics.length === 0) {
     return <NoTopics />;
@@ -23,6 +26,10 @@ export const WideTopicList: FunctionComponent<Props> = ({ onTopicPress, topics }
           </TopicListItemContainer>
         )}
         keyExtractor={(topic) => topic.id}
+        contentContainerStyle={{
+          paddingTop: VERTICAL_CONTENT_LIST_PADDING_TOP,
+          paddingBottom: VERTICAL_CONTENT_LIST_PADDING_BOTTOM,
+        }}
       />
     );
   }

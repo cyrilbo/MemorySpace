@@ -5,6 +5,7 @@ export const colors = {
   transparentIvory: '#f9f7f780',
   lightBlue: '#dbe2ef',
   mediumBlue: '#3f72af',
-  darkGrey: '#1A1A1A',
+  darkGrey: '#1E1E1E',
+  raisinBlack: '#282828',
   white: '#FFFFFF',
 };
