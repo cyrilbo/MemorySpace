@@ -11,6 +11,7 @@ import styled from '@core/theme/styled-components';
 import { TopicListItem } from '@topic/components/TopicListItem/TopicListItem.component';
 import { Topic } from '@topic/types/Topic.type';
 import React, { FunctionComponent, useEffect, useState } from 'react';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 interface Props {
   openSelectTopicModal: () => void;
@@ -83,7 +84,7 @@ export const EditCardForm: FunctionComponent<Props> = ({
   );
 };
 
-const Container = styled.ScrollView(({ theme }) => ({
+const Container = styled(KeyboardAwareScrollView)(({ theme }) => ({
   backgroundColor: theme.colors.darkGrey,
   flex: 1,
   borderTopWidth: 1,
