@@ -45,11 +45,12 @@ export const CardReviewForm: FunctionComponent<Props> = ({ card }) => {
   );
 };
 
-const Container = styled.View(({ theme }) => ({
-  flex: 1,
-  justifyContent: 'center',
-  paddingVertical: theme.gridUnit * 5,
-}));
+const Container = styled.ScrollView.attrs(({ theme }) => ({
+  contentContainerStyle: {
+    flex: 1,
+    paddingVertical: theme.gridUnit * 5,
+  },
+}))``;
 
 const QuestionContainer = styled.View(({ theme }) => ({
   padding: theme.gridUnit * 5,
@@ -60,7 +61,7 @@ const Question = styled.Text(({ theme }) => ({
   fontSize: theme.fontSizes.xxxl,
 }));
 
-const AnswerContainer = styled.ScrollView(({ theme }) => ({
+const AnswerContainer = styled.View(({ theme }) => ({
   flex: 1,
   padding: theme.gridUnit * 5,
 }));
