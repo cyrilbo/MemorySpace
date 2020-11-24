@@ -1,8 +1,8 @@
 import { adaptCardEntityToCard } from '@card/data/repository/Card.adapters';
 import { CardEntity } from '@card/data/repository/Card.entity';
 import { Card } from '@card/types/Card.type';
+import { getTopics } from '@topic/data/repository/GetTopics.query';
 import { getRepository } from 'typeorm/browser';
-import { getTopics } from './../../../topic/data/repository/GetTopics.query';
 
 export interface GetCardsParams {
   topicId?: string;
@@ -18,10 +18,12 @@ export const getCards = async (
   });
   const topics = await getTopics('getTopics');
 
-  return cardEntities.map((cardEntity) =>
-    adaptCardEntityToCard(
-      cardEntity,
-      topics.find((topic) => topic.id === cardEntity.topicId)
+  return cardEntities
+    .map((cardEntity) =>
+      adaptCardEntityToCard(
+        cardEntity,
+        topics.find((topic) => topic.id === cardEntity.topicId)
+      )
     )
-  );
+    .filter((card) => !!card.topic);
 };
