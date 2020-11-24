@@ -11,7 +11,7 @@ const Stack = createStackNavigator<AppNavigatorRouteParamsList>();
 
 export const AppNavigator: FunctionComponent = () => (
   <>
-    <StatusBar barStyle="dark-content" />
+    <StatusBar barStyle="light-content" />
     <Stack.Navigator
       initialRouteName={AppNavigatorRouteNames.Home}
       screenOptions={{
@@ -21,8 +21,8 @@ export const AppNavigator: FunctionComponent = () => (
         },
         headerTintColor: colors.ivory,
         headerTitleStyle: {
-          fontFamily: theme.fontFamilies.extraBold,
-          fontSize: theme.fontSizes.xxxl,
+          fontFamily: theme.fontFamilies.bold,
+          fontSize: theme.fontSizes.xxl,
         },
         headerBackTitleStyle: {
           fontFamily: theme.fontFamilies.bold,
@@ -34,7 +34,7 @@ export const AppNavigator: FunctionComponent = () => (
       <Stack.Screen
         name={AppNavigatorRouteNames.Home}
         component={Home}
-        options={{ headerTitle: 'Memory Space' }}
+        options={{ headerTitle: 'Topics' }}
       />
       <Stack.Screen
         name={AppNavigatorRouteNames.CardNavigator}
