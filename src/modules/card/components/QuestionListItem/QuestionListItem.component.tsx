@@ -33,8 +33,7 @@ export const QuestionListItem: FunctionComponent<Props> = ({ card, onPress }) =>
 const Container = styled.TouchableOpacity(({ theme }) => ({
   flexDirection: 'row',
   alignItems: 'center',
-  paddingHorizontal: theme.gridUnit * 2,
-  paddingVertical: theme.gridUnit * 4,
+  padding: theme.gridUnit * 4,
   backgroundColor: theme.colors.darkGrey,
   borderRadius: 10,
 }));

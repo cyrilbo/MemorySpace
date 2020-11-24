@@ -12,12 +12,12 @@ const DEFAULT_WIDTH = 34;
 
 export const OutlinedRightArrowIcon: FunctionComponent<Props> = ({
   color = colors.ivory,
-  size = 10,
+  size = 20,
 }) => {
   return (
     <Svg
-      width={(size * DEFAULT_HEIGHT) / DEFAULT_WIDTH}
-      height={DEFAULT_HEIGHT}
+      width={(size * DEFAULT_WIDTH) / DEFAULT_HEIGHT}
+      height={size}
       viewBox="0 0 34 65"
       fill="none"
     >
