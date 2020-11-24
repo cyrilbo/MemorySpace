@@ -39,7 +39,7 @@ export const Home: FunctionComponent<Props> = ({ navigation }) => {
     <Container paddingTop={insets.top} paddingBottom={insets.bottom}>
       {topics.length > 0 ? (
         <PlayButtonContainer>
-          <HugePlayButton onPress={openPlayCardScreen} size={60} />
+          <HugePlayButton onPress={openPlayCardScreen} size={50} />
         </PlayButtonContainer>
       ) : null}
 

@@ -28,6 +28,6 @@ const Container = styled.TouchableOpacity(({ theme }) => ({
 
 const Title = styled.Text(({ theme }) => ({
   fontFamily: theme.fontFamilies.extraBold,
-  fontSize: 36,
+  fontSize: 32,
   color: theme.colors.ivory,
 }));
