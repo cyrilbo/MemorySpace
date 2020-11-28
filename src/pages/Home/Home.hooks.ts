@@ -11,7 +11,7 @@ export const useHomeNavigation = (
   openTopicCardListScreen: (topic: Topic) => void;
   openPlayCardScreen: () => void;
 } => {
-  const openEditCardModal = () => navigation.navigate(RootNavigatorRouteNames.EditCardModal);
+  const openEditCardModal = () => navigation.navigate(RootNavigatorRouteNames.CardEdition);
   const openTopicCardListScreen = (topic: Topic) =>
     navigation.navigate(AppNavigatorRouteNames.CardNavigator, {
       screen: CardNavigatorRouteNames.TopicCardList,
@@ -20,7 +20,7 @@ export const useHomeNavigation = (
 
   const openPlayCardScreen = () =>
     navigation.navigate(AppNavigatorRouteNames.CardNavigator, {
-      screen: CardNavigatorRouteNames.PlayCard,
+      screen: CardNavigatorRouteNames.CardReview,
     });
   return { openEditCardModal, openTopicCardListScreen, openPlayCardScreen };
 };

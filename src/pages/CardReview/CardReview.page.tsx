@@ -16,25 +16,25 @@ import { getColorFromTopicColorId } from '@topic/utils/getColorFromTopicColorId.
 import React, { FunctionComponent, useLayoutEffect } from 'react';
 import { ActivityIndicator } from 'react-native';
 
-type PlayCardScreenNavigationProp = CompositeNavigationProp<
+type CardReviewScreenNavigationProp = CompositeNavigationProp<
   CompositeNavigationProp<
-    StackNavigationProp<CardNavigatorRouteParamsList, CardNavigatorRouteNames.PlayCard>,
+    StackNavigationProp<CardNavigatorRouteParamsList, CardNavigatorRouteNames.CardReview>,
     StackNavigationProp<AppNavigatorRouteParamsList>
   >,
   StackNavigationProp<RootNavigatorRouteParamsList>
 >;
 
-type PlayCardScreenRouteProp = RouteProp<
+type CardReviewScreenRouteProp = RouteProp<
   CardNavigatorRouteParamsList,
-  CardNavigatorRouteNames.PlayCard
+  CardNavigatorRouteNames.CardReview
 >;
 
 type Props = {
-  navigation: PlayCardScreenNavigationProp;
-  route: PlayCardScreenRouteProp;
+  navigation: CardReviewScreenNavigationProp;
+  route: CardReviewScreenRouteProp;
 };
 
-export const PlayCard: FunctionComponent<Props> = ({ route, navigation }) => {
+export const CardReview: FunctionComponent<Props> = ({ route, navigation }) => {
   const topic: Topic | undefined = route.params?.topic;
   const { isLoading, card } = useGetNextCardToPlay(topic?.id);
   useLayoutEffect(() => {

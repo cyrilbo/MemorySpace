@@ -10,24 +10,24 @@ import { SelectTopicForm } from '@topic/components/SelectTopicForm/SelectTopicFo
 import { Topic } from '@topic/types/Topic.type';
 import React, { FunctionComponent } from 'react';
 
-type SelectTopicModalNavigationProp = StackNavigationProp<
+type TopicSelectionScreenNavigationProp = StackNavigationProp<
   RootNavigatorRouteParamsList,
-  RootNavigatorRouteNames.SelectTopicModal
+  RootNavigatorRouteNames.TopicSelection
 >;
 
-type SelectTopicModalRouteProp = RouteProp<
+type TopicSelectionScreenRouteProp = RouteProp<
   RootNavigatorRouteParamsList,
-  RootNavigatorRouteNames.SelectTopicModal
+  RootNavigatorRouteNames.TopicSelection
 >;
 
 type Props = {
-  navigation: SelectTopicModalNavigationProp;
-  route: SelectTopicModalRouteProp;
+  navigation: TopicSelectionScreenNavigationProp;
+  route: TopicSelectionScreenRouteProp;
 };
 
-export const SelectTopicModal: FunctionComponent<Props> = ({ navigation }) => {
+export const TopicSelection: FunctionComponent<Props> = ({ navigation }) => {
   const closeModal = (topic?: Topic) =>
-    navigation.navigate(RootNavigatorRouteNames.EditCardModal, { topic });
+    navigation.navigate(RootNavigatorRouteNames.CardEdition, { topic });
   useCloseModalButton(navigation, closeModal);
 
   return (

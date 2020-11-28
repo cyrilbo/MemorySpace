@@ -4,7 +4,7 @@ import {
   CardNavigatorRouteNames,
   CardNavigatorRouteParamsList,
 } from '@navigation/CardNavigator/CardNavigator.routes';
-import { PlayCard } from '@pages/PlayCard/PlayCard.page';
+import { CardReview } from '@pages/CardReview/CardReview.page';
 import { TopicCardList } from '@pages/TopicCardList/TopicCardList.page';
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { FunctionComponent } from 'react';
@@ -35,6 +35,6 @@ export const CardNavigator: FunctionComponent = () => (
       component={TopicCardList}
       options={({ route }) => ({ headerTitle: route.params.topic.name })}
     />
-    <Stack.Screen name={CardNavigatorRouteNames.PlayCard} component={PlayCard} />
+    <Stack.Screen name={CardNavigatorRouteNames.CardReview} component={CardReview} />
   </Stack.Navigator>
 );

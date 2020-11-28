@@ -2,10 +2,10 @@ import { Topic } from '@topic/types/Topic.type';
 
 export enum CardNavigatorRouteNames {
   TopicCardList = 'TopicCardList',
-  PlayCard = 'PlayCard',
+  CardReview = 'CardReview',
 }
 
 export type CardNavigatorRouteParamsList = {
-  TopicCardList: { topic: Topic };
-  PlayCard: { topic?: Topic };
+  [CardNavigatorRouteNames.TopicCardList]: { topic: Topic };
+  [CardNavigatorRouteNames.CardReview]: { topic?: Topic };
 };

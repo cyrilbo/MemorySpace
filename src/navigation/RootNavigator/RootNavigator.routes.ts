@@ -5,14 +5,14 @@ import { Topic } from '@topic/types/Topic.type';
 
 export enum RootNavigatorRouteNames {
   AppNavigator = 'AppNavigator',
-  EditCardModal = 'EditCardModal',
-  SelectTopicModal = 'SelectTopicModal',
+  CardEdition = 'CardEdition',
+  TopicSelection = 'TopicSelection',
 }
 
-export type EditCardModalCreationParams = { topic?: Topic; card?: Card };
+export type CardEditionScreenParams = { topic?: Topic; card?: Card };
 
 export type RootNavigatorRouteParamsList = {
-  EditCardModal: EditCardModalCreationParams;
-  SelectTopicModal: undefined;
-  AppNavigator: NavigatorScreenParams<AppNavigatorRouteParamsList>;
+  [RootNavigatorRouteNames.CardEdition]: CardEditionScreenParams;
+  [RootNavigatorRouteNames.TopicSelection]: undefined;
+  [RootNavigatorRouteNames.AppNavigator]: NavigatorScreenParams<AppNavigatorRouteParamsList>;
 };

@@ -4,11 +4,11 @@ import {
   RootNavigatorRouteNames,
   RootNavigatorRouteParamsList,
 } from '@navigation/RootNavigator/RootNavigator.routes';
-import { EditCardModal } from '@pages/EditCardModal/EditCardModal.page';
+import { CardEdition } from '@pages/CardEdition/CardEdition.page';
+import { TopicSelection } from '@pages/TopicSelection/TopicSelection.page';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { theme } from '@root/src/core/theme';
-import { SelectTopicModal } from '@root/src/pages/SelectTopicModal/SelectTopicModal.page';
 import React, { FunctionComponent } from 'react';
 import { StatusBar } from 'react-native';
 
@@ -42,13 +42,13 @@ export const RootNavigator: FunctionComponent = () => (
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name={RootNavigatorRouteNames.EditCardModal}
-        component={EditCardModal}
+        name={RootNavigatorRouteNames.CardEdition}
+        component={CardEdition}
         options={{ headerShown: true, headerLeft: null }}
       />
       <Stack.Screen
-        name={RootNavigatorRouteNames.SelectTopicModal}
-        component={SelectTopicModal}
+        name={RootNavigatorRouteNames.TopicSelection}
+        component={TopicSelection}
         options={{ headerShown: true, headerTitle: 'Topic', headerLeft: null }}
       />
     </Stack.Navigator>

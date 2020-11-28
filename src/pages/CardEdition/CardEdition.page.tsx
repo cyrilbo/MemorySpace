@@ -11,24 +11,24 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { Topic } from '@topic/types/Topic.type';
 import React, { FunctionComponent, useEffect, useLayoutEffect, useState } from 'react';
 
-type EditCardModalNavigationProp = StackNavigationProp<
+type CardEditionScreenNavigationProp = StackNavigationProp<
   RootNavigatorRouteParamsList,
-  RootNavigatorRouteNames.EditCardModal
+  RootNavigatorRouteNames.CardEdition
 >;
 
-type EditCardModalRouteProp = RouteProp<
+type CardEditionScreenRouteProp = RouteProp<
   RootNavigatorRouteParamsList,
-  RootNavigatorRouteNames.EditCardModal
+  RootNavigatorRouteNames.CardEdition
 >;
 
 type Props = {
-  navigation: EditCardModalNavigationProp;
-  route: EditCardModalRouteProp;
+  navigation: CardEditionScreenNavigationProp;
+  route: CardEditionScreenRouteProp;
 };
 
-export const EditCardModal: FunctionComponent<Props> = ({ navigation, route }) => {
+export const CardEdition: FunctionComponent<Props> = ({ navigation, route }) => {
   const closeModal = () => navigation.goBack();
-  const openSelectTopicModal = () => navigation.navigate(RootNavigatorRouteNames.SelectTopicModal);
+  const openSelectTopicModal = () => navigation.navigate(RootNavigatorRouteNames.TopicSelection);
   useCloseModalButton(navigation, closeModal);
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
   const [card, setCard] = useState<Card | null>(null);
