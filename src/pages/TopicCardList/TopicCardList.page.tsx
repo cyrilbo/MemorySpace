@@ -2,38 +2,13 @@ import { QuestionList } from '@card/components/QuestionList/QuestionList.compone
 import { useGetCardsQuery } from '@card/data/hooks/useGetCardsQuery.hook';
 import { useOpenEditCardModalButton } from '@card/hooks/useEditCardModalButton.hook';
 import styled from '@core/theme/styled-components';
-import { AppNavigatorRouteParamsList } from '@navigation/AppNavigator/AppNavigator.routes';
-import {
-  CardNavigatorRouteNames,
-  CardNavigatorRouteParamsList,
-} from '@navigation/CardNavigator/CardNavigator.routes';
-import { RootNavigatorRouteParamsList } from '@navigation/RootNavigator/RootNavigator.routes';
 import { useTopicCardListNavigation } from '@pages/TopicCardList/TopicCardList.hooks';
-import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
 import { HugePlayButton } from '@srs/components/HugePlayButton/HugePlayButton.component';
 import { getColorFromTopicColorId } from '@topic/utils/getColorFromTopicColorId.utils';
 import React, { FunctionComponent } from 'react';
+import { TopicCardListProps } from './TopicCardList.interface';
 
-export type TopicCardListScreenNavigationProp = CompositeNavigationProp<
-  CompositeNavigationProp<
-    StackNavigationProp<CardNavigatorRouteParamsList, CardNavigatorRouteNames.TopicCardList>,
-    StackNavigationProp<AppNavigatorRouteParamsList>
-  >,
-  StackNavigationProp<RootNavigatorRouteParamsList>
->;
-
-type TopicCardListScreenRouteProp = RouteProp<
-  CardNavigatorRouteParamsList,
-  CardNavigatorRouteNames.TopicCardList
->;
-
-type Props = {
-  navigation: TopicCardListScreenNavigationProp;
-  route: TopicCardListScreenRouteProp;
-};
-
-export const TopicCardList: FunctionComponent<Props> = ({ route, navigation }) => {
+export const TopicCardList: FunctionComponent<TopicCardListProps> = ({ route, navigation }) => {
   const topic = route.params?.topic;
   const { cards } = useGetCardsQuery({ topicId: topic.id });
   const { openEditCardModal, openPlayCardScreen } = useTopicCardListNavigation(navigation, topic);

@@ -1,13 +1,5 @@
 import { colors } from '@core/theme/colors';
 import styled from '@core/theme/styled-components';
-import { AppNavigatorRouteParamsList } from '@navigation/AppNavigator/AppNavigator.routes';
-import {
-  CardNavigatorRouteNames,
-  CardNavigatorRouteParamsList,
-} from '@navigation/CardNavigator/CardNavigator.routes';
-import { RootNavigatorRouteParamsList } from '@navigation/RootNavigator/RootNavigator.routes';
-import { CompositeNavigationProp, RouteProp } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
 import { CardReviewForm } from '@srs/components/CardReviewForm/CardReviewForm.component';
 import { NoCardToReview } from '@srs/components/NoCardToReview/NoCardToReview.component';
 import { useGetNextCardToPlay } from '@srs/data/hooks/useGetNextCardToPlay.hook';
@@ -15,26 +7,9 @@ import { Topic } from '@topic/types/Topic.type';
 import { getColorFromTopicColorId } from '@topic/utils/getColorFromTopicColorId.utils';
 import React, { FunctionComponent, useLayoutEffect } from 'react';
 import { ActivityIndicator } from 'react-native';
+import { CardReviewProps } from './CardReview.interface';
 
-type CardReviewScreenNavigationProp = CompositeNavigationProp<
-  CompositeNavigationProp<
-    StackNavigationProp<CardNavigatorRouteParamsList, CardNavigatorRouteNames.CardReview>,
-    StackNavigationProp<AppNavigatorRouteParamsList>
-  >,
-  StackNavigationProp<RootNavigatorRouteParamsList>
->;
-
-type CardReviewScreenRouteProp = RouteProp<
-  CardNavigatorRouteParamsList,
-  CardNavigatorRouteNames.CardReview
->;
-
-type Props = {
-  navigation: CardReviewScreenNavigationProp;
-  route: CardReviewScreenRouteProp;
-};
-
-export const CardReview: FunctionComponent<Props> = ({ route, navigation }) => {
+export const CardReview: FunctionComponent<CardReviewProps> = ({ route, navigation }) => {
   const topic: Topic | undefined = route.params?.topic;
   const { isLoading, card } = useGetNextCardToPlay(topic?.id);
   useLayoutEffect(() => {

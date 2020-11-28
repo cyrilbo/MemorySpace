@@ -2,31 +2,12 @@ import { EditCardForm } from '@card/components/EditCardForm/EditCardForm.compone
 import { Card } from '@card/types/Card.type';
 import { useCloseModalButton } from '@core/hooks/useCloseModalButton.hook';
 import styled from '@core/theme/styled-components';
-import {
-  RootNavigatorRouteNames,
-  RootNavigatorRouteParamsList,
-} from '@navigation/RootNavigator/RootNavigator.routes';
-import { RouteProp } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { RootNavigatorRouteNames } from '@navigation/RootNavigator/RootNavigator.routes';
 import { Topic } from '@topic/types/Topic.type';
 import React, { FunctionComponent, useEffect, useLayoutEffect, useState } from 'react';
+import { CardEditionProps } from './CardEdition.interface';
 
-type CardEditionScreenNavigationProp = StackNavigationProp<
-  RootNavigatorRouteParamsList,
-  RootNavigatorRouteNames.CardEdition
->;
-
-type CardEditionScreenRouteProp = RouteProp<
-  RootNavigatorRouteParamsList,
-  RootNavigatorRouteNames.CardEdition
->;
-
-type Props = {
-  navigation: CardEditionScreenNavigationProp;
-  route: CardEditionScreenRouteProp;
-};
-
-export const CardEdition: FunctionComponent<Props> = ({ navigation, route }) => {
+export const CardEdition: FunctionComponent<CardEditionProps> = ({ navigation, route }) => {
   const closeModal = () => navigation.goBack();
   const openSelectTopicModal = () => navigation.navigate(RootNavigatorRouteNames.TopicSelection);
   useCloseModalButton(navigation, closeModal);

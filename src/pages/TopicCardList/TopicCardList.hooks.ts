@@ -2,7 +2,7 @@ import { Card } from '@card/types/Card.type';
 import { CardNavigatorRouteNames } from '@navigation/CardNavigator/CardNavigator.routes';
 import { RootNavigatorRouteNames } from '@navigation/RootNavigator/RootNavigator.routes';
 import { Topic } from '@topic/types/Topic.type';
-import { TopicCardListScreenNavigationProp } from './TopicCardList.page';
+import { TopicCardListScreenNavigationProp } from './TopicCardList.interface';
 
 export const useTopicCardListNavigation = (
   navigation: TopicCardListScreenNavigationProp,

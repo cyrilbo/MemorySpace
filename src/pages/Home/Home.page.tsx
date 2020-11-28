@@ -1,30 +1,15 @@
 import { useOpenEditCardModalButton } from '@card/hooks/useEditCardModalButton.hook';
 import styled from '@core/theme/styled-components';
-import {
-  AppNavigatorRouteNames,
-  AppNavigatorRouteParamsList,
-} from '@navigation/AppNavigator/AppNavigator.routes';
-import { RootNavigatorRouteParamsList } from '@navigation/RootNavigator/RootNavigator.routes';
 import { useHomeNavigation } from '@pages/Home/Home.hooks';
-import { CompositeNavigationProp } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
 import { HugePlayButton } from '@srs/components/HugePlayButton/HugePlayButton.component';
 import { WideTopicList } from '@topic/components/WideTopicList/WideTopicList.component';
 import { useGetTopicsQuery } from '@topic/data/hooks/useGetTopicsQuery.hook';
 import React, { FunctionComponent, useEffect } from 'react';
 import RNBootSplash from 'react-native-bootsplash';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { HomeProps } from './Home.interface';
 
-export type HomeScreenNavigationProp = CompositeNavigationProp<
-  StackNavigationProp<AppNavigatorRouteParamsList, AppNavigatorRouteNames.Home>,
-  StackNavigationProp<RootNavigatorRouteParamsList>
->;
-
-type Props = {
-  navigation: HomeScreenNavigationProp;
-};
-
-export const Home: FunctionComponent<Props> = ({ navigation }) => {
+export const Home: FunctionComponent<HomeProps> = ({ navigation }) => {
   const { openEditCardModal, openTopicCardListScreen, openPlayCardScreen } = useHomeNavigation(
     navigation
   );
