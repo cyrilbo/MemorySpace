@@ -5,6 +5,7 @@ import { TypeormProvider } from '@root/src/providers/Typeorm/Typeorm.provider';
 import React, { FunctionComponent, useEffect } from 'react';
 import { LogBox } from 'react-native';
 import CodePush from 'react-native-code-push';
+import { ReactQueryProvider } from './src/providers/ReactQuery/ReactQuery.provider';
 
 const codePushOptions = { checkFrequency: CodePush.CheckFrequency.ON_APP_START };
 
@@ -14,9 +15,11 @@ const App: FunctionComponent = () => {
   }, []);
   return (
     <ThemeProvider theme={theme}>
-      <TypeormProvider>
-        <RootNavigator />
-      </TypeormProvider>
+      <ReactQueryProvider>
+        <TypeormProvider>
+          <RootNavigator />
+        </TypeormProvider>
+      </ReactQueryProvider>
     </ThemeProvider>
   );
 };
