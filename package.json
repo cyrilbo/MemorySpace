@@ -23,6 +23,7 @@
     "react-native-code-push": "^6.4.0",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.3",
+    "react-native-orientation-locker": "^1.2.0",
     "react-native-reanimated": "^1.13.1",
     "react-native-safe-area-context": "^3.1.8",
     "react-native-screens": "^2.12.0",

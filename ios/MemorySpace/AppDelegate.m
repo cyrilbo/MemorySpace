@@ -5,7 +5,7 @@
 #import <React/RCTRootView.h>
 #import <CodePush/CodePush.h>
 #import "RNBootSplash.h"
-
+#import "Orientation.h"
 
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
@@ -57,6 +57,10 @@ static void InitializeFlipper(UIApplication *application) {
 #else
   return [CodePush bundleURL];
 #endif
+}
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+  return [Orientation getOrientation];
 }
 
 @end
