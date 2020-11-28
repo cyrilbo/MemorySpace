@@ -1,6 +1,5 @@
 import { GET_CARDS_QUERY_NAME } from '@card/data/hooks/useGetCardsQuery.hook';
 import { createCard, CreateCardParams } from '@card/data/repository/CreateCard.mutation';
-import { useCallback } from 'react';
 import { useMutation, useQueryCache } from 'react-query';
 
 export const useCreateCardMutation = (
@@ -8,11 +7,9 @@ export const useCreateCardMutation = (
 ): {
   createCard: (params: CreateCardParams) => Promise<void>;
 } => {
-  const createCardCallback = useCallback(createCard, []);
-
   const cache = useQueryCache();
 
-  const [createCardMutation] = useMutation(createCardCallback, {
+  const [createCardMutation] = useMutation(createCard, {
     onSuccess: () => {
       cache.invalidateQueries(GET_CARDS_QUERY_NAME);
       onSuccess();

@@ -3,7 +3,6 @@ import {
   submitCardReview,
   SubmitCardReviewParams,
 } from '@card/data/repository/SubmitCardReview.mutation';
-import { useCallback } from 'react';
 import { useMutation, useQueryCache } from 'react-query';
 
 export const useSubmitCardReviewMutation = (
@@ -11,10 +10,9 @@ export const useSubmitCardReviewMutation = (
 ): {
   submitCardReview: (params: SubmitCardReviewParams) => Promise<void>;
 } => {
-  const submitCardReviewCallback = useCallback(submitCardReview, []);
   const cache = useQueryCache();
 
-  const [submitCardReviewMutation] = useMutation(submitCardReviewCallback, {
+  const [submitCardReviewMutation] = useMutation(submitCardReview, {
     onSuccess: () => {
       cache.invalidateQueries(GET_CARDS_QUERY_NAME);
       onSuccess();
