@@ -1,8 +1,8 @@
 import { Spacer } from '@core/components/Spacer/Spacer.component';
 import { KoIcon } from '@core/icons/Ko/KoIcon.component';
 import { OkIcon } from '@core/icons/Ok/OkIcon.component';
-import { colors } from '@core/theme/colors';
 import styled from '@core/theme/styled-components';
+import { useTheme } from '@core/theme/Theme.provider';
 import React, { FunctionComponent } from 'react';
 import { TouchableOpacity } from 'react-native';
 
@@ -12,14 +12,15 @@ interface Props {
 }
 
 export const ResultForm: FunctionComponent<Props> = ({ onSuccessPress, onFailurePress }) => {
+  const theme = useTheme();
   return (
     <Container>
       <TouchableOpacity onPress={onFailurePress}>
-        <KoIcon color={colors.black} size={42} />
+        <KoIcon color={theme.colors.topicBackgroundHighlight} size={42} />
       </TouchableOpacity>
       <Spacer width={10} />
       <TouchableOpacity onPress={onSuccessPress}>
-        <OkIcon color={colors.black} size={42} />
+        <OkIcon color={theme.colors.topicBackgroundHighlight} size={42} />
       </TouchableOpacity>
     </Container>
   );

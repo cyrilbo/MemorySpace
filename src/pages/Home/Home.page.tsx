@@ -1,6 +1,7 @@
 import { useOpenEditCardModalButton } from '@card/hooks/useEditCardModalButton.hook';
 import styled from '@core/theme/styled-components';
 import { useHomeNavigation } from '@pages/Home/Home.hooks';
+import { useDarkModeButton } from '@root/src/modules/darkMode/hooks/useDarkModeButton.hook';
 import { HugePlayButton } from '@srs/components/HugePlayButton/HugePlayButton.component';
 import { WideTopicList } from '@topic/components/WideTopicList/WideTopicList.component';
 import { useGetTopicsQuery } from '@topic/data/hooks/useGetTopicsQuery.hook';
@@ -11,11 +12,12 @@ import { HomeProps } from './Home.interface';
 
 export const Home: FunctionComponent<HomeProps> = ({ navigation }) => {
   const { openEditCardModal, openTopicCardListScreen, openPlayCardScreen } = useHomeNavigation(
-    navigation
+    navigation,
   );
   const insets = useSafeAreaInsets();
   const { topics } = useGetTopicsQuery();
   useOpenEditCardModalButton(navigation, openEditCardModal);
+  useDarkModeButton(navigation);
 
   useEffect(() => {
     RNBootSplash.hide({ fade: true });
@@ -35,7 +37,7 @@ export const Home: FunctionComponent<HomeProps> = ({ navigation }) => {
 
 const Container = styled.View<{ paddingBottom: number }>(({ theme, paddingBottom }) => ({
   flex: 1,
-  backgroundColor: theme.colors.darkGrey,
+  backgroundColor: theme.colors.secondary,
   paddingBottom,
 }));
 

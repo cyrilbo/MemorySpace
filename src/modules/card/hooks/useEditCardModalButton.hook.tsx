@@ -8,7 +8,7 @@ export const useOpenEditCardModalButton = <
   }
 >(
   navigation: TNavigation,
-  openEditCardModal: () => void
+  openEditCardModal: () => void,
 ): void => {
   useLayoutEffect(() => {
     navigation.setOptions({

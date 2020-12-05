@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import { colors } from './colors';
+import { darkColors as colors } from './colors';
 
 const ANDROID_ELEVATION = 10;
 const SHADOW_OFFSET = {
@@ -9,9 +9,9 @@ const SHADOW_OFFSET = {
 const SHADOW_RADIUS = 6;
 const SHADOW_OPACITY = 0.7;
 
-export const shadow = Platform.select({
+export const primaryShadow = Platform.select({
   ios: {
-    shadowColor: colors.lightBlue,
+    shadowColor: colors.primary,
     shadowOffset: SHADOW_OFFSET,
     shadowRadius: SHADOW_RADIUS,
     shadowOpacity: SHADOW_OPACITY,
@@ -21,9 +21,9 @@ export const shadow = Platform.select({
   },
 });
 
-export const darkShadow = Platform.select({
+export const secondaryShadow = Platform.select({
   ios: {
-    shadowColor: colors.nightRider,
+    shadowColor: colors.secondary,
     shadowOffset: SHADOW_OFFSET,
     shadowRadius: SHADOW_RADIUS,
     shadowOpacity: SHADOW_OPACITY,

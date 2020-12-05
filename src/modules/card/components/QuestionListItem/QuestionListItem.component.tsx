@@ -23,8 +23,7 @@ export const QuestionListItem: FunctionComponent<Props> = ({ card, onPress }) =>
           },
           { text: 'Yes', style: 'destructive', onPress: () => deleteCard({ cardId: card.id }) },
         ])
-      }
-    >
+      }>
       <Name>{card.question}</Name>
     </Container>
   );
@@ -34,12 +33,12 @@ const Container = styled.TouchableOpacity(({ theme }) => ({
   flexDirection: 'row',
   alignItems: 'center',
   padding: theme.gridUnit * 4,
-  backgroundColor: theme.colors.darkGrey,
+  backgroundColor: theme.colors.secondaryElevation,
   borderRadius: 10,
 }));
 
 const Name = styled.Text(({ theme }) => ({
-  color: theme.colors.ivory,
+  color: theme.colors.primary,
   fontFamily: theme.fontFamilies.semiBold,
   fontSize: theme.fontSizes.xl,
   flex: 1,

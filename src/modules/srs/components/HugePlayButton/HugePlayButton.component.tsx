@@ -21,7 +21,7 @@ const Container = styled.TouchableOpacity(({ theme }) => ({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: theme.colors.raisinBlack,
+  backgroundColor: theme.colors.secondaryElevation,
   padding: theme.gridUnit * 2,
   borderRadius: 10,
 }));
@@ -29,5 +29,5 @@ const Container = styled.TouchableOpacity(({ theme }) => ({
 const Title = styled.Text(({ theme }) => ({
   fontFamily: theme.fontFamilies.bold,
   fontSize: 26,
-  color: theme.colors.ivory,
+  color: theme.colors.primary,
 }));

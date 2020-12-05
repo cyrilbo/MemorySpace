@@ -85,22 +85,20 @@ export const EditCardForm: FunctionComponent<Props> = ({
 };
 
 const Container = styled(KeyboardAwareScrollView)(({ theme }) => ({
-  backgroundColor: theme.colors.darkGrey,
+  backgroundColor: theme.colors.secondary,
   flex: 1,
-  borderTopWidth: 1,
-  borderColor: theme.colors.black,
 }));
 
 const Row = styled.TouchableOpacity(({ theme }) => ({
   flexDirection: 'row',
   alignItems: 'center',
   borderBottomWidth: 1,
-  borderColor: theme.colors.black,
+  borderColor: theme.colors.secondaryElevation,
   padding: theme.gridUnit * 4,
 }));
 
 const TopicPlaceholder = styled.Text(({ theme }) => ({
-  color: theme.colors.ivory,
+  color: theme.colors.primary,
   opacity: 0.5,
   fontFamily: theme.fontFamilies.semiBold,
   fontSize: theme.fontSizes.l,

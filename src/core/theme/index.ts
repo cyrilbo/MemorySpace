@@ -1,12 +1,12 @@
 import { borders } from './borders';
-import { colors } from './colors';
+import { darkColors as colors } from './colors';
 import { fontFamilies } from './fontFamilies';
 import { fontSizes } from './fontSizes';
-import { shadow } from './shadow';
+import { primaryShadow } from './shadow';
 
 export const theme = {
   colors,
-  shadow,
+  shadow: primaryShadow,
   fontFamilies,
   fontSizes,
   borders,

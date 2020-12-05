@@ -1,7 +1,7 @@
 import { Spacer } from '@core/components/Spacer/Spacer.component';
 import { OutlinedRightArrowIcon } from '@core/icons/OutlinedRightArrow/OutlinedRightArrowIcon.component';
-import { colors } from '@core/theme/colors';
 import styled from '@core/theme/styled-components';
+import { useTheme } from '@core/theme/Theme.provider';
 import { useDeleteTopicMutation } from '@topic/data/hooks/useDeleteTopicMutation.hook';
 import { Topic } from '@topic/types/Topic.type';
 import { getColorFromTopicColorId } from '@topic/utils/getColorFromTopicColorId.utils';
@@ -14,6 +14,7 @@ interface Props {
 }
 export const WideTopicListItem: FunctionComponent<Props> = ({ topic, onPress }) => {
   const { deleteTopic } = useDeleteTopicMutation();
+  const theme = useTheme();
 
   return (
     <Container
@@ -33,14 +34,13 @@ export const WideTopicListItem: FunctionComponent<Props> = ({ topic, onPress }) 
               style: 'destructive',
               onPress: () => deleteTopic({ topicId: topic.id }),
             },
-          ]
+          ],
         )
       }
-      disabled={!onPress}
-    >
+      disabled={!onPress}>
       <Name>{topic.name}</Name>
       <Spacer width={2} />
-      <OutlinedRightArrowIcon color={colors.darkGrey} size={30} />
+      <OutlinedRightArrowIcon color={theme.colors.topicBackgroundHighlight} size={30} />
     </Container>
   );
 };
@@ -52,11 +52,11 @@ const Container = styled.TouchableOpacity<{ backgroundColor: string }>(
     padding: theme.gridUnit * 4,
     backgroundColor,
     borderRadius: 10,
-  })
+  }),
 );
 
 const Name = styled.Text(({ theme }) => ({
-  color: theme.colors.black,
+  color: theme.colors.topicBackgroundHighlight,
   fontFamily: theme.fontFamilies.bold,
   fontSize: theme.fontSizes.xxxl,
   flex: 1,

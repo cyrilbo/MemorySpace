@@ -1,9 +1,9 @@
-import { theme } from '@root/src/core/theme';
-import { ThemeProvider } from '@root/src/core/theme/styled-components';
+import { ThemeProvider } from '@root/src/core/theme/Theme.provider';
 import { RootNavigator } from '@root/src/navigation/RootNavigator/RootNavigator.navigator';
 import { TypeormProvider } from '@root/src/providers/Typeorm/Typeorm.provider';
 import React, { FunctionComponent, useEffect } from 'react';
 import { LogBox } from 'react-native';
+import { AppearanceProvider } from 'react-native-appearance';
 import CodePush from 'react-native-code-push';
 import Orientation from 'react-native-orientation-locker';
 import { ReactQueryProvider } from './src/providers/ReactQuery/ReactQuery.provider';
@@ -17,13 +17,15 @@ const App: FunctionComponent = () => {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <ReactQueryProvider>
-        <TypeormProvider>
-          <RootNavigator />
-        </TypeormProvider>
-      </ReactQueryProvider>
-    </ThemeProvider>
+    <AppearanceProvider>
+      <ThemeProvider>
+        <ReactQueryProvider>
+          <TypeormProvider>
+            <RootNavigator />
+          </TypeormProvider>
+        </ReactQueryProvider>
+      </ThemeProvider>
+    </AppearanceProvider>
   );
 };
 

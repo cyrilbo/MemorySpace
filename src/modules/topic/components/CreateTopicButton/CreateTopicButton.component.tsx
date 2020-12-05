@@ -1,6 +1,6 @@
 import { PlusIcon } from '@core/icons/Plus/PlusIcon.component';
-import { colors } from '@core/theme/colors';
 import styled from '@core/theme/styled-components';
+import { useTheme } from '@core/theme/Theme.provider';
 import { useCreateTopicMutation } from '@topic/data/hooks/useCreateTopicMutation.hook';
 import { TopicColor } from '@topic/types/TopicColor.type';
 import React, { FunctionComponent } from 'react';
@@ -11,18 +11,18 @@ interface Props {
 
 export const CreateTopicButton: FunctionComponent<Props> = ({ name, topicColor }) => {
   const { createTopic } = useCreateTopicMutation();
+  const theme = useTheme();
 
   return (
     <Container
       onPress={() => createTopic({ name, colorId: topicColor.id })}
-      backgroundColor={topicColor.hex}
-    >
+      backgroundColor={topicColor.hex}>
       <Title>
         {`Add "`}
         <Name>{name}</Name>
         {`"`}
       </Title>
-      <PlusIcon color={colors.black} />
+      <PlusIcon color={theme.colors.black} />
     </Container>
   );
 };
@@ -32,7 +32,7 @@ const Container = styled.TouchableOpacity<{ backgroundColor: string }>(
     backgroundColor,
     padding: theme.gridUnit * 2,
     flexDirection: 'row',
-  })
+  }),
 );
 
 const Title = styled.Text.attrs({ numberOfLines: 1 })(({ theme }) => ({

@@ -33,14 +33,14 @@ const Container = styled.View(({ theme }) => ({
 }));
 
 const Title = styled.Text(({ theme }) => ({
-  color: theme.colors.ivory,
+  color: theme.colors.primary,
   fontFamily: theme.fontFamilies.bold,
   fontSize: theme.fontSizes.xxxl,
   textAlign: 'center',
 }));
 
 const SubTitle = styled.Text(({ theme }) => ({
-  color: theme.colors.ivory,
+  color: theme.colors.primary,
   fontFamily: theme.fontFamilies.regular,
   fontSize: theme.fontSizes.xl,
   textAlign: 'center',

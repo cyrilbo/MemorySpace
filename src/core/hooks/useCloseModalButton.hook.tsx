@@ -8,7 +8,7 @@ export const useCloseModalButton = <
   }
 >(
   navigation: TNavigation,
-  closeModal: () => void
+  closeModal: () => void,
 ): void => {
   useLayoutEffect(() => {
     navigation.setOptions({

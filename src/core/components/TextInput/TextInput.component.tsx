@@ -1,4 +1,3 @@
-import { colors } from '@core/theme/colors';
 import styled from '@core/theme/styled-components';
 import React, { FunctionComponent } from 'react';
 import { TextInputProps } from 'react-native';
@@ -8,12 +7,7 @@ type Props = TextInputProps;
 export const TextInput: FunctionComponent<Props> = (props) => {
   return (
     <Container>
-      <Input
-        scrollEnabled={false}
-        placeholderTextColor={colors.transparentIvory}
-        selectionColor={colors.transparentIvory}
-        {...props}
-      />
+      <Input scrollEnabled={false} {...props} />
     </Container>
   );
 };
@@ -23,8 +17,11 @@ const Container = styled.View({
   justifyContent: 'center',
 });
 
-const Input = styled.TextInput(({ theme }) => ({
-  color: theme.colors.ivory,
+const Input = styled.TextInput.attrs(({ theme }) => ({
+  placeholderTextColor: theme.colors.primaryTransparent,
+  selectionColor: theme.colors.primaryTransparent,
+}))(({ theme }) => ({
+  color: theme.colors.primary,
   fontFamily: theme.fontFamilies.semiBold,
   fontSize: theme.fontSizes.l,
   padding: 0,

@@ -20,5 +20,5 @@ export const TopicSelection: FunctionComponent<TopicSelectionProps> = ({ navigat
 
 const Container = styled.View(({ theme }) => ({
   flex: 1,
-  backgroundColor: theme.colors.darkGrey,
+  backgroundColor: theme.colors.secondary,
 }));

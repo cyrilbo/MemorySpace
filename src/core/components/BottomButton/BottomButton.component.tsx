@@ -18,16 +18,16 @@ export const BottomButton: FunctionComponent<Props> = ({ title, onPress }) => {
 
 const Container = styled.TouchableOpacity<{ paddingBottom: number }>(
   ({ theme, paddingBottom }) => ({
-    backgroundColor: theme.colors.black,
+    backgroundColor: theme.colors.secondaryElevation,
     paddingBottom: Math.max(paddingBottom, theme.gridUnit * 6),
     paddingTop: theme.gridUnit * 6,
     alignItems: 'center',
     justifyContent: 'center',
-  })
+  }),
 );
 
 const Title = styled.Text(({ theme }) => ({
-  color: theme.colors.ivory,
+  color: theme.colors.primary,
   fontFamily: theme.fontFamilies.bold,
   fontSize: theme.fontSizes.xxxl,
 }));

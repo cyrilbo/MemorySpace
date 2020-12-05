@@ -1,14 +1,14 @@
-import { darkShadow, shadow } from '@core/theme/shadow';
+import { primaryShadow, secondaryShadow } from '@core/theme/shadow';
 import styled from '@core/theme/styled-components';
 import React, { FunctionComponent } from 'react';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   darkShadow: {
-    ...darkShadow,
+    ...secondaryShadow,
   },
   shadow: {
-    ...shadow,
+    ...primaryShadow,
   },
 });
 

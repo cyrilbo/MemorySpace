@@ -2,6 +2,7 @@ import { useSubmitCardReviewMutation } from '@card/data/hooks/useSubmitCardRevie
 import { Card } from '@card/types/Card.type';
 import { Spacer } from '@core/components/Spacer/Spacer.component';
 import styled from '@core/theme/styled-components';
+import { useTheme } from '@core/theme/Theme.provider';
 import { Box } from '@root/src/core/components/Box/Box.component';
 import { ResultForm } from '@srs/components/ResultForm/ResultForm.component';
 import React, { FunctionComponent, useState } from 'react';
@@ -14,10 +15,12 @@ interface Props {
 export const CardReviewForm: FunctionComponent<Props> = ({ card }) => {
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
   const { submitCardReview } = useSubmitCardReviewMutation(() => setIsAnswerVisible(false));
+  const theme = useTheme();
+
   return (
     <Container>
       <QuestionContainer>
-        <Box title={'Question'}>
+        <Box title={'Question'} color={theme.colors.topicBackgroundHighlight}>
           <Question>{card.question}</Question>
         </Box>
       </QuestionContainer>
@@ -59,6 +62,7 @@ const QuestionContainer = styled.View(({ theme }) => ({
 const Question = styled.Text(({ theme }) => ({
   fontFamily: theme.fontFamilies.bold,
   fontSize: theme.fontSizes.xxxl,
+  color: theme.colors.topicBackgroundHighlight,
 }));
 
 const AnswerContainer = styled.View(({ theme }) => ({
@@ -67,8 +71,9 @@ const AnswerContainer = styled.View(({ theme }) => ({
 }));
 
 const Answer = styled.Text(({ theme }) => ({
-  fontFamily: theme.fontFamilies.regular,
+  fontFamily: theme.fontFamilies.semiBold,
   fontSize: theme.fontSizes.xl,
+  color: theme.colors.topicBackgroundHighlight,
 }));
 
 const ShowAnswerButtonContainer = styled.View({

@@ -15,7 +15,7 @@ export const TopicListItem: FunctionComponent<Props> = ({ topic, onPress }) => (
 );
 
 const Name = styled.Text<{ backgroundColor: string }>(({ theme, backgroundColor }) => ({
-  color: theme.colors.black,
+  color: theme.colors.topicBackgroundTextHighlight,
   fontFamily: theme.fontFamilies.bold,
   fontSize: theme.fontSizes.l,
   alignSelf: 'flex-start',

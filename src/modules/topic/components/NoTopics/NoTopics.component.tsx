@@ -16,7 +16,7 @@ export const NoTopics: FunctionComponent = () => {
 const Container = styled.View({ flex: 1, alignItems: 'center', justifyContent: 'center' });
 
 const Title = styled.Text(({ theme }) => ({
-  color: theme.colors.ivory,
+  color: theme.colors.primary,
   fontFamily: theme.fontFamilies.semiBold,
   fontSize: theme.fontSizes.l,
 }));
