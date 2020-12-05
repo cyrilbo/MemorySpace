@@ -1,6 +1,6 @@
-import { useDarkMode } from '@root/src/providers/DarkMode/DarkMode.provider';
+import styled from '@core/libs/styled-components';
 import React, { useLayoutEffect } from 'react';
-import { Switch } from 'react-native';
+import { DarkModeButton } from '../components/DarkModeButton/DarkModeButton.component';
 
 export const useDarkModeButton = <
   TNavigation extends {
@@ -9,11 +9,17 @@ export const useDarkModeButton = <
 >(
   navigation: TNavigation,
 ): void => {
-  const { isLight, setIsLight } = useDarkMode();
-
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: () => <Switch onValueChange={setIsLight} value={isLight} />,
+      headerLeft: () => (
+        <DarkModeButtonContainer>
+          <DarkModeButton />
+        </DarkModeButtonContainer>
+      ),
     });
-  }, [navigation, isLight, setIsLight]);
+  }, [navigation]);
 };
+
+const DarkModeButtonContainer = styled.View(({ theme }) => ({
+  marginLeft: theme.gridUnit * 3,
+}));
