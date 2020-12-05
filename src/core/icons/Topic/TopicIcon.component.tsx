@@ -1,4 +1,4 @@
-import { useTheme } from '@core/theme/Theme.provider';
+import { useTheme } from '@root/src/providers/Theme/Theme.provider';
 import React, { FunctionComponent } from 'react';
 import Svg, { Path } from 'react-native-svg';
 

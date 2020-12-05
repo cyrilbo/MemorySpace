@@ -1,6 +1,6 @@
 import { TextInput } from '@core/components/TextInput/TextInput.component';
 import { useDebounce } from '@core/hooks/useDebounce.hook';
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import { NoTopics } from '@topic/components/NoTopics/NoTopics.component';
 import { TopicList } from '@topic/components/TopicList/TopicList.component';
 import { useGetTopicsQuery } from '@topic/data/hooks/useGetTopicsQuery.hook';

@@ -1,5 +1,5 @@
 import { PlusIcon } from '@core/icons/Plus/PlusIcon.component';
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import React, { useLayoutEffect } from 'react';
 
 export const useOpenEditCardModalButton = <

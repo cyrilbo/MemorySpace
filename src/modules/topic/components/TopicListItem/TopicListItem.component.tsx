@@ -1,4 +1,4 @@
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import { Topic } from '@topic/types/Topic.type';
 import { getColorFromTopicColorId } from '@topic/utils/getColorFromTopicColorId.utils';
 import React, { FunctionComponent } from 'react';

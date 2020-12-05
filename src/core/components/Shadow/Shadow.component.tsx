@@ -1,5 +1,5 @@
-import { primaryShadow, secondaryShadow } from '@core/theme/shadow';
-import styled from '@core/theme/styled-components';
+import { primaryShadow, secondaryShadow } from '@root/src/providers/Theme/shadow';
+import styled from '@core/libs/styled-components';
 import React, { FunctionComponent } from 'react';
 import { StyleSheet } from 'react-native';
 

@@ -1,5 +1,5 @@
 import { useOpenEditCardModalButton } from '@card/hooks/useEditCardModalButton.hook';
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import { useHomeNavigation } from '@pages/Home/Home.hooks';
 import { useDarkModeButton } from '@root/src/modules/darkMode/hooks/useDarkModeButton.hook';
 import { HugePlayButton } from '@srs/components/HugePlayButton/HugePlayButton.component';

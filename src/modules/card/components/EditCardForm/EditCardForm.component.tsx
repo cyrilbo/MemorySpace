@@ -7,7 +7,7 @@ import { TextInput } from '@core/components/TextInput/TextInput.component';
 import { CheckIcon } from '@core/icons/Check/CheckIcon.component';
 import { QuestionMarkIcon } from '@core/icons/QuestionMark/QuestionMarkIcon.component';
 import { TopicIcon } from '@core/icons/Topic/TopicIcon.component';
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import { TopicListItem } from '@topic/components/TopicListItem/TopicListItem.component';
 import { Topic } from '@topic/types/Topic.type';
 import React, { FunctionComponent, useEffect, useState } from 'react';

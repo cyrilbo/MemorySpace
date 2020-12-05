@@ -1,5 +1,5 @@
-import styled from '@core/theme/styled-components';
-import { useTheme } from '@core/theme/Theme.provider';
+import styled from '@core/libs/styled-components';
+import { useTheme } from '@root/src/providers/Theme/Theme.provider';
 import { CardReviewForm } from '@srs/components/CardReviewForm/CardReviewForm.component';
 import { NoCardToReview } from '@srs/components/NoCardToReview/NoCardToReview.component';
 import { useGetNextCardToPlay } from '@srs/data/hooks/useGetNextCardToPlay.hook';

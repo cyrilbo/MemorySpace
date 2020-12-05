@@ -1,6 +1,6 @@
 import { CardEntity } from '@card/data/repository/Card.entity';
-import { useTheme } from '@core/theme/Theme.provider';
-import styled from '@root/src/core/theme/styled-components';
+import { useTheme } from '@root/src/providers/Theme/Theme.provider';
+import styled from '@core/libs/styled-components';
 import { TopicEntity } from '@topic/data/repository/Topic.entity';
 import React, { FunctionComponent, useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';

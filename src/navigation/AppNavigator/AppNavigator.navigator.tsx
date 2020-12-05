@@ -1,4 +1,4 @@
-import { useTheme } from '@core/theme/Theme.provider';
+import { useTheme } from '@root/src/providers/Theme/Theme.provider';
 import { CardNavigator } from '@navigation/CardNavigator/CardNavigator.navigator';
 import { Home } from '@pages/Home/Home.page';
 import { createStackNavigator } from '@react-navigation/stack';

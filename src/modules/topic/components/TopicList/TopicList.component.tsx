@@ -1,5 +1,5 @@
 import { Spacer } from '@core/components/Spacer/Spacer.component';
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import { TopicListItem } from '@topic/components/TopicListItem/TopicListItem.component';
 import { Topic } from '@topic/types/Topic.type';
 import React, { FunctionComponent } from 'react';

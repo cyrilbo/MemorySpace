@@ -43,6 +43,7 @@
       "@srs/*": ["./src/modules/srs/*"],
       "@core/*": ["./src/core/*"],
       "@pages/*": ["./src/pages/*"],
+      "@providers/*": ["./src/providers/*"],
       "@navigation/*": ["./src/navigation/*"],
       "@root/*": ["./*"]
     } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,

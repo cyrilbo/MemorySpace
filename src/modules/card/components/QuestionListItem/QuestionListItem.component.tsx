@@ -1,6 +1,6 @@
 import { useDeleteCardMutation } from '@card/data/hooks/useDeleteCardMutation.hook';
 import { Card } from '@card/types/Card.type';
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import React, { FunctionComponent } from 'react';
 import { Alert } from 'react-native';
 

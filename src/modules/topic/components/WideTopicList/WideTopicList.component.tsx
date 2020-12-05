@@ -1,4 +1,4 @@
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import { NoTopics } from '@topic/components/NoTopics/NoTopics.component';
 import { WideTopicListItem } from '@topic/components/WideTopicListItem/WideTopicListItem.component';
 import { Topic } from '@topic/types/Topic.type';

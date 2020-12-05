@@ -1,8 +1,8 @@
 import { useSubmitCardReviewMutation } from '@card/data/hooks/useSubmitCardReviewMutation.hook';
 import { Card } from '@card/types/Card.type';
 import { Spacer } from '@core/components/Spacer/Spacer.component';
-import styled from '@core/theme/styled-components';
-import { useTheme } from '@core/theme/Theme.provider';
+import styled from '@core/libs/styled-components';
+import { useTheme } from '@root/src/providers/Theme/Theme.provider';
 import { Box } from '@root/src/core/components/Box/Box.component';
 import { ResultForm } from '@srs/components/ResultForm/ResultForm.component';
 import React, { FunctionComponent, useState } from 'react';

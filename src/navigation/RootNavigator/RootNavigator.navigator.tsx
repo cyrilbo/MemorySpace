@@ -1,4 +1,3 @@
-import { useDarkMode, useTheme } from '@core/theme/Theme.provider';
 import { AppNavigator } from '@navigation/AppNavigator/AppNavigator.navigator';
 import {
   RootNavigatorRouteNames,
@@ -6,8 +5,10 @@ import {
 } from '@navigation/RootNavigator/RootNavigator.routes';
 import { CardEdition } from '@pages/CardEdition/CardEdition.page';
 import { TopicSelection } from '@pages/TopicSelection/TopicSelection.page';
+import { useDarkMode } from '@providers/DarkMode/DarkMode.provider';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useTheme } from '@root/src/providers/Theme/Theme.provider';
 import React, { FunctionComponent } from 'react';
 import { StatusBar } from 'react-native';
 

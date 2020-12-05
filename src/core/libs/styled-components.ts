@@ -1,4 +1,4 @@
-import { Theme } from '@core/theme';
+import { Theme } from '@providers/Theme/Theme.provider';
 import { ThemeProps as BasicThemeProps } from 'styled-components';
 import * as styledComponents from 'styled-components/native';
 

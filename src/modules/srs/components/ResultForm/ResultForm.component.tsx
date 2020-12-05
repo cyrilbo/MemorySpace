@@ -1,8 +1,8 @@
 import { Spacer } from '@core/components/Spacer/Spacer.component';
 import { KoIcon } from '@core/icons/Ko/KoIcon.component';
 import { OkIcon } from '@core/icons/Ok/OkIcon.component';
-import styled from '@core/theme/styled-components';
-import { useTheme } from '@core/theme/Theme.provider';
+import styled from '@core/libs/styled-components';
+import { useTheme } from '@root/src/providers/Theme/Theme.provider';
 import React, { FunctionComponent } from 'react';
 import { TouchableOpacity } from 'react-native';
 

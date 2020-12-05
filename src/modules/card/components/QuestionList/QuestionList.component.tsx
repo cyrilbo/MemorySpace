@@ -1,7 +1,7 @@
 import { QuestionListItem } from '@card/components/QuestionListItem/QuestionListItem.component';
 import { Card } from '@card/types/Card.type';
 import { EmptyList } from '@core/components/EmptyList/EmptyList.component';
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import React, { FunctionComponent } from 'react';
 import { FlatList } from 'react-native';
 

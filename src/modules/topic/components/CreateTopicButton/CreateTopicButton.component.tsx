@@ -1,6 +1,6 @@
 import { PlusIcon } from '@core/icons/Plus/PlusIcon.component';
-import styled from '@core/theme/styled-components';
-import { useTheme } from '@core/theme/Theme.provider';
+import styled from '@core/libs/styled-components';
+import { useTheme } from '@root/src/providers/Theme/Theme.provider';
 import { useCreateTopicMutation } from '@topic/data/hooks/useCreateTopicMutation.hook';
 import { TopicColor } from '@topic/types/TopicColor.type';
 import React, { FunctionComponent } from 'react';

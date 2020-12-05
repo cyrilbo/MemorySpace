@@ -1,5 +1,5 @@
 import { CrossIcon } from '@core/icons/Cross/CrossIcon.component';
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import React, { useLayoutEffect } from 'react';
 
 export const useCloseModalButton = <

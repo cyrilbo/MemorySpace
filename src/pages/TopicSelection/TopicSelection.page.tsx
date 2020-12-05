@@ -1,5 +1,5 @@
 import { useCloseModalButton } from '@core/hooks/useCloseModalButton.hook';
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import { RootNavigatorRouteNames } from '@navigation/RootNavigator/RootNavigator.routes';
 import { SelectTopicForm } from '@topic/components/SelectTopicForm/SelectTopicForm.component';
 import { Topic } from '@topic/types/Topic.type';

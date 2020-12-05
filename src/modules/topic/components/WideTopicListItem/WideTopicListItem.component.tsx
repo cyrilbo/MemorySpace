@@ -1,7 +1,7 @@
 import { Spacer } from '@core/components/Spacer/Spacer.component';
 import { OutlinedRightArrowIcon } from '@core/icons/OutlinedRightArrow/OutlinedRightArrowIcon.component';
-import styled from '@core/theme/styled-components';
-import { useTheme } from '@core/theme/Theme.provider';
+import styled from '@core/libs/styled-components';
+import { useTheme } from '@root/src/providers/Theme/Theme.provider';
 import { useDeleteTopicMutation } from '@topic/data/hooks/useDeleteTopicMutation.hook';
 import { Topic } from '@topic/types/Topic.type';
 import { getColorFromTopicColorId } from '@topic/utils/getColorFromTopicColorId.utils';

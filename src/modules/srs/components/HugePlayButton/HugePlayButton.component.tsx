@@ -1,6 +1,6 @@
 import { Spacer } from '@core/components/Spacer/Spacer.component';
 import { Spaceship } from '@core/icons/Spaceship/Spaceship.component';
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import React, { FunctionComponent } from 'react';
 
 interface Props {

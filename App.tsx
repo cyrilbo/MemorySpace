@@ -1,5 +1,6 @@
-import { ThemeProvider } from '@root/src/core/theme/Theme.provider';
+import { DarkModeProvider } from '@providers/DarkMode/DarkMode.provider';
 import { RootNavigator } from '@root/src/navigation/RootNavigator/RootNavigator.navigator';
+import { ThemeProvider } from '@root/src/providers/Theme/Theme.provider';
 import { TypeormProvider } from '@root/src/providers/Typeorm/Typeorm.provider';
 import React, { FunctionComponent, useEffect } from 'react';
 import { LogBox } from 'react-native';
@@ -18,13 +19,15 @@ const App: FunctionComponent = () => {
 
   return (
     <AppearanceProvider>
-      <ThemeProvider>
-        <ReactQueryProvider>
-          <TypeormProvider>
-            <RootNavigator />
-          </TypeormProvider>
-        </ReactQueryProvider>
-      </ThemeProvider>
+      <DarkModeProvider>
+        <ThemeProvider>
+          <ReactQueryProvider>
+            <TypeormProvider>
+              <RootNavigator />
+            </TypeormProvider>
+          </ReactQueryProvider>
+        </ThemeProvider>
+      </DarkModeProvider>
     </AppearanceProvider>
   );
 };

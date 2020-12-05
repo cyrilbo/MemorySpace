@@ -13,6 +13,7 @@ module.exports = {
           '@srs': './src/modules/srs',
           '@core': './src/core',
           '@pages': './src/pages',
+          '@providers': './src/providers',
           '@navigation': './src/navigation',
           '@root': '.',
         },

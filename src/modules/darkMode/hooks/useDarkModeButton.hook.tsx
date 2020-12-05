@@ -1,4 +1,4 @@
-import { useDarkMode } from '@core/theme/Theme.provider';
+import { useDarkMode } from '@root/src/providers/DarkMode/DarkMode.provider';
 import React, { useLayoutEffect } from 'react';
 import { Switch } from 'react-native';
 

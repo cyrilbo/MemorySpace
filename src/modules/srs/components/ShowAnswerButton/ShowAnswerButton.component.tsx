@@ -1,7 +1,7 @@
 import { Spacer } from '@core/components/Spacer/Spacer.component';
 import { EyeIcon } from '@core/icons/Eye/EyeIcon.component';
-import styled from '@core/theme/styled-components';
-import { useTheme } from '@core/theme/Theme.provider';
+import styled from '@core/libs/styled-components';
+import { useTheme } from '@root/src/providers/Theme/Theme.provider';
 import React, { FunctionComponent } from 'react';
 
 interface Props {

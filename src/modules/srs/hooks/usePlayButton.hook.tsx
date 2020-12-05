@@ -1,4 +1,4 @@
-import styled from '@core/theme/styled-components';
+import styled from '@core/libs/styled-components';
 import { PlayButton } from '@srs/components/PlayButton/PlayButton.component';
 import React, { useLayoutEffect } from 'react';
 
@@ -9,7 +9,7 @@ export const usePlayButton = <
 >(
   navigation: TNavigation,
   onPress: () => void,
-  isDisplayed: boolean
+  isDisplayed: boolean,
 ): void => {
   useLayoutEffect(() => {
     navigation.setOptions({
