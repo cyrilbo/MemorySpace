@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { createContext, FunctionComponent, useEffect, useState } from 'react';
 import { useColorScheme } from 'react-native-appearance';
 
@@ -14,12 +15,17 @@ export const DarkModeProvider: FunctionComponent = ({ children }) => {
   const [isLight, setIsLight] = useState(colorScheme === 'light');
 
   useEffect(() => {
-    setIsLight(colorScheme === 'light');
-  }, [colorScheme]);
+    AsyncStorage.getItem('@isLight').then((value) => {
+      setIsLight(value === 'true');
+    });
+  }, []);
 
   const defaultDarkMode = {
     isLight,
-    setIsLight,
+    setIsLight: (value: boolean) => {
+      setIsLight(value);
+      AsyncStorage.setItem('@isLight', value.toString());
+    },
   };
   return <DarkModeContext.Provider value={defaultDarkMode}>{children}</DarkModeContext.Provider>;
 };
